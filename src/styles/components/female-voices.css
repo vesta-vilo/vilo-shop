@@ -1,0 +1,36 @@
+.female-voices-content {
+  background-color: var(--background-color);
+  color: var(--text-color-secondary);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+@media (min-width: 768px) {
+  .female-voices-content {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.female-voices-content .who-we-are-title,
+.female-voices-content .who-we-are-intro-col,
+.female-voices-content .who-we-are-card-name,
+.female-voices-content .who-we-are-card-role,
+.female-voices-content .who-we-are-card-info {
+  color: var(--text-color-secondary);
+}
+
+.female-voices-content .who-we-are-card {
+  border-color: var(--text-color-secondary);
+}
+
+.female-voices-content .who-we-are-team-section .swiper-pagination {
+  color: var(--text-color-secondary);
+}
+
+.female-voices-content .who-we-are-team-section .swiper-nav-holder {
+  border-top-color: rgba(33, 33, 33, 0.2);
+}
