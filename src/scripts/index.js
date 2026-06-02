@@ -4,6 +4,7 @@ import './header-logic.js';
 import './EventTracking.js';
 
 import './gallery-swiper.js';
+import './who-we-are-team-swiper.js';
 import './alter-gallery-swiper.js';
 import './hero.js';
 import './MobileMenu.js';
