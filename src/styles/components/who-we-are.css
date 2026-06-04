@@ -131,12 +131,28 @@ main.who-we-are-page {
 .who-we-are-card {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
   height: 100%;
   padding: 1.6rem 1.6rem 3rem 1.6rem;
   border: 1px solid var(--primary-color-inverse);
   border-radius: var(--border-radius-20);
   min-width: 0;
+}
+
+.who-we-are-card-link {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: 0;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.who-we-are-card-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: var(--border-radius-12);
 }
 
 .who-we-are-card-media {
@@ -227,6 +243,9 @@ main.who-we-are-page {
 
   .who-we-are-card {
     padding: 1.8rem 1.8rem 3.2rem 1.8rem;
+  }
+
+  .who-we-are-card-link {
     gap: 2rem;
   }
 
