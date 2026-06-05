@@ -8,6 +8,7 @@ main.who-we-are-page {
   padding-top: 13rem;
   padding-bottom: 6rem;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 4.8rem;
 }
