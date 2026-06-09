@@ -82,12 +82,18 @@ class DesktopMenu extends HTMLElement {
 
   _setActiveMenuLink(activeLink) {
     this.menuLinks.forEach((link) => {
-      link.classList.toggle('is-active', link === activeLink)
+      const isActive = link === activeLink;
+      link.classList.toggle('is-active', isActive);
+      link.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     });
   }
 
   _toggleDesktopMenuShow(show) {
     document.body.classList.toggle('dm-open', show);
+
+    if (!show) {
+      this.menuLinks.forEach((link) => link.setAttribute('aria-expanded', 'false'));
+    }
   }
 
 }
