@@ -225,10 +225,17 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
 }
 
 .product-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   font-size: 1.4rem;
   line-height: 1.8rem;
   color: var(--text-color-tertiary);
-  padding-bottom: 3rem;
+  padding: 1.3rem 2.4rem 2.8rem 1.4rem;
+  margin-bottom: 3rem;
+  background-image: url('/images/product-page/product-description-bg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .swatch-container {
