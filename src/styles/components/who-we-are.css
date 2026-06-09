@@ -1,0 +1,279 @@
+main.who-we-are-page {
+  color: var(--text-color-secondary);
+}
+
+.who-we-are-content:not(.female-voices-content) {
+  background-color: var(--primary-color);
+  color: var(--primary-color-inverse);
+  padding-top: 13rem;
+  padding-bottom: 6rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.who-we-are-intro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.who-we-are-title {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 2.8rem;
+  line-height: 3.2rem;
+  color: var(--primary-color-inverse);
+}
+
+.who-we-are-intro-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.4rem;
+}
+
+.who-we-are-intro-col {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: var(--primary-color-inverse);
+}
+
+.who-we-are-team-section {
+  position: relative;
+}
+
+.who-we-are-team-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.who-we-are-team-slider {
+  position: relative;
+}
+
+.who-we-are-team-slider .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.who-we-are-team-slider .swiper-slide .who-we-are-card {
+  width: 100%;
+}
+
+.who-we-are-team-section .swiper-nav-holder {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6rem;
+  padding-top: 1.5rem;
+  margin-top: 3.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.who-we-are-team-section .swiper-pagination {
+  position: relative !important;
+  width: auto !important;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  bottom: 0 !important;
+  top: 0 !important;
+  color: var(--primary-color-inverse);
+}
+
+.who-we-are-team-section .swiper-nav-btns {
+  display: flex;
+  position: relative;
+  gap: 1.6rem;
+  height: 100%;
+}
+
+.who-we-are-team-section .swiper-button-prev,
+.who-we-are-team-section .swiper-button-next {
+  position: relative !important;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: var(--text-color-secondary);
+  border-radius: var(--border-radius-full);
+  opacity: 1 !important;
+}
+
+.who-we-are-team-section .swiper-button-prev .slide-nav-arrow,
+.who-we-are-team-section .swiper-button-next .slide-nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.who-we-are-team-section .swiper-button-prev .slide-nav-arrow img,
+.who-we-are-team-section .swiper-button-next .slide-nav-arrow img {
+  width: 2.8rem !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.who-we-are-team-section .swiper-button-disabled {
+  cursor: not-allowed;
+  background-color: var(--white);
+}
+
+.who-we-are-team-section .swiper-button-disabled .slide-nav-arrow img {
+  filter: none;
+}
+
+.who-we-are-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.6rem 1.6rem 3rem 1.6rem;
+  border: 1px solid var(--primary-color-inverse);
+  border-radius: var(--border-radius-20);
+  min-width: 0;
+}
+
+.who-we-are-card-link {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: 0;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.who-we-are-card-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: var(--border-radius-12);
+}
+
+.who-we-are-card-media {
+  border-radius: var(--border-radius-16);
+  overflow: hidden;
+}
+
+.who-we-are-card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 1;
+}
+
+.who-we-are-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 0;
+  padding: 0 0.4rem 0.8rem;
+}
+
+.who-we-are-card-name {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 2.4rem;
+  line-height: 3.071rem;
+  color: var(--primary-color-inverse);
+}
+
+.who-we-are-card-role {
+  margin: 0;
+  padding-top: 0.9rem;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: var(--primary-color-inverse);
+}
+
+.who-we-are-card-info {
+  margin: 0;
+  margin-top: auto;
+  padding-top: 2.7rem;
+  opacity: 0.8;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.208rem;
+  color: var(--primary-color-inverse);
+}
+
+@media (min-width: 768px) {
+  .who-we-are-content:not(.female-voices-content) {
+    padding-top: 18rem;
+    padding-bottom: 10rem;
+  }
+
+  .who-we-are-title {
+    max-width: 83.5rem;
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+  }
+
+  .who-we-are-intro-text {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3.3rem;
+  }
+
+  .who-we-are-intro-col {
+    max-width: 62.4rem;
+  }
+
+  .who-we-are-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .who-we-are-team-slider,
+  .who-we-are-team-section .swiper-nav-holder {
+    display: none !important;
+  }
+
+  .who-we-are-card {
+    padding: 1.8rem 1.8rem 3.2rem 1.8rem;
+  }
+
+  .who-we-are-card-link {
+    gap: 2rem;
+  }
+
+  .who-we-are-card-media img {
+    border-radius: var(--border-radius-20);
+  }
+
+  .who-we-are-card-name {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .who-we-are-card-role {
+    font-size: 2rem;
+  }
+
+  .who-we-are-card-info {
+    max-width: 33.4rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .who-we-are-team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+}
