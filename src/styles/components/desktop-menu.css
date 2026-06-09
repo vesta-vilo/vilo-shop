@@ -1,7 +1,7 @@
 desktop-menu {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows var(--desktop-menu-transition-duration) var(--desktop-menu-transition-easing);
   overflow: hidden;
   position: absolute;
   top: calc(var(--announcement-bar-height-desktop, 6rem) * -1);
@@ -80,22 +80,58 @@ desktop-menu {
   gap: 1.2rem;
   text-decoration: none;
   color: var(--text-color-secondary);
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.6rem;
   white-space: nowrap;
 }
 
-.menu-list-item-link:hover {
-  color: var(--primary-color);
-  font-family: var(--primary-font);
-  font-weight: 500;
+@media (hover: hover) {
+  .menu-list-item-link:hover {
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: 500;
+  }
+
+  .menu-list-item-link:has(.menu-list-item-icon-hover):hover .menu-list-item-icon-default {
+    opacity: 0;
+  }
+
+  .menu-list-item-link:has(.menu-list-item-icon-hover):hover .menu-list-item-icon-hover {
+    opacity: 1;
+  }
+
+  .menu-list-item-link:hover .menu-list-item-icon {
+    color: var(--primary-color);
+  }
 }
 
+@media (hover: none) {
+  .menu-list-item-link:active {
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: 500;
+  }
+
+  .menu-list-item-link:has(.menu-list-item-icon-hover):active .menu-list-item-icon-default {
+    opacity: 0;
+  }
+
+  .menu-list-item-link:has(.menu-list-item-icon-hover):active .menu-list-item-icon-hover {
+    opacity: 1;
+  }
+
+  .menu-list-item-link:active .menu-list-item-icon {
+    color: var(--primary-color);
+  }
+}
 .menu-list-item-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 
 .menu-list-item-icon img {
@@ -105,8 +141,11 @@ desktop-menu {
   display: block;
 }
 
-.menu-list-item-link:hover .menu-list-item-icon{
-  color: var(--primary-color);
+.menu-list-item-icon-hover {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
 }
 
 desktop-menu:not(:defined) {

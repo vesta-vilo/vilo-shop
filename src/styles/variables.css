@@ -48,6 +48,13 @@
 
     --announcement-bar-height-desktop: 6rem;
     --header-height-desktop: 7rem;
+
+    --desktop-menu-transition-duration: 0.55s;
+    --desktop-menu-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --announcement-cover-duration: 0.11s;
+    --announcement-cover-close-delay: 0.44s;
+    --announcement-slide-transition-duration: 0.35s;
+
     --green-badge: #457152;
     --orange-badge: #CB9578;
 
