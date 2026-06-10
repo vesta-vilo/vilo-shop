@@ -210,6 +210,43 @@ header .mobile-menu-btn img {
         }
     }
 
+    .nav-links a:not([variant="outlined"]) {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links .nav-link-label,
+    .nav-links .header-cta-label {
+        position: relative;
+    }
+
+    .nav-links .nav-link-label::after,
+    .nav-links .header-cta-label::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 2px;
+        width: 100%;
+        opacity: .5;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+        pointer-events: none;
+    }
+
+    .nav-links a:not([variant="outlined"]):hover .nav-link-label::after,
+    .nav-links a:not([variant="outlined"]):hover .header-cta-label::after {
+        transform: scaleX(1);
+    }
+
     header .logo {
         width: 6.8rem;
     }
