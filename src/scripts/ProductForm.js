@@ -27,6 +27,11 @@ class ProductForm extends HTMLElement {
     this.comparePriceElArray = Array.from(
       document.querySelectorAll("[data-compare-price]"),
     );
+    this.installmentPriceElArray = Array.from(
+      document.querySelectorAll(".js-product-installment-price"),
+    );
+    this.installmentLeadEl = document.querySelector(".bnpl-installments__lead");
+    this.installmentContainerEl = document.querySelector(".bnpl-installments");
     this.depositLabelEl = document.querySelector("[data-deposit-label]");
     this.customBuyBtn = this.querySelector(".js-preorder-button");
     this.toggleUIState(false);
@@ -145,6 +150,16 @@ class ProductForm extends HTMLElement {
         : "";
       el.style.display = compareAtPriceV2 ? "inline" : "none";
     });
+    this.installmentPriceElArray.forEach((el) => {
+      el.textContent = formatPrice(
+        Number(priceV2.amount) / 4,
+        priceV2.currencyCode,
+      );
+    });
+    if (this.installmentLeadEl) {
+      this.installmentLeadEl.textContent = "4 payments of";
+    }
+    this.installmentContainerEl?.classList.add("is-ready");
   }
 
   toggleUIState(isActive) {
