@@ -188,7 +188,8 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
   font-size: 2.4rem;
   line-height: 2.9rem;
   color: var(--text-color-secondary);
-  padding-bottom: .6rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1.7rem;
 }
 
 .product-subtitle{
@@ -201,14 +202,97 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
 }
 
 .product-price {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem;
   font-size: 2.4rem;
   line-height: 2.9rem;
   color: var(--primary-color);
   padding-bottom: 1.4rem;
 }
 
+.product-price__primary {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-price__primary [data-original-price] {
+  font-family: var(--primary-font);
+  font-size: 2.2rem;
+  color: #293D62;
+}
+
+.product-price__primary [data-deposit-label] {
+  opacity: 0.6;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
+  color: #3F4142;
+}
+
+.product-price__secondary {
+  min-width: 0;
+  align-self: end;
+}
+
+.product-selling-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--primary-font);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: #293D62;
+  text-align: right;
+}
+
+.product-selling-info__lead {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.product-selling-info__truemed-icon {
+  display: inline-block;
+  width: 5rem;
+  height: auto;
+  vertical-align: middle;
+}
+
+.product-selling-info__learn-more {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-selling-info__installments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.bnpl-installments:not(.is-ready) .bnpl-installments__money,
+.bnpl-installments:not(.is-ready) .bnpl-installments__with {
+  display: none;
+}
+
+.product-selling-info__shoppay-icon {
+  display: block;
+  width: 4.1rem;
+  height: auto;
+}
+
+.bnpl-installments__money {
+  font-weight: 400;
+}
+
 .deposit-label-text {
-  font-size: 1.8rem;
+  opacity: 0.6;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
   line-height: 2.2rem;
   color: #3F4142;
 }

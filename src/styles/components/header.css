@@ -14,10 +14,6 @@ header {
     transition: top 0.3s ease-in-out;
 }
 
-body.dm-open .header-is-sticky header {
-    top: 0;
-}
-
 body.modal-open header,
 body:not(.dm-open).header-is-sticky header.header--hidden {
     top: -12rem;
@@ -181,6 +177,31 @@ header .mobile-menu-btn img {
         display: inline-block;
         &.btn-with-animation {
             width: 11rem;
+            font-size: 1.4rem;
+        }
+        &[data-dropdown-id] {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-size: 1.6rem;
+
+            &:hover,
+            &.is-active {
+                font-weight: 500;
+            }
+        }
+
+        .nav-dropdown-caret {
+            width: 0.88rem;
+            height: 1.2rem;
+            object-fit: contain;
+            flex-shrink: 0;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        body.dm-open & .nav-dropdown-caret {
+            opacity: 0;
+            visibility: hidden;
         }
         &.btn-with-animation:hover {
             span.animation-icon {
@@ -190,7 +211,6 @@ header .mobile-menu-btn img {
     }
 
     .nav-links a:not([variant="outlined"]) {
-        position: relative;
         display: inline-flex;
         align-items: center;
         text-decoration: none;
@@ -198,7 +218,13 @@ header .mobile-menu-btn img {
         transition: color 0.3s ease;
     }
 
-    .nav-links a:not([variant="outlined"])::after {
+    .nav-links .nav-link-label,
+    .nav-links .header-cta-label {
+        position: relative;
+    }
+
+    .nav-links .nav-link-label::after,
+    .nav-links .header-cta-label::after {
         content: '';
         position: absolute;
         bottom: -5px;
@@ -212,11 +238,12 @@ header .mobile-menu-btn img {
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-
         will-change: transform;
         pointer-events: none;
     }
-    .nav-links a:not([variant="outlined"]):hover::after {
+
+    .nav-links a:not([variant="outlined"]):hover .nav-link-label::after,
+    .nav-links a:not([variant="outlined"]):hover .header-cta-label::after {
         transform: scaleX(1);
     }
 
@@ -244,15 +271,6 @@ header .mobile-menu-btn img {
     line-height: 1.6rem;
 }
 
-.drawer-announcement-bar-content a,
-.drawer-announcement-bar-content span {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  color: var(--text-color-secondary);
-}
-.drawer-announcement-bar-content {
-  text-align: center;
-}
 .drawer-secondary-links {
     display: flex;
     flex-direction: column;
