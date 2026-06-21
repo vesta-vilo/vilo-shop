@@ -8,6 +8,7 @@
 @import './components/header.css';
 @import './components/announcement-bar.css';
 @import './components/desktop-menu.css';
+@import './components/mobile-menu-shop.css';
 @import './components/footer.css';
 @import './components/hero.css';
 @import './components/heading-section.css';
