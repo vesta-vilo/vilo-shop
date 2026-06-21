@@ -218,13 +218,11 @@ header .mobile-menu-btn img {
         transition: color 0.3s ease;
     }
 
-    .nav-links .nav-link-label,
-    .nav-links .header-cta-label {
+    .nav-links .nav-link-label {
         position: relative;
     }
 
-    .nav-links .nav-link-label::after,
-    .nav-links .header-cta-label::after {
+    .nav-links .nav-link-label::after {
         content: '';
         position: absolute;
         bottom: -5px;
@@ -242,8 +240,7 @@ header .mobile-menu-btn img {
         pointer-events: none;
     }
 
-    .nav-links a:not([variant="outlined"]):hover .nav-link-label::after,
-    .nav-links a:not([variant="outlined"]):hover .header-cta-label::after {
+    .nav-links a:not([variant="outlined"]):hover .nav-link-label::after {
         transform: scaleX(1);
     }
 
