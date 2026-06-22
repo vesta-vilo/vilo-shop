@@ -1,0 +1,198 @@
+.mobile-shop-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-shop-menu__row--links {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-shop-menu__row--cards {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-shop-menu__cards {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-shop-menu__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-shop-menu__cards .swiper-slide {
+  width: 30.4rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.mobile-shop-menu__card {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 30.4rem;
+  aspect-ratio: 8 / 9;
+  border-radius: var(--border-radius-30);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mobile-shop-menu__card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mobile-shop-menu__card-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
+}
+
+.mobile-shop-menu__card-heading {
+  color: #FFFFFF;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 1.6rem;
+}
+
+.mobile-shop-menu__card-subheading {
+  color: #FFFFFF;
+  font-family: var(--primary-font);
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+}
+
+.mobile-shop-menu__card-arrow {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: var(--border-radius-full);
+  background-color: color-mix(in srgb, var(--background-color-secondary) 90%, transparent);
+}
+
+.mobile-shop-menu__card-arrow img {
+  width: 1.8rem;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.mobile-shop-menu__links.shop-extended__menu {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-block: 0;
+}
+
+.mobile-shop-menu__links .shop-extended__menu-link {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-shop-menu__links .menu-list-item-icon {
+  width: 6rem;
+  height: 6rem;
+  flex-shrink: 0;
+}
+
+.mobile-shop-menu__links .menu-list-item-icon img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.mobile-shop-menu__links .shop-extended__menu-text {
+  min-width: 0;
+  white-space: normal;
+}
+
+.mobile-shop-menu__links .shop-extended__menu-badge {
+  flex-shrink: 0;
+}
+
+.mobile-shop-menu__row--promos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding-top: 9rem;
+}
+
+.mobile-shop-menu__promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.mobile-shop-menu__promo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+}
+
+.mobile-shop-menu__promo-icon img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  display: block;
+}
+
+.mobile-shop-menu__promo-heading {
+  color: var(--primary-color);
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  max-width: 8.8rem;
+  width: 100%;
+}
+
+.second-level-menus .secondary-menu-item--shop-extended {
+  gap: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.second-level-menus .secondary-menu-item--shop-extended::-webkit-scrollbar {
+  display: none;
+}

@@ -8,6 +8,7 @@ import './who-we-are-team-swiper.js';
 import './alter-gallery-swiper.js';
 import './hero.js';
 import './MobileMenu.js';
+import './mobile-shop-menu-swiper.js';
 import './home-page-product-swiper.js';
 import './parallax.js';
 import './ProductMedia.js';
