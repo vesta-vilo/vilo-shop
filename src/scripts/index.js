@@ -24,3 +24,4 @@ import './ProductPaymentVariantMarquee.js';
 import './cards-swiper.js';
 import './CardModal.js';
 import './SizeGuide.js';
+import './HSAFSAGuide.js';
