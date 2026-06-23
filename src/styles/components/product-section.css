@@ -778,6 +778,147 @@ product-media .product-section-promo {
   color: var(--text-color-tertiary);
 }
 
+.hsa-fsa-promo-block {
+  width: 100%;
+}
+
+.hsa-fsa-promo-block__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.3rem 1.4rem;
+  background-color: var(--background-color-secondary);
+  border-radius: var(--border-radius-12);
+}
+
+.hsa-fsa-promo-block__content__text {
+  min-width: 0;
+}
+
+.hsa-fsa-promo-block__content__text p {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #293D62;
+  white-space: nowrap;
+}
+
+.hsa-fsa-promo-block__truemed-icon {
+  display: inline-block;
+  width: 7.3rem;
+  height: auto;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.hsa-fsa-promo-block__content__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.hsa-fsa-promo-block__content__icon img {
+  display: block;
+  width: 2.3rem;
+  height: 2.3rem;
+  object-fit: contain;
+}
+
+.hsa-fsa-promo-block__content__icon button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+hsa-fsa-guide {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 1.4rem;
+}
+
+hsa-fsa-guide card-modal {
+  position: absolute;
+}
+
+hsa-fsa-guide .slider-title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  display: inline-block;
+  text-align: center;
+  padding-block: .6rem .5rem;
+  color: var(--text-color-secondary);
+}
+
+hsa-fsa-guide .hsa-fsa-guide-description {
+  max-width: 32rem;
+  margin: 0 auto 2.6rem;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: #212121;
+  text-align: center;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-description__lead {
+  font-weight: 500;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-slider {
+  width: calc(100% + 1.8rem);
+  margin-right: -1.8rem;
+}
+
+hsa-fsa-guide .swiper-slide img {
+  border-radius: var(--border-radius-12);
+}
+
+hsa-fsa-guide .hsa-fsa-guide-step-title {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: #212121;
+  padding-block: 1.4rem 1rem;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-step-description {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--text-color-tertiary);
+  padding-bottom: 1rem;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-footnote {
+  padding-block: 3rem 2rem;
+  display: none;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-footnote a {
+  padding-left: .6ch;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-footnote a,
+hsa-fsa-guide .hsa-fsa-guide-footnote {
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+  color: var(--text-color-tertiary);
+}
+
 .product-badges {
   display: flex;
   gap: .6rem;
@@ -816,10 +957,34 @@ product-media .product-section-promo {
     padding-block: 0rem 5rem;
     color: var(--black);
   }
+  hsa-fsa-guide .slider-title {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+    text-align: start;
+    padding-block: 0rem 1rem;
+    color: var(--black);
+  }
+  hsa-fsa-guide .hsa-fsa-guide-description {
+    margin: 0 0 5rem;
+    font-size: 2rem;
+    text-align: left;
+  }
+  hsa-fsa-guide .hsa-fsa-guide-slider {
+    width: calc(100% + 5rem);
+    margin-right: -5rem;
+  }
   size-guide .swiper-slide img {
     border-radius: var(--border-radius-30);
   }
+  hsa-fsa-guide .swiper-slide img {
+    border-radius: var(--border-radius-30);
+  }
   size-guide .size-guide-step-title {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    padding-block: 1.7rem;
+  }
+  hsa-fsa-guide .hsa-fsa-guide-step-title {
     font-size: 2rem;
     line-height: 2.6rem;
     padding-block: 1.7rem;
@@ -828,8 +993,16 @@ product-media .product-section-promo {
     font-size: 1.6rem;
     line-height: 2.1rem;
   }
+  hsa-fsa-guide .hsa-fsa-guide-step-description {
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+  }
   size-guide .size-guide-footnote a,
   size-guide .size-guide-footnote {
+    display: inline;
+  }
+  hsa-fsa-guide .hsa-fsa-guide-footnote a,
+  hsa-fsa-guide .hsa-fsa-guide-footnote {
     display: inline;
   }
 }
@@ -854,6 +1027,10 @@ product-media .product-section-promo {
 
   .product-content {
     border-radius: 0;
+  }
+
+  hsa-fsa-guide {
+    padding-bottom: 2.6rem;
   }
 
   product-media {

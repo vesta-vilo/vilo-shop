@@ -381,6 +381,7 @@ body.modal-open {
 }
 
 size-guide .size-guide-swiper-pagination,
+hsa-fsa-guide .hsa-fsa-guide-swiper-pagination,
 .cards-section .swiper-pagination,
 .gallery-section .swiper-pagination,
 .alter-gallery-section .swiper-pagination {
@@ -393,6 +394,7 @@ size-guide .size-guide-swiper-pagination,
 }
 
 size-guide .swiper-nav-btns,
+hsa-fsa-guide .swiper-nav-btns,
 .cards-section .swiper-nav-btns,
 .gallery-section .swiper-nav-btns,
 .alter-gallery-section .swiper-nav-btns {
@@ -404,6 +406,8 @@ size-guide .swiper-nav-btns,
 
 size-guide .size-guide-swiper-button-prev,
 size-guide .size-guide-swiper-button-next,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-next,
 .cards-section .swiper-button-prev,
 .cards-section .swiper-button-next,
 .gallery-section .swiper-button-prev,
@@ -422,6 +426,8 @@ size-guide .size-guide-swiper-button-next,
 
 size-guide .size-guide-swiper-button-prev svg,
 size-guide .size-guide-swiper-button-next svg,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev svg,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-next svg,
 .cards-section .swiper-button-prev svg,
 .cards-section .swiper-button-next svg,
 .gallery-section .swiper-button-prev svg,
@@ -434,6 +440,8 @@ size-guide .size-guide-swiper-button-next svg,
 
 size-guide .size-guide-swiper-button-prev .slide-nav-arrow,
 size-guide .size-guide-swiper-button-next .slide-nav-arrow,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev .slide-nav-arrow,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow,
 .cards-section .swiper-button-prev .slide-nav-arrow,
 .cards-section .swiper-button-next .slide-nav-arrow,
 .gallery-section .swiper-button-prev .slide-nav-arrow,
@@ -448,6 +456,8 @@ size-guide .size-guide-swiper-button-next .slide-nav-arrow,
 
 size-guide .size-guide-swiper-button-prev .slide-nav-arrow img,
 size-guide .size-guide-swiper-button-next .slide-nav-arrow img,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev .slide-nav-arrow img,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow img,
 .cards-section .swiper-button-prev .slide-nav-arrow img,
 .cards-section .swiper-button-next .slide-nav-arrow img,
 .gallery-section .swiper-button-prev .slide-nav-arrow img,
@@ -473,6 +483,7 @@ size-guide .size-guide-swiper-button-next .slide-nav-arrow img,
 }
 
 size-guide .swiper-button-disabled,
+hsa-fsa-guide .swiper-button-disabled,
 .cards-section .swiper-button-disabled,
 .gallery-section .swiper-button-disabled,
 .alter-gallery-section .swiper-button-disabled {
@@ -481,6 +492,7 @@ size-guide .swiper-button-disabled,
 }
 
 size-guide .swiper-button-disabled svg,
+hsa-fsa-guide .swiper-button-disabled svg,
 .cards-section .swiper-button-disabled svg,
 .gallery-section .swiper-button-disabled svg,
 .alter-gallery-section .swiper-button-disabled svg {
@@ -497,8 +509,25 @@ size-guide .size-guide-swiper-nav-holder {
     border-top: 1px solid #d1d1d1;
 }
 
+hsa-fsa-guide .hsa-fsa-guide-swiper-nav-holder {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 2.6rem;
+    border-top: 1px solid #d1d1d1;
+}
+
 size-guide .size-guide-swiper-button-prev,
 size-guide .size-guide-swiper-button-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev,
+hsa-fsa-guide .hsa-fsa-guide-swiper-button-next {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -529,6 +558,9 @@ size-guide .size-guide-swiper-button-next {
     }
     /* swiper nav and pagination end */
     size-guide .size-guide-swiper-nav-holder {
+        margin-top: 1.7rem;
+    }
+    hsa-fsa-guide .hsa-fsa-guide-swiper-nav-holder {
         margin-top: 1.7rem;
     }
 }

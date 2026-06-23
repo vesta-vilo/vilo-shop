@@ -14,9 +14,23 @@ header {
     transition: top 0.3s ease-in-out;
 }
 
-body.modal-open header,
+body.modal-open.header-is-sticky header,
 body:not(.dm-open).header-is-sticky header.header--hidden {
-    top: -12rem;
+    top: calc(var(--header-modal-hide-offset) * -1);
+}
+
+body.modal-open:not(.header-is-sticky) header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: calc((var(--header-modal-hide-offset) + var(--announcement-bar-height-mobile)) * -1);
+    transition: top 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    body.modal-open:not(.header-is-sticky) header {
+        top: calc((var(--header-modal-hide-offset) + var(--announcement-bar-height-desktop)) * -1);
+    }
 }
 
 header .container {
