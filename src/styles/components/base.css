@@ -499,7 +499,7 @@ hsa-fsa-guide .swiper-button-disabled svg,
     color: var(--arrow-icon-color);
 }
 
-size-guide .size-guide-swiper-nav-holder {
+:is(size-guide, hsa-fsa-guide) :is(.size-guide-swiper-nav-holder, .hsa-fsa-guide-swiper-nav-holder) {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -509,25 +509,12 @@ size-guide .size-guide-swiper-nav-holder {
     border-top: 1px solid #d1d1d1;
 }
 
-hsa-fsa-guide .hsa-fsa-guide-swiper-nav-holder {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-top: 2.6rem;
-    border-top: 1px solid #d1d1d1;
-}
-
-size-guide .size-guide-swiper-button-prev,
-size-guide .size-guide-swiper-button-next {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev,
-hsa-fsa-guide .hsa-fsa-guide-swiper-button-next {
+:is(size-guide, hsa-fsa-guide) :is(
+  .size-guide-swiper-button-prev,
+  .size-guide-swiper-button-next,
+  .hsa-fsa-guide-swiper-button-prev,
+  .hsa-fsa-guide-swiper-button-next
+) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -557,10 +544,7 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next {
         display: none !important;
     }
     /* swiper nav and pagination end */
-    size-guide .size-guide-swiper-nav-holder {
-        margin-top: 1.7rem;
-    }
-    hsa-fsa-guide .hsa-fsa-guide-swiper-nav-holder {
+    :is(size-guide, hsa-fsa-guide) :is(.size-guide-swiper-nav-holder, .hsa-fsa-guide-swiper-nav-holder) {
         margin-top: 1.7rem;
     }
 }
