@@ -4,8 +4,6 @@ class CardModal extends HTMLElement {
     this.isDragging = false
     this.startY = 0
     this.currentY = 0
-    this.isTouchingScrollable = false
-    this.scrollableTouchTarget = null
     this.resizeTimer = null
     this._ticking = false
 
@@ -37,13 +35,14 @@ class CardModal extends HTMLElement {
   connectedCallback() {
     this.overlay = this.shadowRoot.querySelector('.overlay')
     this.modal = this.shadowRoot.querySelector('.modal')
+    this.headerEl = this.shadowRoot.querySelector('.header')
     this.slotEl = this.shadowRoot.querySelector('slot')
 
     this.shadowRoot.addEventListener('click', this._onComponentClick)
 
     this._mediaQuery.addEventListener('change', this._onBreakpointChange)
 
-    this.modal.addEventListener('touchstart', this._handleTouchStart, { passive: true })
+    this.headerEl.addEventListener('touchstart', this._handleTouchStart, { passive: true })
 
     globalThis.addEventListener('touchmove', this._handleTouchMove, { passive: false })
     globalThis.addEventListener('touchend', this._handleTouchEnd)
@@ -58,16 +57,7 @@ class CardModal extends HTMLElement {
   }
 
   _handleTouchStart(e) {
-    if (!this._mobileState) return
-
-    const touchPath = e.composedPath()
-
-    const isScrollable = (el) =>
-      el.scrollHeight > el.clientHeight &&
-      ['auto', 'scroll', 'overlay'].includes(globalThis.getComputedStyle(el).overflowY)
-
-    this.isTouchingScrollable = touchPath.some(isScrollable)
-    this.scrollableTouchTarget = touchPath.find(isScrollable) || null
+    if (!this._mobileState || !this.hasAttribute('open')) return
 
     this.isDragging = true
     this.startY = e.touches[0].pageY
@@ -89,13 +79,6 @@ class CardModal extends HTMLElement {
   _handleTouchMove(e) {
     if (!this.isDragging || !this._mobileState) return
     this.currentY = e.touches[0].pageY - this.startY
-
-    if (this.isTouchingScrollable) {
-      if (this.currentY < 0 || (this.scrollableTouchTarget?.scrollTop ?? 0) > 0) {
-        this.currentY = 0
-        return
-      }
-    }
 
     if (e.cancelable) e.preventDefault()
     if (!this._ticking) {
@@ -124,8 +107,6 @@ class CardModal extends HTMLElement {
   _handleTouchEnd() {
     if (!this.isDragging) return
     this.isDragging = false
-    this.isTouchingScrollable = false
-    this.scrollableTouchTarget = null
     this._ticking = false
 
     if (this.currentY > this.PIXELS_SCROLLED_FOR_CLOSE) {
