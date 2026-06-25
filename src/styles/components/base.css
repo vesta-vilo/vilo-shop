@@ -83,17 +83,10 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 
-html.modal-open {
-  overflow: hidden;
-}
-
+html.modal-open,
 body.modal-open {
-  position: fixed;
-  top: var(--modal-scroll-lock-top, 0);
-  left: 0;
-  right: 0;
-  width: 100%;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .rastano-font {

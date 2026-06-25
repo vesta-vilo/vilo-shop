@@ -34,7 +34,11 @@
       .body {
         padding-inline: var(--modal-body-padding-inline-mobile);
         flex: 1;
-        overflow: hidden;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         display: flex;
         flex-direction: column;
       }

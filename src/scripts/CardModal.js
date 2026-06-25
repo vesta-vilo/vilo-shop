@@ -5,10 +5,13 @@ class CardModal extends HTMLElement {
     this.startY = 0
     this.currentY = 0
     this.isTouchingScrollable = false
+    this.scrollableTouchTarget = null
     this.resizeTimer = null
     this._ticking = false
 
     this.DELAY_MS = 100
+    this.CLOSE_TRANSITION_MS = 300
+    this.CLOSE_TRANSITION = `transform ${this.CLOSE_TRANSITION_MS}ms cubic-bezier(0.2, 0, 0, 1)`
     this.PIXELS_SCROLLED_FOR_CLOSE = 200
 
     this._mediaQuery = globalThis.matchMedia('(max-width: 768px)')
@@ -59,10 +62,12 @@ class CardModal extends HTMLElement {
 
     const touchPath = e.composedPath()
 
-    this.isTouchingScrollable = touchPath.some(el =>
+    const isScrollable = (el) =>
       el.scrollHeight > el.clientHeight &&
-      globalThis.getComputedStyle(el).overflowY !== 'visible'
-    );
+      ['auto', 'scroll', 'overlay'].includes(globalThis.getComputedStyle(el).overflowY)
+
+    this.isTouchingScrollable = touchPath.some(isScrollable)
+    this.scrollableTouchTarget = touchPath.find(isScrollable) || null
 
     this.isDragging = true
     this.startY = e.touches[0].pageY
@@ -86,7 +91,7 @@ class CardModal extends HTMLElement {
     this.currentY = e.touches[0].pageY - this.startY
 
     if (this.isTouchingScrollable) {
-      if (this.currentY < 0 || this.descriptionEl.scrollTop > 0) {
+      if (this.currentY < 0 || (this.scrollableTouchTarget?.scrollTop ?? 0) > 0) {
         this.currentY = 0
         return
       }
@@ -120,6 +125,7 @@ class CardModal extends HTMLElement {
     if (!this.isDragging) return
     this.isDragging = false
     this.isTouchingScrollable = false
+    this.scrollableTouchTarget = null
     this._ticking = false
 
     if (this.currentY > this.PIXELS_SCROLLED_FOR_CLOSE) {
@@ -153,34 +159,29 @@ class CardModal extends HTMLElement {
   }
 
   _lockBodyScroll() {
-    this._scrollY = window.scrollY
     document.documentElement.classList.add('modal-open')
-    document.documentElement.style.setProperty('--modal-scroll-lock-top', `-${this._scrollY}px`)
     document.body.classList.add('modal-open')
   }
 
   _unlockBodyScroll() {
     document.documentElement.classList.remove('modal-open')
-    document.documentElement.style.removeProperty('--modal-scroll-lock-top')
     document.body.classList.remove('modal-open')
-    window.scrollTo(0, this._scrollY ?? 0)
-    this._scrollY = 0
   }
 
   _close() {
     this.isDragging = false
-    this._unlockBodyScroll()
-    this.modal.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1)'
+    this.modal.style.transition = this.CLOSE_TRANSITION
 
     this.modal.style.transform = this._mobileState ? 'translateY(var(--modal-hide-y))' : 'translateX(100%)'
 
     this.removeAttribute('open')
 
     setTimeout(() => {
+      this._unlockBodyScroll()
       this.style.setProperty('--backdrop-alpha', '0.8')
       this.style.setProperty('--backdrop-blur', '5px')
       this.overlay.style.backdropFilter = ''
-    }, this.DELAY_MS)
+    }, this.CLOSE_TRANSITION_MS)
 
     this.currentY = 0
   }
