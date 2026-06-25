@@ -916,21 +916,19 @@ hsa-fsa-guide .hsa-fsa-guide-step-description {
 }
 
 @media (min-width: 768px) {
-  size-guide .slider-title {
-    font-size: 4.8rem;
-    line-height: 6.2rem;
+  :is(size-guide, hsa-fsa-guide) .slider-title {
     text-align: start;
-    padding-block: 0rem 5rem;
     color: var(--black);
+  }
+  size-guide .slider-title {
+    padding-block: 0rem 5rem;
   }
   hsa-fsa-guide .hsa-fsa-guide-slider {
     width: calc(100% + var(--modal-body-padding-inline-desktop));
     margin-right: calc(var(--modal-body-padding-inline-desktop) * -1);
   }
   hsa-fsa-guide .slider-title {
-    text-align: start;
     padding-block: 0rem 1rem;
-    color: var(--black);
   }
   hsa-fsa-guide .hsa-fsa-guide-description {
     margin: 0 0 5rem;
@@ -941,14 +939,6 @@ hsa-fsa-guide .hsa-fsa-guide-step-description {
   }
   :is(size-guide, hsa-fsa-guide) .swiper-slide img {
     border-radius: var(--border-radius-30);
-  }
-  size-guide .size-guide-step-title {
-    font-size: 2rem;
-    line-height: 2.6rem;
-  }
-  size-guide .size-guide-step-description {
-    font-size: 1.6rem;
-    line-height: 2.1rem;
   }
   size-guide .size-guide-footnote a,
   size-guide .size-guide-footnote {
@@ -1086,7 +1076,7 @@ hsa-fsa-guide .hsa-fsa-guide-step-description {
     padding-inline: 2rem;
   }
 
-  hsa-fsa-guide .slider-title {
+  :is(size-guide, hsa-fsa-guide) .slider-title {
     font-size: 4.8rem;
     line-height: 6.2rem;
   }
@@ -1095,12 +1085,12 @@ hsa-fsa-guide .hsa-fsa-guide-step-description {
     font-size: 2rem;
   }
 
-  hsa-fsa-guide .hsa-fsa-guide-step-title {
+  :is(size-guide, hsa-fsa-guide) :is(.size-guide-step-title, .hsa-fsa-guide-step-title) {
     font-size: 2rem;
     line-height: 2.6rem;
   }
 
-  hsa-fsa-guide .hsa-fsa-guide-step-description {
+  :is(size-guide, hsa-fsa-guide) :is(.size-guide-step-description, .hsa-fsa-guide-step-description) {
     font-size: 1.6rem;
     line-height: 2.1rem;
   }

@@ -143,7 +143,7 @@ class CardModal extends HTMLElement {
     this.overlay.style.backdropFilter = ''
     this.overlay.style.webkitBackdropFilter = ''
 
-    document.body.classList.add('modal-open')
+    this._lockBodyScroll()
     this.setAttribute('open', '')
 
     setTimeout(() => {
@@ -152,9 +152,24 @@ class CardModal extends HTMLElement {
     }, 10)
   }
 
+  _lockBodyScroll() {
+    this._scrollY = window.scrollY
+    document.documentElement.classList.add('modal-open')
+    document.documentElement.style.setProperty('--modal-scroll-lock-top', `-${this._scrollY}px`)
+    document.body.classList.add('modal-open')
+  }
+
+  _unlockBodyScroll() {
+    document.documentElement.classList.remove('modal-open')
+    document.documentElement.style.removeProperty('--modal-scroll-lock-top')
+    document.body.classList.remove('modal-open')
+    window.scrollTo(0, this._scrollY ?? 0)
+    this._scrollY = 0
+  }
+
   _close() {
     this.isDragging = false
-    document.body.classList.remove('modal-open')
+    this._unlockBodyScroll()
     this.modal.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1)'
 
     this.modal.style.transform = this._mobileState ? 'translateY(var(--modal-hide-y))' : 'translateX(100%)'
