@@ -83,7 +83,16 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 
+html.modal-open {
+  overflow: hidden;
+}
+
 body.modal-open {
+  position: fixed;
+  top: var(--modal-scroll-lock-top, 0);
+  left: 0;
+  right: 0;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -544,6 +553,9 @@ hsa-fsa-guide .swiper-button-disabled svg,
         display: none !important;
     }
     /* swiper nav and pagination end */
+}
+
+@media (min-width: 1440px) {
     :is(size-guide, hsa-fsa-guide) :is(.size-guide-swiper-nav-holder, .hsa-fsa-guide-swiper-nav-holder) {
         margin-top: 1.7rem;
     }
