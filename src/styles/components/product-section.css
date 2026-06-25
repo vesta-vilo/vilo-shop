@@ -537,11 +537,8 @@ size-guide .size-guide-slider {
   padding-block: 1.4rem 1rem;
 }
 
-size-guide .size-guide-step-description {
-  font-size: 1.2rem;
-}
-
 :is(size-guide, hsa-fsa-guide) :is(.size-guide-step-description, .hsa-fsa-guide-step-description) {
+  font-size: 1.2rem;
   line-height: 2rem;
   color: var(--text-color-tertiary);
   padding-bottom: 1rem;
@@ -879,10 +876,6 @@ hsa-fsa-guide .hsa-fsa-guide-description__lead {
 hsa-fsa-guide .hsa-fsa-guide-slider {
   width: calc(100% + var(--modal-body-padding-inline-mobile));
   margin-right: calc(var(--modal-body-padding-inline-mobile) * -1);
-}
-
-hsa-fsa-guide .hsa-fsa-guide-step-description {
-  font-size: 1.5rem;
 }
 
 .product-badges {
