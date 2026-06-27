@@ -6,9 +6,16 @@
   background: var(--tertiary-color);
   border-radius: var(--border-radius-12);
   padding: 4.5rem 1.8rem;
+  width: 100%;
+}
+
+.tech-specifications-content {
   display: flex;
   flex-direction: column;
   gap: 2.6rem;
+  width: 100%;
+  max-width: 145rem;
+  margin-inline: auto;
 }
 
 .tech-specifications-description {
@@ -57,25 +64,26 @@
 }
 .tech-specifications-details ul li {
   list-style: none;
-  position: relative;
-  padding-left: 3.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+
+.tech-specifications-details-icon {
+  flex-shrink: 0;
+  width: 2.3rem;
+  height: 2.3rem;
+  object-fit: contain;
+}
+
+.tech-specifications-details-item {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 0;
+  flex: 1;
 }
 
-.tech-specifications-details ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.3rem;
-  height: 2.3rem;
-  background-image: url('/images/svg/circle-bullet.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 .tech-specifications-details h6 {
   font-size: 1.8rem;
   line-height: 2.2rem;
@@ -93,9 +101,12 @@
 
 @media (min-width: 768px) {
     .tech-specifications-wrapper {
+        padding: 6rem;
+        border-radius: 6rem;
+    }
+    .tech-specifications-content {
         flex-direction: row;
         gap: 4.5rem;
-        padding: 6rem;
     }
     .tech-specifications-description,
     .tech-specifications-details {
@@ -105,9 +116,11 @@
         flex-direction: column;
         max-width: 43rem;
         gap: 2rem;
+        align-items: flex-start;
     }
     .tech-specifications-description img {
         max-width: 100%;
+        border-radius: var(--border-radius-30);
     }
     .tech-specifications-details ul {
         gap: 4rem 6rem;
@@ -121,18 +134,32 @@
         font-size: 1.8rem;
         line-height: 3.1rem;
     }
+    .tech-specifications-details h2 {
+        font-family: var(--primary-font);
+        font-size: 4.8rem;
+        line-height: 6.2rem;
+        color: var(--text-color-tertiary);
+    }
     .tech-specifications-details-info {
         line-height: 2.2rem;
     }
     .tech-specifications-section {
-        padding-top: 14.5rem;
-      padding-bottom: 10rem;
+      padding-top: 12.4rem;
     }
 }
 
 @media (min-width: 1600px) {
     .tech-specifications-wrapper {
-        gap: 11rem;
         padding: 8rem 10rem;
     }
+    .tech-specifications-content {
+        gap: 11rem;
+    }
+}
+
+@media (min-width: 1024px) {
+  .tech-specifications-section .container {
+    padding: 0 3rem;
+    max-width: initial;
+  }
 }

@@ -34,3 +34,56 @@
 .image-with-copy-text .cta {
     display: none;
 }
+
+@media (min-width: 1024px) {
+    .features-sections-wrapper {
+        gap: 9rem;
+        padding-block: 12.4rem 0rem;
+    }
+    .image-with-copy-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+    .desktop-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .image-with-copy-image {
+        max-width: 71rem;
+    }
+    .image-with-copy-image img {
+        max-height: 69.5rem;
+    }
+    .image-with-copy-text {
+        max-width: 74rem;
+        box-sizing: border-box;
+        padding-left: 8.5rem;
+        padding-right: 6.5rem;
+    }
+    .image-with-copy-text :is(.title, .cta) {
+        max-width: 48rem;
+    }
+    .image-with-copy-text .title {
+        font-size: 4.8rem;
+        line-height: 6.2rem;
+        padding-bottom: 4rem;
+    }
+    .image-with-copy-text .subtitle {
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        max-width: 42.6rem;
+    }
+    .image-with-copy-text .cta {
+        width: fit-content;
+        display: flex;
+        margin-top: 11rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .image-with-copy-text {
+        padding-left: 14.5rem;
+        padding-right: 11.5rem;
+    }
+}

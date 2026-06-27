@@ -254,18 +254,6 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
   white-space: nowrap;
 }
 
-.product-selling-info__truemed-icon {
-  display: inline-block;
-  width: 5rem;
-  height: auto;
-  vertical-align: middle;
-}
-
-.product-selling-info__learn-more {
-  color: inherit;
-  text-decoration: none;
-}
-
 .product-selling-info__installments {
   display: flex;
   flex-wrap: wrap;
@@ -498,17 +486,25 @@ size-guide .size-guide-subpromo {
   line-height: 1.8rem;
 }
 
-size-guide .size-guide-cta-holder button {
-  border-radius: var(--border-radius-full);
-  border: none;
-  color: var(--white);
-  background-color: var(--primary-color);
-  width: 2.2rem;
-  height: 2.2rem;
+size-guide .size-guide-cta-holder {
   display: flex;
-  justify-content: center;
+  flex-shrink: 0;
   align-items: center;
+  justify-content: center;
+}
+
+size-guide .size-guide-cta-holder button {
+  padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
+}
+
+size-guide .size-guide-cta-holder img {
+  display: block;
+  width: 2.3rem;
+  height: 2.3rem;
+  object-fit: contain;
 }
 
 size-guide .slider-title {

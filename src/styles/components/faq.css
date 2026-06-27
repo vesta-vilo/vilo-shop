@@ -1,5 +1,5 @@
 .faq-wrapper {
-  max-width: 1200px;
+  max-width: 161rem;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -171,8 +171,8 @@ faq-tabs {
 @media (min-width: 768px) {
   .faq-wrapper {
     align-items: center;
-    padding-top: 8.5rem;
-    gap: 8rem;
+    padding: 12.4rem 8rem 3.4rem;
+    gap: 9rem;
   }
 
   .faq-wrapper .title {
@@ -180,7 +180,7 @@ faq-tabs {
     line-height: 6.2rem;
   }
   faq-tabs {
-    gap: 6.2rem;
+    gap: 6rem;
   }
   .faq-items-list {
     gap: 1.6rem;
