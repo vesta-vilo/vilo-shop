@@ -10,7 +10,8 @@
   justify-content: center;
   align-items: center;
   height: 70%;
-  margin: 0 auto; /* center the content wrapper for large screens */
+  margin: 0 auto;
+  /* center the content wrapper for large screens */
 }
 
 .parallax-text-content {
@@ -69,51 +70,93 @@
   z-index: -1;
 }
 
-.pos-top-left { top: 6%; left: 6%; }
-.pos-center-right { top: 56%; right: 6%; }
-.pos-bottom-left { bottom: 6%; left: 2%; }
+.pos-top-left {
+  top: 6%;
+  left: 6%;
+}
+
+.pos-center-right {
+  top: 56%;
+  right: 6%;
+}
+
+.pos-bottom-left {
+  bottom: 6%;
+  left: 2%;
+}
 
 
 @media (min-width: 768px) {
-    .parallax-section {
-      height: 110dvh;
-    }
+  .parallax-section {
+    height: 110dvh;
+  }
 
-    .parallax-text-content {
-        max-width: 70.5rem;
-    }
+  .parallax-text-content {
+    max-width: 70.5rem;
+  }
 
-    .parallax-text-content .title {
-        font-size: 4.8rem;
-        line-height: 6.2rem;
-    }
+  .parallax-text-content .title {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+  }
 
-    .parallax-text-content .subtitle {
-        font-size: 1.8rem;
-        line-height: 2.6rem;
-    }
+  .parallax-text-content .subtitle {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
 
-    .parallax-text-content .arrow-icon {
-        padding-top: 6rem;
-    }
+  .parallax-text-content .arrow-icon {
+    padding-top: 4.3rem;
+  }
 
-    .parallax-text-content .arrow-icon img {
-        width: 3.4rem;
-    }
+  .parallax-text-content .arrow-icon img {
+    width: 3.4rem;
+  }
 
-    .pos-top-left { top: 10%; left: 11%; }
-    .pos-center-right { top: 40%; right: 5%; }
-    .pos-bottom-left { bottom: 5%; left: 24%; }
+  .pos-top-left {
+    top: 10%;
+    left: 0;
+  }
+
+  .pos-center-right {
+    top: 40%;
+    right: 0%;
+  }
+
+  .pos-bottom-left {
+    bottom: 0%;
+    left: 14%;
+  }
 }
 
 @media (min-width: 1024px) {
-    .parallax-image-holder {
-        width: 23.4rem;
-    }
+  .parallax-section .parallax-content-wrapper.container {
+    max-width: 145rem;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 3rem;
+    box-sizing: border-box;
+  }
+
+  .parallax-images-wrapper {
+    left: 0;
+    right: 0;
+    width: 145rem;
+    max-width: calc(100% - 6rem);
+    margin-inline: auto;
+  }
+
+  .parallax-image-holder {
+    width: 23.4rem;
+  }
+
+  .parallax-section {
+    margin-top: 12.4rem;
+  }
 }
 
 @media (min-width: 1875px) {
-    .parallax-image-holder {
-        width: 33.4rem;
-    }
+  .parallax-image-holder {
+    width: 33.4rem;
+  }
 }

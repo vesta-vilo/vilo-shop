@@ -3,6 +3,12 @@
     flex-direction: column;
     gap: 1.6rem;
     align-items: center;
+    width: 100%;
+}
+
+.free-scroll-swiper-viewport {
+  position: relative;
+  width: 100%;
 }
 
 .free-scroll-swiper {
@@ -28,12 +34,14 @@
 .free-scroll-swiper-navigation {
   position: absolute;
   top: 50%;
+  left: 0;
   width: 100%;
   display: none;
   justify-content: space-between;
   transform: translateY(-50%);
-  padding-inline: 20rem;
+  padding-inline: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
 .free-scroll-swiper-navigation-btn {
@@ -58,6 +66,7 @@
   -webkit-tap-highlight-color: transparent;
   outline: none;
   user-select: none;
+  pointer-events: auto;
 }
 
 .free-scroll-swiper-navigation-btn:hover {
@@ -113,4 +122,48 @@
     .free-scroll-swiper-navigation {
         display: flex;
     }
+}
+
+@media (min-width: 1024px) {
+  .free-scroll-section {
+    gap: 6rem;
+    padding-top: 12.4rem;
+    overflow: visible;
+  }
+
+  .free-scroll-section__container {
+    padding: 0 3rem;
+    max-width: none;
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .free-scroll-section__content {
+    width: 100%;
+    max-width: 145rem;
+    margin-inline: auto;
+  }
+
+  .free-scroll-swiper-viewport {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+    --free-scroll-gutter: max(3rem, calc((100vw - 145rem) / 2));
+  }
+
+  .free-scroll-swiper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .free-scroll-swiper-navigation {
+    left: var(--free-scroll-gutter);
+    right: var(--free-scroll-gutter);
+    width: auto;
+    max-width: 145rem;
+    transform: translateY(-50%);
+  }
 }
