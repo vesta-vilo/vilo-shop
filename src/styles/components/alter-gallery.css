@@ -64,19 +64,21 @@
   .alter-gallery-slider {
     flex: 1 1 50%;
   }
+
   .alter-gallery-headings {
-    text-align: left;
-    align-items: flex-start;
+    padding-bottom: 9rem;
   }
 
   .alter-gallery-headings .title{
     font-size: 4.8rem;
     line-height: 6.2rem;
+    max-width: 90rem;
   }
 
   .alter-gallery-headings .subtitle {
     font-size: 1.8rem;
-    line-height: 1.8rem;
+    line-height: 3rem;
+    max-width: 81rem;
   }
 
   .alter-gallery-slide {
