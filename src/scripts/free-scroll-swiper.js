@@ -43,10 +43,28 @@ const initFreeScroll = () => {
     return { before: MOBILE_OFFSET, after: MOBILE_OFFSET };
   };
 
-  const swiper = new Swiper(el, {
+  const initialOffsets = getOffsets();
+  let swiper;
+
+  const applyOffsets = (forceReset = false) => {
+    const { before, after } = getOffsets();
+    const offsetsChanged =
+      swiper.params.slidesOffsetBefore !== before ||
+      swiper.params.slidesOffsetAfter !== after;
+
+    if (!offsetsChanged && !forceReset) return;
+
+    swiper.params.slidesOffsetBefore = before;
+    swiper.params.slidesOffsetAfter = after;
+    swiper.slideTo(0, 0);
+    swiper.update();
+  };
+
+  swiper = new Swiper(el, {
     modules: [FreeMode, Navigation],
     slidesPerView: 'auto',
     spaceBetween: 16,
+    initialSlide: 0,
     freeMode: {
       enabled: true,
       sticky: false,
@@ -54,8 +72,8 @@ const initFreeScroll = () => {
     },
     grabCursor: true,
     watchSlidesProgress: true,
-    slidesOffsetBefore: MOBILE_OFFSET,
-    slidesOffsetAfter: MOBILE_OFFSET,
+    slidesOffsetBefore: initialOffsets.before,
+    slidesOffsetAfter: initialOffsets.after,
     observer: true,
     observeParents: true,
     navigation: {
@@ -75,16 +93,9 @@ const initFreeScroll = () => {
     },
   });
 
-  const applyOffsets = () => {
-    const { before, after } = getOffsets();
-    swiper.params.slidesOffsetBefore = before;
-    swiper.params.slidesOffsetAfter = after;
-    swiper.update();
-  };
-
-  applyOffsets();
-  requestAnimationFrame(applyOffsets);
-  window.addEventListener('resize', applyOffsets);
+  applyOffsets(true);
+  requestAnimationFrame(() => applyOffsets(true));
+  window.addEventListener('resize', () => applyOffsets());
 };
 
 initFreeScroll();
