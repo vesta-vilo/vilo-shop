@@ -3,7 +3,7 @@
 }
 
 .gallery-section .container {
-    max-width: 1200px;
+    max-width: 161rem;
 }
 
 .gallery-grid {
@@ -57,4 +57,13 @@
     .gallery-grid .aspect-rect {
         aspect-ratio: 2 / 1;
     }
+    .gallery-section {
+        padding-top: 4.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+  .gallery-section {
+    padding-top: 9rem;
+  }
 }

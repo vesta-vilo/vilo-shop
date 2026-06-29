@@ -4,11 +4,12 @@ class CardModal extends HTMLElement {
     this.isDragging = false
     this.startY = 0
     this.currentY = 0
-    this.isTouchingScrollable = false
     this.resizeTimer = null
     this._ticking = false
 
     this.DELAY_MS = 100
+    this.CLOSE_TRANSITION_MS = 300
+    this.CLOSE_TRANSITION = `transform ${this.CLOSE_TRANSITION_MS}ms cubic-bezier(0.2, 0, 0, 1)`
     this.PIXELS_SCROLLED_FOR_CLOSE = 200
 
     this._mediaQuery = globalThis.matchMedia('(max-width: 768px)')
@@ -34,13 +35,14 @@ class CardModal extends HTMLElement {
   connectedCallback() {
     this.overlay = this.shadowRoot.querySelector('.overlay')
     this.modal = this.shadowRoot.querySelector('.modal')
+    this.headerEl = this.shadowRoot.querySelector('.header')
     this.slotEl = this.shadowRoot.querySelector('slot')
 
     this.shadowRoot.addEventListener('click', this._onComponentClick)
 
     this._mediaQuery.addEventListener('change', this._onBreakpointChange)
 
-    this.modal.addEventListener('touchstart', this._handleTouchStart, { passive: true })
+    this.headerEl.addEventListener('touchstart', this._handleTouchStart, { passive: true })
 
     globalThis.addEventListener('touchmove', this._handleTouchMove, { passive: false })
     globalThis.addEventListener('touchend', this._handleTouchEnd)
@@ -55,14 +57,7 @@ class CardModal extends HTMLElement {
   }
 
   _handleTouchStart(e) {
-    if (!this._mobileState) return
-
-    const touchPath = e.composedPath()
-
-    this.isTouchingScrollable = touchPath.some(el =>
-      el.scrollHeight > el.clientHeight &&
-      globalThis.getComputedStyle(el).overflowY !== 'visible'
-    );
+    if (!this._mobileState || !this.hasAttribute('open')) return
 
     this.isDragging = true
     this.startY = e.touches[0].pageY
@@ -84,13 +79,6 @@ class CardModal extends HTMLElement {
   _handleTouchMove(e) {
     if (!this.isDragging || !this._mobileState) return
     this.currentY = e.touches[0].pageY - this.startY
-
-    if (this.isTouchingScrollable) {
-      if (this.currentY < 0 || this.descriptionEl.scrollTop > 0) {
-        this.currentY = 0
-        return
-      }
-    }
 
     if (e.cancelable) e.preventDefault()
     if (!this._ticking) {
@@ -119,7 +107,6 @@ class CardModal extends HTMLElement {
   _handleTouchEnd() {
     if (!this.isDragging) return
     this.isDragging = false
-    this.isTouchingScrollable = false
     this._ticking = false
 
     if (this.currentY > this.PIXELS_SCROLLED_FOR_CLOSE) {
@@ -143,7 +130,7 @@ class CardModal extends HTMLElement {
     this.overlay.style.backdropFilter = ''
     this.overlay.style.webkitBackdropFilter = ''
 
-    document.body.classList.add('modal-open')
+    this._lockBodyScroll()
     this.setAttribute('open', '')
 
     setTimeout(() => {
@@ -152,20 +139,30 @@ class CardModal extends HTMLElement {
     }, 10)
   }
 
+  _lockBodyScroll() {
+    document.documentElement.classList.add('modal-open')
+    document.body.classList.add('modal-open')
+  }
+
+  _unlockBodyScroll() {
+    document.documentElement.classList.remove('modal-open')
+    document.body.classList.remove('modal-open')
+  }
+
   _close() {
     this.isDragging = false
-    document.body.classList.remove('modal-open')
-    this.modal.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1)'
+    this.modal.style.transition = this.CLOSE_TRANSITION
 
     this.modal.style.transform = this._mobileState ? 'translateY(var(--modal-hide-y))' : 'translateX(100%)'
 
     this.removeAttribute('open')
 
     setTimeout(() => {
+      this._unlockBodyScroll()
       this.style.setProperty('--backdrop-alpha', '0.8')
       this.style.setProperty('--backdrop-blur', '5px')
       this.overlay.style.backdropFilter = ''
-    }, this.DELAY_MS)
+    }, this.CLOSE_TRANSITION_MS)
 
     this.currentY = 0
   }

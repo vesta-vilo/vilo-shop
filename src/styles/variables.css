@@ -46,8 +46,13 @@
 
     --focus-color: #007bff;
 
+    --announcement-bar-height-mobile: 4.5rem;
     --announcement-bar-height-desktop: 6rem;
     --header-height-desktop: 7rem;
+    --header-modal-hide-offset: 12rem;
+
+    --modal-body-padding-inline-mobile: 1.8rem;
+    --modal-body-padding-inline-desktop: 5rem;
 
     --desktop-menu-transition-duration: 0.55s;
     --desktop-menu-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);

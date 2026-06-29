@@ -1,3 +1,28 @@
+  <hsa-fsa-guide>
+    <card-modal style="--modal-height-mobile: 93svh;">
+      <load ="/_page-components/card-modal-component-template.html" />
+    </card-modal>
+    <div class="hsa-fsa-promo-block">
+      <div class="hsa-fsa-promo-block__content">
+        <div class="hsa-fsa-promo-block__content__text">
+          <p>HSA/FSA eligible with
+            <img class="skip-img-fadein hsa-fsa-promo-block__truemed-icon" src="/images/icons/icon-truemed-blue.png" alt="TrueMed" width="73" height="11" decoding="async">
+          </p>
+        </div>
+        <div class="hsa-fsa-promo-block__content__icon">
+          <button type="button" class="js-hsa-fsa-guide-modal-open" aria-label="Learn about HSA/FSA eligibility">
+            <img src="/images/icons/icon-info.png" alt="" width="23" height="23" decoding="async">
+          </button>
+        </div>
+      </div>
+    </div>
+    <template class="js-modal-content-template">
+      <h3 class="slider-title">How to Pay with HSA/FSA</h3>
+      <p class="hsa-fsa-guide-description"><span class="hsa-fsa-guide-description__lead">Save an average of 30%</span> when you use your pre-tax HSA/FSA funds.*</p>
+      <load ="/_page-components/hsa-fsa-guide-slider.html" />
+    </template>
+  </hsa-fsa-guide>
+  
   <div class="product-badges">
     <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-only-100-today-badge.png" alt="Only $100 today" width="414" height="84" decoding="async">
     <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-up-to-57-off-badge.png" alt="Up to 57% off" width="414" height="84" decoding="async">
@@ -12,11 +37,7 @@
     </div>
     <div class="product-price__secondary">
       <div class="product-selling-info">
-        <div class="product-selling-info__lead">
-          HSA/FSA eligible with
-          <img src="/images/icons/icon-truebed.png" alt="TrueMed" class="product-selling-info__truemed-icon" width="50" height="50" decoding="async">
-          <a href="#" class="product-selling-info__learn-more">Learn more.</a>
-        </div>
+        <div class="product-selling-info__lead">HSA/FSA eligible</div>
         <div class="product-selling-info__installments bnpl-installments">
           <span class="bnpl-installments__lead">4 payments with</span>
           <span class="bnpl-installments__money">
@@ -137,20 +158,20 @@
         </div>
       </fieldset>
       <size-guide>
-        <card-modal style="--modal-height-mobile: 90svh;">
+        <card-modal style="--modal-height-mobile: 93svh;">
           <load ="/_page-components/card-modal-component-template.html" />
         </card-modal>
         <div class="size-guide-promo-holder">
           <p class="size-guide-promo">Not sure of your size?</p>
-          <p class="size-guide-subpromo">Order a free sizing kit — your fit, settled before the ring arrives.</p>
+          <p class="size-guide-subpromo">Explore our sizing options and guide <b>in minutes.</b></p>
           <template class="js-modal-content-template">
             <h3 class="slider-title">Size Guide</h3>
             <load ="/_page-components/size-guide-slider.html" />
           </template>
         </div>
         <div class="size-guide-cta-holder">
-          <button class="js-size-guide-modal-open">
-            <load ="/_icons/icon-plus.html" />
+          <button type="button" class="js-size-guide-modal-open" aria-label="Open size guide">
+            <img src="/images/icons/icon-size-guide-info.png" alt="" width="23" height="23" decoding="async">
           </button>
         </div>
       </size-guide>
