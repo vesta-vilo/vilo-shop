@@ -10,10 +10,6 @@ section {
     justify-content: center;
 }
 
-main > :last-child {
-    padding-bottom: 18rem;
-}
-
 img {
     display: block;
     width: 100%;
@@ -561,5 +557,10 @@ hsa-fsa-guide .swiper-button-disabled svg,
 @media (min-width: 1024px) {
     .container {
         padding: 0rem 8rem;
+    }
+
+    main > :last-child:not(.floating-cta-wrapper),
+    main > :has(+ .floating-cta-wrapper:last-child) {
+        padding-bottom: 18rem;
     }
 }

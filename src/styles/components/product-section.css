@@ -950,7 +950,8 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
   }
 
   .product-wrapper.product-wrapper-homepage {
-    padding-block: 13rem;
+    padding-top: 13rem;
+    padding-bottom: 0rem;
   }
 
   .product-content {
