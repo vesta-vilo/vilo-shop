@@ -46,7 +46,7 @@ export const IMAGES_URLS = {
     "/images/product-page/PV05/white-jade-4.webp",
     "/images/product-page/PV05/white-jade-5.webp",
     "/images/product-page/PV05/white-jade-6.webp",
-     "/images/product-page/PV02/golden-twist-6.webp",
+    "/images/product-page/PV01/glass-jade-6.webp",
   ],
 };
 
