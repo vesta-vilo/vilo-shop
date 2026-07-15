@@ -1,0 +1,314 @@
+.polaroid-gallery-section {
+  width: 100%;
+  padding-block: 5rem 6rem;
+}
+
+.polaroid-gallery-section__container {
+  max-width: 145rem;
+  padding-inline: 0;
+}
+
+.polaroid-gallery-section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+  margin-bottom: 2.4rem;
+}
+
+.polaroid-gallery-section__title {
+  font-family: var(--primary-font);
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  color: var(--text-color-tertiary);
+}
+
+.polaroid-gallery-section__description {
+  font-family: var(--primary-font);
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  color: var(--text-color-tertiary);
+}
+
+.polaroid-gallery {
+  position: relative;
+  width: 100%;
+  height: 64rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  margin-inline: auto;
+  overflow: hidden;
+  --polaroid-inactive-width: min(48vw, 22rem);
+  --polaroid-active-width: min(60vw, 25.1rem);
+}
+
+.polaroid-card {
+  position: absolute;
+  width: var(--polaroid-inactive-width);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  padding: 1rem 1rem 3.8rem;
+  border: none;
+  border-radius: var(--border-radius-12);
+  background: var(--white);
+  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transform-origin: center center;
+  --polaroid-pad-top: 1rem;
+  --polaroid-pad-x: 1rem;
+  --polaroid-pad-bottom: 3.8rem;
+  transition:
+    top 0.55s ease,
+    left 0.55s ease,
+    width 0.55s ease,
+    height 0.55s ease,
+    transform 0.55s ease,
+    opacity 0.55s ease,
+    box-shadow 0.55s ease,
+    padding 0.55s ease;
+}
+
+.polaroid-card:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+}
+
+.polaroid-card__media {
+  position: absolute;
+  top: var(--polaroid-pad-top);
+  left: var(--polaroid-pad-x);
+  right: var(--polaroid-pad-x);
+  bottom: var(--polaroid-pad-bottom);
+  display: block;
+  overflow: hidden;
+}
+
+.polaroid-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: filter 0.55s ease;
+  filter: blur(3px) saturate(0);
+}
+
+.polaroid-card--1 {
+  top: 8%;
+  left: -10%;
+  z-index: 1;
+  opacity: 0.37;
+  transform: rotate(-14deg);
+}
+
+.polaroid-card--2 {
+  top: 2%;
+  left: 75%;
+  z-index: 1;
+  opacity: 0.8;
+  transform: rotate(9deg);
+}
+
+.polaroid-card--3 {
+  top: 35%;
+  left: 8%;
+  z-index: 2;
+  opacity: 0.8;
+  transform: rotate(9deg);
+}
+
+.polaroid-card--4 {
+  top: 25%;
+  left: 58%;
+  z-index: 2;
+  opacity: .37;
+  transform: rotate(-15deg);
+}
+
+.polaroid-card--5 {
+  width: 18rem;
+  top: 58%;
+  left: 3%;
+  z-index: 3;
+  opacity: 0.3;
+  transform: rotate(-15deg);
+}
+
+.polaroid-card--6 {
+  top: 50%;
+  left: 73%;
+  z-index: 1;
+  opacity: 0.3;
+  transform: rotate(4deg);
+}
+
+.polaroid-card.is-active {
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  width: var(--polaroid-active-width);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  opacity: 1;
+  padding: 1.2rem 1.2rem 4.7rem;
+  --polaroid-pad-top: 1.2rem;
+  --polaroid-pad-x: 1.2rem;
+  --polaroid-pad-bottom: 4.7rem;
+  border-radius: 1.4rem;
+  box-shadow: 0 1.3rem 2.7rem 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.polaroid-card.is-active .polaroid-card__media {
+  top: var(--polaroid-pad-top);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: 89.95%;
+  height: 82.66%;
+  transform: translateX(-50%);
+}
+
+.polaroid-card.is-active .polaroid-card__media img {
+  filter: none;
+}
+
+@media (min-width: 768px) {
+  .polaroid-gallery-section {
+    padding-block: 8rem 10rem;
+  }
+
+  .polaroid-gallery-section__header {
+    gap: 1.7rem;
+    margin-bottom: 6rem;
+  }
+
+  .polaroid-gallery-section__title {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+  }
+
+  .polaroid-gallery-section__description {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+
+  .polaroid-gallery {
+    max-width: 145rem;
+  }
+
+  .polaroid-card {
+    border-radius: var(--border-radius-20);
+  }
+
+  .polaroid-card--1 {
+    top: 8%;
+    left: 6%;
+  }
+
+  .polaroid-card--2 {
+    top: 12%;
+    left: 62%;
+  }
+
+  .polaroid-card--3 {
+    top: 35%;
+    left: 10%;
+  }
+
+  .polaroid-card--4 {
+    top: 46%;
+    left: 56%;
+  }
+
+  .polaroid-card--5 {
+    top: 62%;
+    left: 6%;
+  }
+
+  .polaroid-card--6 {
+    top: 65%;
+    left: 60%;
+  }
+
+  .polaroid-card.is-active {
+    padding: 1.6rem 1.6rem 6rem;
+    --polaroid-pad-top: 1.6rem;
+    --polaroid-pad-x: 1.6rem;
+    --polaroid-pad-bottom: 6rem;
+    border-radius: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .polaroid-gallery-section__container {
+    padding-inline: 0;
+  }
+
+  .polaroid-gallery {
+    height: 92rem;
+    padding-top: 5rem;
+    padding-bottom: 0;
+    --polaroid-inactive-width: min(48vw, 33.5rem);
+    --polaroid-active-width: min(60vw, 40rem);
+  }
+
+  .polaroid-card--1 {
+    top: 8%;
+    left: 6%;
+  }
+
+  .polaroid-card--2 {
+    top: 8%;
+    left: 70%;
+  }
+
+  .polaroid-card--3 {
+    top: 36%;
+    left: 13%;
+  }
+
+  .polaroid-card--4 {
+    top: 40%;
+    left: 58%;
+  }
+
+  .polaroid-card--5 {
+    top: 65%;
+    left: 3%;
+    width: 30rem;
+  }
+
+  .polaroid-card--6 {
+    top: 62%;
+    left: calc(100% - var(--polaroid-inactive-width));
+  }
+
+  .polaroid-card.is-active {
+    padding: 2rem 2rem 7.5rem;
+    --polaroid-pad-top: 2rem;
+    --polaroid-pad-x: 2rem;
+    --polaroid-pad-bottom: 7.5rem;
+  }
+
+  @media (hover: hover) {
+    .polaroid-card:not(.is-active) {
+      &.polaroid-card--1:hover {
+        transform: rotate(-7deg) scale(1.05);
+      }
+
+      &:is(.polaroid-card--2, .polaroid-card--3):hover {
+        transform: rotate(4.5deg) scale(1.05);
+      }
+
+      &:is(.polaroid-card--4, .polaroid-card--5):hover {
+        transform: rotate(-7.5deg) scale(1.05);
+      }
+
+      &.polaroid-card--6:hover {
+        transform: rotate(2deg) scale(1.05);
+      }
+    }
+  }
+}
