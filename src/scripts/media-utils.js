@@ -39,6 +39,15 @@ export const IMAGES_URLS = {
     "/images/product-page/PV05/color-pop2-5.webp",
     "/images/product-page/PV05/color-pop2-6.webp",
   ],
+  "White Jade": [
+    
+    "/images/product-page/PV05/white-jade-2.webp",
+    "/images/product-page/PV05/white-jade-3.webp",
+    "/images/product-page/PV05/white-jade-4.webp",
+    "/images/product-page/PV05/white-jade-5.webp",
+    "/images/product-page/PV05/white-jade-6.webp",
+    "/images/product-page/PV01/glass-jade-6.webp",
+  ],
 };
 
 export const preloadAllVariants = () => {

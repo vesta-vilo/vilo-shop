@@ -11,6 +11,7 @@ import './MobileMenu.js';
 import './mobile-shop-menu-swiper.js';
 import './home-page-product-swiper.js';
 import './parallax.js';
+import './polaroid-gallery.js';
 import './ProductMedia.js';
 import './ProductForm.js';
 import './ModalDialog.js';

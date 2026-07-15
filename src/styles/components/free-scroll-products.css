@@ -6,6 +6,12 @@
     width: 100%;
 }
 
+.free-scroll-section__container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .free-scroll-swiper-viewport {
   position: relative;
   width: 100%;
@@ -26,7 +32,7 @@
     border-radius: var(--border-radius-12);
 }
 
-.free-scroll-section .title{
+.free-scroll-section .title {
   font-size: 2.8rem;
   line-height: 3.4rem;
 }
