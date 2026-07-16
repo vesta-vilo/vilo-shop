@@ -1,4 +1,6 @@
 .polaroid-gallery-section {
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding-block: 5rem 6rem;
 }
@@ -45,6 +47,8 @@
 
 .polaroid-card {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   width: var(--polaroid-inactive-width);
   height: auto;
   aspect-ratio: 3 / 4;
@@ -55,9 +59,6 @@
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.16);
   cursor: pointer;
   transform-origin: center center;
-  --polaroid-pad-top: 1rem;
-  --polaroid-pad-x: 1rem;
-  --polaroid-pad-bottom: 3.8rem;
   transition:
     top 0.55s ease,
     left 0.55s ease,
@@ -75,12 +76,11 @@
 }
 
 .polaroid-card__media {
-  position: absolute;
-  top: var(--polaroid-pad-top);
-  left: var(--polaroid-pad-x);
-  right: var(--polaroid-pad-x);
-  bottom: var(--polaroid-pad-bottom);
   display: block;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -152,22 +152,9 @@
   aspect-ratio: 3 / 4;
   opacity: 1;
   padding: 1.2rem 1.2rem 4.7rem;
-  --polaroid-pad-top: 1.2rem;
-  --polaroid-pad-x: 1.2rem;
-  --polaroid-pad-bottom: 4.7rem;
   border-radius: 1.4rem;
   box-shadow: 0 1.3rem 2.7rem 0 rgba(0, 0, 0, 0.16);
   transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.polaroid-card.is-active .polaroid-card__media {
-  top: var(--polaroid-pad-top);
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  width: 89.95%;
-  height: 82.66%;
-  transform: translateX(-50%);
 }
 
 .polaroid-card.is-active .polaroid-card__media img {
@@ -234,9 +221,6 @@
 
   .polaroid-card.is-active {
     padding: 1.6rem 1.6rem 6rem;
-    --polaroid-pad-top: 1.6rem;
-    --polaroid-pad-x: 1.6rem;
-    --polaroid-pad-bottom: 6rem;
     border-radius: 2rem;
   }
 }
@@ -252,6 +236,10 @@
     padding-bottom: 0;
     --polaroid-inactive-width: min(48vw, 33.5rem);
     --polaroid-active-width: min(60vw, 40rem);
+  }
+
+  .polaroid-card {
+    padding: 1.6rem 1.6rem 6.2rem;
   }
 
   .polaroid-card--1 {
@@ -282,14 +270,11 @@
 
   .polaroid-card--6 {
     top: 62%;
-    left: calc(100% - var(--polaroid-inactive-width));
+    left: calc(99% - var(--polaroid-inactive-width));
   }
 
   .polaroid-card.is-active {
     padding: 2rem 2rem 7.5rem;
-    --polaroid-pad-top: 2rem;
-    --polaroid-pad-x: 2rem;
-    --polaroid-pad-bottom: 7.5rem;
   }
 
   @media (hover: hover) {
