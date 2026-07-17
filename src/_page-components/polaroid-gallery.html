@@ -1,0 +1,50 @@
+<polaroid-gallery class="polaroid-gallery-section">
+  <div class="container polaroid-gallery-section__container">
+    <div class="polaroid-gallery-section__header">
+      <h2 class="polaroid-gallery-section__title">Made for everyday life.</h2>
+      <p class="polaroid-gallery-section__description">Tap a polaroid.</p>
+    </div>
+
+    <div class="polaroid-gallery" aria-label="Polaroid gallery"></div>
+  </div>
+
+  <script type="application/json" class="js-polaroid-gallery-data">
+    {
+      "defaultActiveIndex": 3,
+      "cards": [
+        {
+          "src": "/images/sections/polaroid-gallery/image-1.webp",
+          "alt": "Vilo ring lifestyle moment"
+        },
+        {
+          "src": "/images/sections/polaroid-gallery/image-2.webp",
+          "alt": "Vilo ring on hand"
+        },
+        {
+          "src": "/images/sections/polaroid-gallery/image-3.webp",
+          "alt": "Vilo ring case detail"
+        },
+        {
+          "src": "/images/sections/polaroid-gallery/image-4.webp",
+          "alt": "Vilo ring worn in daily life"
+        },
+        {
+          "src": "/images/sections/polaroid-gallery/image-5.webp",
+          "alt": "Vilo ring lifestyle shot"
+        },
+        {
+          "src": "/images/sections/polaroid-gallery/image-6.webp",
+          "alt": "Vilo ring everyday style"
+        }
+      ]
+    }
+  </script>
+
+  <template class="js-polaroid-card-template">
+    <button type="button" class="polaroid-card" aria-pressed="false">
+      <span class="polaroid-card__media">
+        <img loading="lazy" decoding="async" alt="">
+      </span>
+    </button>
+  </template>
+</polaroid-gallery>
