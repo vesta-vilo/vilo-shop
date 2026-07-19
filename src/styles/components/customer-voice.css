@@ -1,0 +1,210 @@
+.customer-voice-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center;
+  width: 100%;
+}
+
+.customer-voice-swiper-viewport {
+  position: relative;
+  width: 100%;
+}
+
+.customer-voice-swiper {
+  width: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.customer-voice-swiper .swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+.customer-voice-card {
+  width: min(100%, 46.6rem);
+  max-width: 46.6rem;
+  overflow: hidden;
+  border-radius: var(--border-radius-12);
+}
+
+.customer-voice-card__media {
+  position: relative;
+  width: 100%;
+}
+
+.customer-voice-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.customer-voice-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 932 / 1300;
+  object-fit: cover;
+}
+
+.customer-voice-card__badge {
+  position: absolute;
+  top: 2.4rem;
+  left: 2rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.3rem;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
+  -webkit-backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
+  box-shadow: 0 4px 8px 0 rgba(126, 130, 131, 0.18);
+}
+
+.customer-voice-card__badge-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  max-width: none;
+  object-fit: contain;
+}
+
+.customer-voice-card__badge-text {
+  font-family: var(--primary-font);
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: #ffffff;
+}
+
+.customer-voice-card__open {
+  position: absolute;
+  top: 2.4rem;
+  right: 2rem;
+  z-index: 1;
+  width: 5.4rem;
+  height: 5.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--border-radius-full);
+  background: rgba(241, 250, 254, 0.9);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.customer-voice-card__open .icon-plus img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.customer-voice-card__copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0 2rem 3.5rem;
+  text-align: left;
+}
+
+.customer-voice-card__title {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--primary-font);
+  font-size: 3.4rem;
+  line-height: 3.8rem;
+  color: #ffffff;
+}
+
+.customer-voice-card__subtitle {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
+  line-height: 1.4rem;
+  color: #ffffff;
+}
+
+.customer-voice-section .title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+
+@media (min-width: 768px) {
+  .customer-voice-card {
+    border-radius: var(--border-radius-30);
+  }
+
+  .customer-voice-card__badge-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .customer-voice-section .title {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .customer-voice-section {
+    gap: 6rem;
+    padding-top: 12.4rem;
+    overflow: visible;
+  }
+
+  .customer-voice-section__container {
+    padding: 0 3rem;
+    max-width: none;
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .customer-voice-section__content {
+    width: 100%;
+    max-width: 145rem;
+    margin-inline: auto;
+  }
+
+  .customer-voice-swiper-viewport {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+    --customer-voice-gutter: max(3rem, calc((100vw - 145rem) / 2));
+  }
+
+  .customer-voice-swiper {
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.customer-voice-section .swiper-button-prev,
+.customer-voice-section .swiper-button-next,
+.customer-voice-modal .swiper-button-prev,
+.customer-voice-modal .swiper-button-next {
+  background-color: #212121;
+}
+
+.customer-voice-section .swiper-button-disabled,
+.customer-voice-modal .swiper-button-disabled {
+  background-color: #f1fafe;
+}
+
+.customer-voice-section .swiper-nav-holder {
+  gap: 1.6rem;
+  justify-content: flex-end;
+}
