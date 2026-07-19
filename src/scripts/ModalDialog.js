@@ -73,7 +73,9 @@ class ModalDialog extends HTMLElement {
         this.dialog.classList.remove('is-closing')
       }, 300)
       document.body.classList.remove('modal-open');
-      setCookie(this.modalClosedCookieName, 'true', 30);
+      if (!this.hasAttribute('data-no-dismiss-cookie')) {
+        setCookie(this.modalClosedCookieName, 'true', 30);
+      }
       const subscriptionDialog = this.querySelector('subscription-dialog');
       if (subscriptionDialog) subscriptionDialog.reset();
     }
@@ -94,26 +96,37 @@ class ModalDialog extends HTMLElement {
   _render() {
     this.shadowRoot.innerHTML = `
       <style>
-
         dialog {
           opacity: 0;
-          width: 100%;
-          max-width: 100dvw;
+          display: var(--modal-dialog-display, block);
+          flex-direction: var(--modal-dialog-flex-direction, column);
+          overflow: var(--modal-dialog-overflow, visible);
+          width: var(--modal-dialog-width, 100%);
+          max-width: var(--modal-dialog-max-width, 100dvw);
+          height: var(--modal-dialog-height, auto);
+          max-height: var(--modal-dialog-max-height, none);
           border: none;
           padding: 0;
-          border-radius: var(--border-radius-18) var(--border-radius-18) 0 0;
-          margin: auto auto 0 auto;
-          inset: unset;
-          inset-block-end: 0;
+          border-radius: var(--modal-dialog-border-radius, var(--border-radius-18) var(--border-radius-18) 0 0);
+          margin: var(--modal-dialog-margin, auto auto 0 auto);
+          inset: var(--modal-dialog-inset, unset);
+          inset-block-end: var(--modal-dialog-inset-block-end, 0);
           transition:
             opacity 0.3s ease-out,
             display 0.3s ease-out allow-discrete;
         }
 
+        ::slotted(*) {
+          display: var(--modal-dialog-slot-display, block);
+          flex: var(--modal-dialog-slot-flex, initial);
+          min-height: var(--modal-dialog-slot-min-height, auto);
+          width: var(--modal-dialog-slot-width, auto);
+        }
+
         dialog::backdrop {
-          background-color: rgba(168, 176, 183, .8);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
+          background-color: var(--modal-dialog-backdrop-color, rgba(168, 176, 183, .8));
+          backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
+          -webkit-backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
           opacity: 0;
           transition:
             background 0.3s ease-out,
@@ -147,11 +160,13 @@ class ModalDialog extends HTMLElement {
 
         @media (min-width: 768px) {
           dialog {
-            margin: auto;
-            border-radius: var(--border-radius-30);
-            inset: 0;
-            width: calc(100% - 2rem);
-            max-width: 100rem;
+            margin: var(--modal-dialog-margin-desktop, auto);
+            border-radius: var(--modal-dialog-border-radius-desktop, var(--border-radius-30));
+            inset: var(--modal-dialog-inset-desktop, 0);
+            width: var(--modal-dialog-width-desktop, calc(100% - 2rem));
+            max-width: var(--modal-dialog-max-width-desktop, 100rem);
+            height: var(--modal-dialog-height-desktop, auto);
+            max-height: var(--modal-dialog-max-height-desktop, none);
           }
         }
 

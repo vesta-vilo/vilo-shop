@@ -23,6 +23,8 @@
 @import './components/about-us.css';
 
 @import './components/free-scroll-products.css';
+@import './components/customer-voice.css';
+@import './components/customer-voice-modal.css';
 @import './components/tech-spec.css';
 @import './components/alter-gallery.css';
 @import './components/product-section.css';
