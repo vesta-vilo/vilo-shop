@@ -365,6 +365,7 @@ body.modal-open {
 /* swiper nav and pagination */
 .cards-section .swiper-nav-holder,
 .gallery-section .swiper-nav-holder,
+.customer-voice-section .swiper-nav-holder,
 .alter-gallery-section .swiper-nav-holder {
     position: relative;
     display: flex;
@@ -386,6 +387,7 @@ size-guide .size-guide-swiper-pagination,
 hsa-fsa-guide .hsa-fsa-guide-swiper-pagination,
 .cards-section .swiper-pagination,
 .gallery-section .swiper-pagination,
+.customer-voice-section .swiper-pagination,
 .alter-gallery-section .swiper-pagination {
     position: relative !important;
     width: auto !important;
@@ -399,6 +401,8 @@ size-guide .swiper-nav-btns,
 hsa-fsa-guide .swiper-nav-btns,
 .cards-section .swiper-nav-btns,
 .gallery-section .swiper-nav-btns,
+.customer-voice-section .swiper-nav-btns,
+.customer-voice-modal .swiper-nav-btns,
 .alter-gallery-section .swiper-nav-btns {
     display: flex;
     position: relative;
@@ -414,6 +418,10 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next,
 .cards-section .swiper-button-next,
 .gallery-section .swiper-button-prev,
 .gallery-section .swiper-button-next,
+.customer-voice-section .swiper-button-prev,
+.customer-voice-section .swiper-button-next,
+.customer-voice-modal .swiper-button-prev,
+.customer-voice-modal .swiper-button-next,
 .alter-gallery-section .swiper-button-prev,
 .alter-gallery-section .swiper-button-next {
     position: relative !important;
@@ -434,6 +442,10 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next svg,
 .cards-section .swiper-button-next svg,
 .gallery-section .swiper-button-prev svg,
 .gallery-section .swiper-button-next svg,
+.customer-voice-section .swiper-button-prev svg,
+.customer-voice-section .swiper-button-next svg,
+.customer-voice-modal .swiper-button-prev svg,
+.customer-voice-modal .swiper-button-next svg,
 .alter-gallery-section .swiper-button-prev svg,
 .alter-gallery-section .swiper-button-next svg {
     width: 2.8rem !important;
@@ -448,6 +460,10 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow,
 .cards-section .swiper-button-next .slide-nav-arrow,
 .gallery-section .swiper-button-prev .slide-nav-arrow,
 .gallery-section .swiper-button-next .slide-nav-arrow,
+.customer-voice-section .swiper-button-prev .slide-nav-arrow,
+.customer-voice-section .swiper-button-next .slide-nav-arrow,
+.customer-voice-modal .swiper-button-prev .slide-nav-arrow,
+.customer-voice-modal .swiper-button-next .slide-nav-arrow,
 .alter-gallery-section .swiper-button-prev .slide-nav-arrow,
 .alter-gallery-section .swiper-button-next .slide-nav-arrow {
     display: flex;
@@ -464,6 +480,10 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow img,
 .cards-section .swiper-button-next .slide-nav-arrow img,
 .gallery-section .swiper-button-prev .slide-nav-arrow img,
 .gallery-section .swiper-button-next .slide-nav-arrow img,
+.customer-voice-section .swiper-button-prev .slide-nav-arrow img,
+.customer-voice-section .swiper-button-next .slide-nav-arrow img,
+.customer-voice-modal .swiper-button-prev .slide-nav-arrow img,
+.customer-voice-modal .swiper-button-next .slide-nav-arrow img,
 .alter-gallery-section .swiper-button-prev .slide-nav-arrow img,
 .alter-gallery-section .swiper-button-next .slide-nav-arrow img {
     width: 2.8rem !important;
@@ -488,6 +508,8 @@ size-guide .swiper-button-disabled,
 hsa-fsa-guide .swiper-button-disabled,
 .cards-section .swiper-button-disabled,
 .gallery-section .swiper-button-disabled,
+.customer-voice-section .swiper-button-disabled,
+.customer-voice-modal .swiper-button-disabled,
 .alter-gallery-section .swiper-button-disabled {
     cursor: not-allowed;
     background-color: var(--white);
@@ -497,6 +519,8 @@ size-guide .swiper-button-disabled svg,
 hsa-fsa-guide .swiper-button-disabled svg,
 .cards-section .swiper-button-disabled svg,
 .gallery-section .swiper-button-disabled svg,
+.customer-voice-section .swiper-button-disabled svg,
+.customer-voice-modal .swiper-button-disabled svg,
 .alter-gallery-section .swiper-button-disabled svg {
     color: var(--arrow-icon-color);
 }
@@ -542,7 +566,8 @@ hsa-fsa-guide .swiper-button-disabled svg,
     /* swiper nav and pagination */
     .cards-section .swiper-nav-holder,
     .gallery-slider,
-    .gallery-section .swiper-nav-holder {
+    .gallery-section .swiper-nav-holder,
+    .customer-voice-section .swiper-nav-holder {
         display: none !important;
     }
     /* swiper nav and pagination end */

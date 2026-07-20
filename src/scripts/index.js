@@ -21,6 +21,7 @@ import './DesktopMenu.js';
 import './Subscription.js';
 import './Faq.js';
 import './free-scroll-swiper.js';
+import './customer-voice.js';
 import './ProductPaymentVariantMarquee.js';
 import './cards-swiper.js';
 import './CardModal.js';

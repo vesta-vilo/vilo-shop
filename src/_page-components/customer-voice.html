@@ -1,0 +1,160 @@
+<customer-voice class="customer-voice-section">
+  <div class="container customer-voice-section__container">
+    <div class="customer-voice-swiper-viewport">
+      <div class="swiper customer-voice-swiper">
+        <div class="swiper-wrapper js-customer-voice-slides"></div>
+      </div>
+
+      <div class="swiper-nav-holder">
+        <div class="swiper-nav-btns">
+          <div class="swiper-button-prev">
+            <load ="/_icons/icon-prev-slide-arrow.html" />
+          </div>
+          <div class="swiper-button-next">
+            <load ="/_icons/icon-next-slide-arrow.html" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" class="js-customer-voice-data">
+    {
+      "cta": {
+        "title": "Learn more",
+        "link": "/product/"
+      },
+      "slides": [
+        {
+          "title": "Get the best sleep of <span class=\"secondary-text\">your life</span>",
+          "subtitle": "Timeless. Minimal. All-day wellness.",
+          "description": "Better nights make for better days. With Vilo, wake up to in-depth sleep analysis and deeper insight into your blood oxygen levels [SpO2] to improve your habits and transform how you feel all day long.",
+          "image": "/images/sections/customer-voice/1.webp",
+          "alt": "Customer voice story 1",
+          "badge-icon": "/images/icons/icon-moon-white.png",
+          "badge-text": "Sleep and Rest",
+          "voice": {
+            "name": "Maya L.",
+            "role": "Designer, 34",
+            "message": "It feels like the ring listens without asking me to perform."
+          }
+        },
+        {
+          "title": "Don't just live longer, live <span class=\"secondary-text\">healthier</span>",
+          "subtitle": "Timeless. Minimal. All-day wellness.",
+          "description": "Living longer means little if you don't feel your best along the way. With Vilo, see how sleep, recovery, and daily stress connect so you can build steadier habits and invest in a healthier life that actually shows up in how you feel.",
+          "image": "/images/sections/customer-voice/2.webp",
+          "alt": "Customer voice story 2",
+          "badge-icon": "/images/icons/icon-heart-white.png",
+          "badge-text": "Sleep and Rest",
+          "voice": {
+            "name": "Jordan K.",
+            "role": "Founder, 41",
+            "message": "I stopped chasing perfect scores and started noticing patterns."
+          }
+        },
+        {
+          "title": "Bring your fitness goals into focus",
+          "subtitle": "Timeless. Minimal. All-day wellness.",
+          "description": "Progress isn't only about effort—it's about timing. With Vilo, track activity, strain, and recovery in one clear view so you know when to push, when to rest, and how to keep your fitness goals in focus all week long.",
+          "image": "/images/sections/customer-voice/3.webp",
+          "alt": "Customer voice story 3",
+          "badge-icon": "/images/icons/icon-women-white.png",
+          "badge-text": "Sleep and Rest",
+          "voice": {
+            "name": "Elena R.",
+            "role": "Physician, 38",
+            "message": "Finally something that respects both science and how life actually feels."
+          }
+        },
+        {
+          "title": "Get the best sleep of <span class=\"secondary-text\">your life</span>",
+          "subtitle": "Timeless. Minimal. All-day wellness.",
+          "description": "Your body sends signals long before burnout sets in. With Vilo, follow sleep trends, recovery patterns, and gentle wellness insights so you can adjust your routine early and feel more balanced from morning to night.",
+          "image": "/images/sections/customer-voice/4.webp",
+          "alt": "Customer voice story 4",
+          "badge-icon": "/images/icons/icon-star-white.png",
+          "badge-text": "Sleep and Rest",
+          "voice": {
+            "name": "Sam T.",
+            "role": "Creative director, 29",
+            "message": "The calmest piece of tech I have worn in years."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <template class="js-customer-voice-slide-template">
+    <article class="customer-voice-card swiper-slide">
+      <div class="customer-voice-card__media">
+        <img class="customer-voice-card__image" loading="lazy" decoding="async" alt="">
+        <div class="customer-voice-card__badge">
+          <img class="customer-voice-card__badge-icon" alt="">
+          <span class="customer-voice-card__badge-text"></span>
+        </div>
+        <button type="button" class="customer-voice-card__open" aria-label="Open story">
+          <span class="icon-plus">
+            <img class="skip-img-fadein" src="/images/icons/icon-plus-black.png" alt="open story" width="24" height="24" decoding="async">
+          </span>
+        </button>
+        <div class="customer-voice-card__copy">
+          <h3 class="customer-voice-card__title"></h3>
+          <p class="customer-voice-card__subtitle"></p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <modal-dialog id="customer-voice-dialog" data-no-dismiss-cookie>
+    <div class="customer-voice-modal">
+      <button type="button" class="customer-voice-modal__close js-close-modal-dialog" aria-label="Close modal">
+        <img class="skip-img-fadein" src="/images/icons/icon-close-dark.png" alt="" width="20" height="20" decoding="async">
+      </button>
+
+      <div class="swiper customer-voice-modal-swiper">
+        <div class="swiper-wrapper js-customer-voice-modal-slides"></div>
+      </div>
+
+      <div class="customer-voice-modal__controls">
+        <a class="customer-voice__cta btn-with-animation" href="">
+          <span class="customer-voice__cta-text"></span>
+          <load ="/_icons/icon-animation-arrow.html" />
+        </a>
+        <div class="swiper-nav-btns">
+          <div class="swiper-button-prev">
+            <load ="/_icons/icon-prev-slide-arrow.html" />
+          </div>
+          <div class="swiper-button-next">
+            <load ="/_icons/icon-next-slide-arrow.html" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </modal-dialog>
+
+  <template class="js-customer-voice-modal-slide-template">
+    <div class="swiper-slide customer-voice-modal-slide">
+      <div class="customer-voice-modal-slide__media">
+        <img class="customer-voice-modal-slide__image" loading="lazy" decoding="async" alt="">
+        <div class="customer-voice-card__badge">
+          <img class="customer-voice-card__badge-icon" alt="">
+          <span class="customer-voice-card__badge-text"></span>
+        </div>
+      </div>
+      <div class="customer-voice-modal-slide__content">
+        <h2 class="customer-voice-modal-slide__title"></h2>
+        <div class="customer-voice-modal-slide__scroll">
+          <p class="customer-voice-modal-slide__description"></p>
+          <article class="customer-voice-modal-slide__voice">
+            <span class="customer-voice-modal-slide__name"></span>
+            <span class="customer-voice-modal-slide__role"></span>
+            <blockquote class="customer-voice-modal-slide__quote">
+              <p class="customer-voice-modal-slide__message"></p>
+            </blockquote>
+          </article>
+        </div>
+      </div>
+    </div>
+  </template>
+</customer-voice>
