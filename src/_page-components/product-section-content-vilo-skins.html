@@ -1,6 +1,48 @@
-
+<hsa-fsa-guide>
+    <card-modal style="--modal-height-mobile: 93svh;">
+      <load ="/_page-components/card-modal-component-template.html" />
+    </card-modal>
+    <div class="hsa-fsa-promo-block">
+      <div class="hsa-fsa-promo-block__content">
+        <div class="hsa-fsa-promo-block__content__text">
+          <p>HSA/FSA eligible with
+            <img class="skip-img-fadein hsa-fsa-promo-block__truemed-icon" src="/images/icons/icon-truemed-blue.png" alt="TrueMed" width="73" height="11" decoding="async">
+          </p>
+        </div>
+        <div class="hsa-fsa-promo-block__content__icon">
+          <button type="button" class="js-hsa-fsa-guide-modal-open" aria-label="Learn about HSA/FSA eligibility">
+            <img src="/images/icons/icon-info.png" alt="" width="23" height="23" decoding="async">
+          </button>
+        </div>
+      </div>
+    </div>
+    <template class="js-modal-content-template">
+      <h3 class="slider-title">How to Pay with HSA/FSA</h3>
+      <p class="hsa-fsa-guide-description"><span class="hsa-fsa-guide-description__lead">Save an average of 30%</span> when you use your pre-tax HSA/FSA funds.*</p>
+      <load ="/_page-components/hsa-fsa-guide-slider.html" />
+    </template>
+  </hsa-fsa-guide>
   <h1 class="product-title">Vilo Skins</h1>
- 
+  <div class="product-price">
+    <div class="product-price__primary">
+      <span data-original-price>$79.00 </span> 
+      <span class="deposit-label-text" data-deposit-label></span> 
+      <span class="compare-at-price light-text" data-compare-price> </span>
+    </div>
+     <div class="product-price__secondary">
+      <div class="product-selling-info">
+        <div class="product-selling-info__lead">HSA/FSA eligible</div>
+        <div class="product-selling-info__installments bnpl-installments">
+          <span class="bnpl-installments__lead">4 payments with</span>
+          <span class="bnpl-installments__money">
+            <span class="js-product-installment-price"></span>
+          </span>
+          <span class="bnpl-installments__with">with</span>
+          <img src="/images/icons/icon-shop-pay.png" alt="" class="product-selling-info__shoppay-icon" loading="lazy" width="41" height="12">
+        </div>
+      </div>
+    </div>
+  </div>
   <p class="product-price"> <span class="deposit-label-text" data-deposit-label></span> </p>
   <p class="product-description">
     <strong>One ring. A wardrobe of looks.</strong>
@@ -14,7 +56,69 @@ Slide one off, click the next one on. No tools, no charging, no second thought. 
   <product-form>
     <div class="product-variant-picker">
     
+        <fieldset class="swatch-container" data-option-name="color">
+  
+
+        <div class="swatch-list">
+          <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Pebble" checked>
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-pebble.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Pebble">
+            </span>
+            <span class="sr-only">Pebble</span>
+          </label>
+
+          <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Chain">
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-chain.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Chain">
+            </span>
+            <span class="sr-only">Chain</span>
+          </label>
+
+          <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Mosaic">
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-mosaic.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Mosaic">
+            </span>
+            <span class="sr-only">Mosaic</span>
+          </label>
+        </div>
+            <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Knot">
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-knot.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Knot">
+            </span>
+            <span class="sr-only">Knot</span>
+          </label>
+        </div>
+      <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Halo">
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-halo.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Halo">
+            </span>
+            <span class="sr-only">Halo</span>
+          </label>
+        </div>
+      <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Reed">
+            <span class="swatch-visual">
+              <img src="/images/product-page/product-swatch-reed.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Reed">
+            </span>
+            <span class="sr-only">Reed</span>
+          </label>
+        </div>
+
+       
+
      
+      </fieldset>
       <size-guide>
         <card-modal style="--modal-height-mobile: 93svh;">
           <load ="/_page-components/card-modal-component-template.html" />
