@@ -1,18 +1,17 @@
 #email-subscription-dialog {
   --modal-dialog-display: block;
-  --modal-dialog-overflow: visible;
+  --modal-dialog-overflow: hidden;
   --modal-dialog-slot-display: block;
   --modal-dialog-slot-flex: initial;
   --modal-dialog-slot-min-height: auto;
   --modal-dialog-slot-width: auto;
   --modal-dialog-width: 100%;
   --modal-dialog-max-width: 100dvw;
-  --modal-dialog-height: auto;
-  --modal-dialog-max-height: none;
+  --modal-dialog-height: fit-content;
+  --modal-dialog-max-height: calc(100dvh - 2rem);
   --modal-dialog-margin: auto auto 0 auto;
   --modal-dialog-border-radius: var(--border-radius-18) var(--border-radius-18) 0 0;
-  --modal-dialog-inset: unset;
-  --modal-dialog-inset-block-end: 0;
+  --modal-dialog-inset: 0;
 }
 
 @media (min-width: 768px) {
@@ -22,8 +21,8 @@
     --modal-dialog-inset-desktop: 0;
     --modal-dialog-width-desktop: calc(100% - 2rem);
     --modal-dialog-max-width-desktop: 100rem;
-    --modal-dialog-height-desktop: auto;
-    --modal-dialog-max-height-desktop: none;
+    --modal-dialog-height-desktop: fit-content;
+    --modal-dialog-max-height-desktop: calc(100dvh - 4rem);
   }
 }
 
