@@ -109,8 +109,7 @@ class ModalDialog extends HTMLElement {
           padding: 0;
           border-radius: var(--modal-dialog-border-radius, var(--border-radius-18) var(--border-radius-18) 0 0);
           margin: var(--modal-dialog-margin, auto auto 0 auto);
-          inset: var(--modal-dialog-inset, unset);
-          inset-block-end: var(--modal-dialog-inset-block-end, 0);
+          inset: var(--modal-dialog-inset, 0);
           transition:
             opacity 0.3s ease-out,
             display 0.3s ease-out allow-discrete;
@@ -165,8 +164,8 @@ class ModalDialog extends HTMLElement {
             inset: var(--modal-dialog-inset-desktop, 0);
             width: var(--modal-dialog-width-desktop, calc(100% - 2rem));
             max-width: var(--modal-dialog-max-width-desktop, 100rem);
-            height: var(--modal-dialog-height-desktop, auto);
-            max-height: var(--modal-dialog-max-height-desktop, none);
+            height: var(--modal-dialog-height-desktop, fit-content);
+            max-height: var(--modal-dialog-max-height-desktop, calc(100dvh - 4rem));
           }
         }
 
