@@ -165,8 +165,8 @@ class ModalDialog extends HTMLElement {
             inset: var(--modal-dialog-inset-desktop, 0);
             width: var(--modal-dialog-width-desktop, calc(100% - 2rem));
             max-width: var(--modal-dialog-max-width-desktop, 100rem);
-            height: var(--modal-dialog-height-desktop, auto);
-            max-height: var(--modal-dialog-max-height-desktop, none);
+            height: var(--modal-dialog-height-desktop, fit-content);
+            max-height: var(--modal-dialog-max-height-desktop, calc(100dvh - 4rem));
           }
         }
 
