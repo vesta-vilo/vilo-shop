@@ -7,12 +7,11 @@
   --modal-dialog-slot-width: auto;
   --modal-dialog-width: 100%;
   --modal-dialog-max-width: 100dvw;
-  --modal-dialog-height: auto;
-  --modal-dialog-max-height: none;
+  --modal-dialog-height: fit-content;
+  --modal-dialog-max-height: calc(100dvh - 2rem);
   --modal-dialog-margin: auto auto 0 auto;
   --modal-dialog-border-radius: var(--border-radius-18) var(--border-radius-18) 0 0;
-  --modal-dialog-inset: unset;
-  --modal-dialog-inset-block-end: 0;
+  --modal-dialog-inset: 0;
 }
 
 @media (min-width: 768px) {

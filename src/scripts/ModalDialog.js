@@ -109,8 +109,7 @@ class ModalDialog extends HTMLElement {
           padding: 0;
           border-radius: var(--modal-dialog-border-radius, var(--border-radius-18) var(--border-radius-18) 0 0);
           margin: var(--modal-dialog-margin, auto auto 0 auto);
-          inset: var(--modal-dialog-inset, unset);
-          inset-block-end: var(--modal-dialog-inset-block-end, 0);
+          inset: var(--modal-dialog-inset, 0);
           transition:
             opacity 0.3s ease-out,
             display 0.3s ease-out allow-discrete;

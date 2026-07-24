@@ -6,7 +6,6 @@ class ProductForm extends HTMLElement {
     this.CONFIG = {
       domain: "0v8paw-jk.myshopify.com",
       token: "e76b0b1745c7f891fc4cf5fd5a412be1",
-      handle: "vilo-smart-ring",
       utmSource: "vilo-site",
       utmMedium: "preorder-button",
       utmCampaign: "vilo-launch-2026",
@@ -77,15 +76,19 @@ class ProductForm extends HTMLElement {
   }
 
   async initShopify() {
+    const handle = this.dataset.productHandle;
+    if (!handle) {
+      console.error("ProductForm: missing data-product-handle attribute");
+      return;
+    }
+
     try {
       const shopifyClient = ShopifyBuy.buildClient({
         domain: this.CONFIG.domain,
         storefrontAccessToken: this.CONFIG.token,
       });
 
-      this.productData = await shopifyClient.product.fetchByHandle(
-        this.CONFIG.handle,
-      );
+      this.productData = await shopifyClient.product.fetchByHandle(handle);
       this.updateVariant();
     } catch (error) {
       console.error("Shopify Initialization Failed:", error);
