@@ -20,6 +20,9 @@ class ProductForm extends HTMLElement {
   }
 
   connectedCallback() {
+    const handle = this.dataset.productHandle;
+    if (handle) this.CONFIG.handle = handle;
+
     this.originalPriceElArray = Array.from(
       document.querySelectorAll("[data-original-price]"),
     );
@@ -34,6 +37,7 @@ class ProductForm extends HTMLElement {
     this.depositLabelEl = document.querySelector("[data-deposit-label]");
     this.customBuyBtn = this.querySelector(".js-preorder-button");
     this.toggleUIState(false);
+    this.addUiEventListeners();
     if (globalThis.ShopifyBuy?.UI) {
       this.initShopify();
     } else {
@@ -49,21 +53,24 @@ class ProductForm extends HTMLElement {
     this.abortController?.abort();
   }
 
-  addEventListeners() {
+  addUiEventListeners() {
+    this.abortController?.abort();
     this.abortController = new AbortController();
     const { signal } = this.abortController;
 
     this.customBuyBtn?.addEventListener("click", this.handleCheckout, {
       signal,
     });
-    const fieldsets = this.querySelectorAll("fieldset");
-    fieldsets.forEach((fs) => {
+
+    this.querySelectorAll("fieldset").forEach((fs) => {
       fs.addEventListener("change", this.updateVariant, { signal });
       if (fs.dataset.optionName === "color") {
         fs.addEventListener("change", this.handleColorChange, { signal });
       }
       if (fs.dataset.optionName === "payment-plan") {
-        fs.addEventListener("change", this.handlePaymentPlanChange, { signal });
+        fs.addEventListener("change", this.handlePaymentPlanChange, {
+          signal,
+        });
       }
     });
   }
@@ -82,7 +89,6 @@ class ProductForm extends HTMLElement {
       });
 
       this.productData = await shopifyClient.product.fetchByHandle(handle);
-      this.addEventListeners();
       this.updateVariant();
     } catch (error) {
       console.error("Shopify Initialization Failed:", error);
@@ -139,7 +145,9 @@ class ProductForm extends HTMLElement {
 
   updateDepositLabel(selectedOptions) {
     if (!this.depositLabelEl) return;
-    this.depositLabelEl.style.display = selectedOptions.includes("Deposit") ? "inline" : "none";
+    this.depositLabelEl.style.display = selectedOptions.includes("Deposit")
+      ? "inline"
+      : "none";
   }
 
   updatePrice(variant) {
@@ -182,4 +190,4 @@ class ProductForm extends HTMLElement {
   }
 }
 
-customElements.define('product-form', ProductForm);
+customElements.define("product-form", ProductForm);

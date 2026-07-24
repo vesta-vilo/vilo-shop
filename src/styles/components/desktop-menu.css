@@ -323,6 +323,17 @@ desktop-menu:defined {
   line-height: 1.6rem;
 }
 
+/* Reserves the width of the hovered (500) weight so hover never reflows the row. */
+.shop-extended__menu-text::before {
+  content: attr(data-text);
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-weight: 500;
+  pointer-events: none;
+}
+
 .shop-extended__menu-text::after {
   content: '';
   display: block;

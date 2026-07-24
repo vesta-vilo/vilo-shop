@@ -190,7 +190,7 @@ subscription-dialog .email-input-field.error + .error-tooltip {
     object-fit: cover;
   }
   .email-subscribe-dialog-holder {
-    height: 60rem;
+    height: min(60rem, calc(100dvh - 4rem));
   }
   .email-subscribe-dialog-image-holder,
   .email-subscribe-dialog-content-holder {

@@ -91,9 +91,9 @@ class ProductMedia extends HTMLElement {
   }
 
   async updateImages(variantName) {
-    const { IMAGES_URLS } = await import('./media-utils.js');
-    const newImages = IMAGES_URLS[variantName];
-    if (!newImages) return;
+    const { getVariantMediaMap } = await import('./media-utils.js');
+    const newImages = getVariantMediaMap()[variantName];
+    if (!Array.isArray(newImages) || !newImages.length) return;
 
     const mainImages = this.querySelectorAll('.product-main-swiper img');
     const thumbImages = this.querySelectorAll('.product-thumb-swiper img');
