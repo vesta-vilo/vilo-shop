@@ -19,7 +19,7 @@
   min-height: 100dvh;
   position: relative;
   color: var(--white);
-  padding: 0 2rem;
+  padding: 0 var(--page-padding-inline);
   box-sizing: border-box;
 }
 

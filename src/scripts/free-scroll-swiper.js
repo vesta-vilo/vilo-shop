@@ -5,8 +5,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 
 const DESKTOP_BREAKPOINT = 1024;
-const TABLET_BREAKPOINT = 768;
-const MOBILE_OFFSET = 15;
 const CONTENT_WIDTH_PX = 1450;
 const MIN_GUTTER_PX = 30;
 
@@ -36,11 +34,7 @@ const initFreeScroll = () => {
       return { before: gutter, after: gutter };
     }
 
-    if (window.innerWidth >= TABLET_BREAKPOINT) {
-      return { before: MOBILE_OFFSET, after: MOBILE_OFFSET };
-    }
-
-    return { before: MOBILE_OFFSET, after: MOBILE_OFFSET };
+    return { before: 0, after: 0 };
   };
 
   const initialOffsets = getOffsets();

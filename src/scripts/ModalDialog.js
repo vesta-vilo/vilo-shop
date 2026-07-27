@@ -107,7 +107,7 @@ class ModalDialog extends HTMLElement {
           max-height: var(--modal-dialog-max-height, none);
           border: none;
           padding: 0;
-          border-radius: var(--modal-dialog-border-radius, var(--border-radius-18) var(--border-radius-18) 0 0);
+          border-radius: var(--modal-dialog-border-radius, var(--border-radius-20) var(--border-radius-20) 0 0);
           margin: var(--modal-dialog-margin, auto auto 0 auto);
           inset: var(--modal-dialog-inset, 0);
           transition:
