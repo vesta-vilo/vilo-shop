@@ -10,7 +10,7 @@
   --modal-dialog-height: fit-content;
   --modal-dialog-max-height: calc(100dvh - 2rem);
   --modal-dialog-margin: auto auto 0 auto;
-  --modal-dialog-border-radius: var(--border-radius-18) var(--border-radius-18) 0 0;
+  --modal-dialog-border-radius: var(--border-radius-20) var(--border-radius-20) 0 0;
   --modal-dialog-inset: 0;
 }
 

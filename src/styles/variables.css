@@ -40,6 +40,10 @@
     --border-radius-20: 2rem;
     --border-radius-30: 3rem;
     --border-radius-full: 100rem;
+
+    /* Layout token */
+    --page-padding-inline: 1.8rem; /* 18px mobile horizontal gutter */
+
     --primary-font: 'Geograph', sans-serif;
     --secondary-font: 'Rastano-3', sans-serif;
     --rastano-font: 'Rastano', sans-serif;
@@ -51,7 +55,7 @@
     --header-height-desktop: 7rem;
     --header-modal-hide-offset: 12rem;
 
-    --modal-body-padding-inline-mobile: 1.8rem;
+    --modal-body-padding-inline-mobile: var(--page-padding-inline);
     --modal-body-padding-inline-desktop: 5rem;
 
     --desktop-menu-transition-duration: 0.55s;

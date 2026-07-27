@@ -154,7 +154,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.6rem;
-  padding-inline: 2rem;
+  padding-inline: var(--page-padding-inline);
   pointer-events: none;
 }
 
@@ -257,7 +257,7 @@
     min-height: 62dvh;
     max-height: 62%;
     z-index: 1;
-    padding: 5.2rem 2rem 8.7rem;
+    padding: 5.2rem var(--page-padding-inline) 8.7rem;
     background: transparent;
     overflow: hidden;
   }
@@ -329,6 +329,10 @@
 @media (min-width: 768px) {
   .customer-voice-modal {
     --customer-voice-modal-desktop-inset: 6rem;
+  }
+
+  .customer-voice-modal-slide__voice {
+    border-radius: var(--border-radius-30);
   }
 
   .customer-voice-modal-swiper,

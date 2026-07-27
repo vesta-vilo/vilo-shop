@@ -21,7 +21,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: var(--border-radius-12);
+    border-radius: var(--border-radius-20);
 }
 
 .gallery-grid .aspect-rect,
@@ -37,7 +37,7 @@
 .gallery-slider .swiper-slide img {
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--border-radius-12);
+    border-radius: var(--border-radius-20);
 }
 
 

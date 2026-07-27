@@ -14,7 +14,7 @@ announcement-bar {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-inline: 1.2rem;
+    padding-inline: var(--page-padding-inline);
 }
 
 .announcement-bar-track {

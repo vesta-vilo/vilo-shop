@@ -54,12 +54,12 @@
   min-width: 0;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: var(--border-radius-14);
+  border-radius: var(--border-radius-20);
   scroll-snap-align: start;
 }
 
 .images-with-text-content {
-  padding-inline: 1.5rem;
+  padding-inline: var(--page-padding-inline);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -73,7 +73,7 @@
 }
 
 .cards-section .swiper-slide img {
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
 }
 
 .cards-section .title {
@@ -109,7 +109,7 @@
   width: 100%;
   flex-shrink: 0;
   aspect-ratio: 38 / 30;
-  border-radius: 3rem;
+  border-radius: var(--border-radius-20);
   overflow: hidden;
 }
 
@@ -200,6 +200,10 @@
 @media (min-width: 768px) {
   .about-us-top {
     padding: 22rem 0 6rem;
+  }
+
+  .modal-card-image-wrapper {
+    border-radius: var(--border-radius-30);
   }
 
   .about-us-top h1 {

@@ -19,7 +19,7 @@ img {
 .container {
     width: 100%;
     max-width: 1875px;
-    padding: 1.5rem 1.8rem;
+    padding: 1.5rem var(--page-padding-inline);
 }
 
 button {

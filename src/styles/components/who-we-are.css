@@ -133,7 +133,7 @@ main.who-we-are-page {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1.6rem 1.6rem 3rem 1.6rem;
+  padding: 1.6rem var(--page-padding-inline) 3rem;
   border: 1px solid var(--primary-color-inverse);
   border-radius: var(--border-radius-20);
   min-width: 0;
@@ -157,7 +157,7 @@ main.who-we-are-page {
 }
 
 .who-we-are-card-media {
-  border-radius: var(--border-radius-16);
+  border-radius: var(--border-radius-20);
   overflow: hidden;
 }
 
@@ -243,7 +243,7 @@ main.who-we-are-page {
   }
 
   .who-we-are-card {
-    padding: 1.8rem 1.8rem 3.2rem 1.8rem;
+    padding: 1.8rem var(--page-padding-inline) 3.2rem;
   }
 
   .who-we-are-card-link {
@@ -251,7 +251,7 @@ main.who-we-are-page {
   }
 
   .who-we-are-card-media img {
-    border-radius: var(--border-radius-20);
+    border-radius: var(--border-radius-30);
   }
 
   .who-we-are-card-name {
