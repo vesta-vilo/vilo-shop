@@ -159,7 +159,7 @@
 @media (min-width: 1024px) {
   .customer-voice-section {
     gap: 6rem;
-    padding-top: 12.4rem;
+    padding-top: 0rem;
     overflow: visible;
   }
 
