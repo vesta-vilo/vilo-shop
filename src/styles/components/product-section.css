@@ -930,7 +930,7 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
     border-radius: var(--border-radius-30);
   }
   .buy-option-visual {
-    border-radius: var(--border-radius-30);
+    border-radius: var(--border-radius-12);
   }
   size-guide .size-guide-footnote a,
   size-guide .size-guide-footnote {
