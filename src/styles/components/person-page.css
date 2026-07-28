@@ -20,7 +20,7 @@ main:has(.person-page) {
 }
 
 .person-page-top {
-  padding: 2.8rem 1.6rem 1.8rem;
+  padding: 2.8rem var(--page-padding-inline) 1.8rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto;
@@ -29,7 +29,7 @@ main:has(.person-page) {
 }
 
 .person-page-bottom {
-  padding: 3rem 1.6rem 6rem;
+  padding: 3rem var(--page-padding-inline) 6rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto;
@@ -201,7 +201,7 @@ main:has(.person-page) {
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: var(--border-radius-16);
+  border-radius: var(--border-radius-20);
 }
 
 @media (min-width: 768px) {

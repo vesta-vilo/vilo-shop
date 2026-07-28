@@ -6,7 +6,7 @@
 }
 .page-content-wrapper {
   padding-top: 6rem;
-  padding-inline: 1.2rem;
+  padding-inline: var(--page-padding-inline);
   width: 100%;
 }
 
@@ -61,7 +61,7 @@
   color: var(--primary-color-inverse);
   z-index: 10;
   max-width: 100%;
-  padding-inline: 1.5rem;
+  padding-inline: var(--page-padding-inline);
   text-align: center;
 }
 
@@ -126,7 +126,7 @@
   margin-top: 4.2rem;
   display: flex;
   justify-content: center;
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
   overflow: hidden;
 }
 .page-media-holder .width-full {
@@ -151,7 +151,7 @@
 
 .page-signup-wrapper {
   position: relative;
-  padding-inline: 1.5rem;
+  padding-inline: var(--page-padding-inline);
   padding-top: 2.5rem;
   padding-bottom: 4.5rem;
   display: flex;
@@ -167,7 +167,7 @@
   opacity: 0.8;
   background-image: linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,0.00) 100%);
   box-shadow: inset 0.5px 1px 0 -0.5px #FFFFFF, inset -0.5px -1px 0 -0.5px #FFFFFF, inset 0 0.5px 0.5px -1px #FFFFFF, inset -1px -0.5px 0.5px -1px #FFFFFF, inset 0 0 20px 0 rgba(255,255,255,0.50), 0 0 2px 0 rgba(0,0,0,0.10), 0 1px 8px 0 rgba(0,0,0,0.12);
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
   z-index: 0;
 }
 
@@ -216,6 +216,10 @@ main > .page-heading-section.heading-section:first-child {
     .page-content-wrapper {
       padding-top: 2rem;
       padding-inline: 0;
+    }
+    .page-media-holder,
+    .page-signup-wrapper::before {
+      border-radius: var(--border-radius-30);
     }
     .page-hero-image-holder {
         display: flex;

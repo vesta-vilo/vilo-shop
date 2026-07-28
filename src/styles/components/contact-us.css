@@ -21,7 +21,7 @@
   opacity: 0.8;
   background: var(--white);
   box-shadow: inset 0.5px 1px 0 -0.5px var(--white), inset -0.5px -1px 0 -0.5px var(--white), inset 0 0.5px 0.5px -1px var(--white), inset -1px -0.5px 0.5px -1px var(--white), inset 0 0 20px 0 rgba(255,255,255,0.50), 0 0 2px 0 rgba(0,0,0,0.10), 0 1px 8px 0 rgba(0,0,0,0.12);
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
   z-index: 0;
 }
 
@@ -151,6 +151,9 @@
 }
 
 @media (min-width: 768px) {
+  .contact-us-wrapper::before {
+      border-radius: var(--border-radius-30);
+  }
   .contact-us-content {
       max-width: 66rem;
       text-align: center;

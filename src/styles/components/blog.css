@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--white);
-    border-radius: var(--border-radius-12);
+    border-radius: var(--border-radius-20);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -101,7 +101,7 @@
     width: 100%;
     margin: 0 auto;
     margin-top: 10rem;
-    padding: 0 2rem;
+    padding: 0 var(--page-padding-inline);
 }
 
 /* Article Header Content */
@@ -221,7 +221,7 @@
     height: auto;
     display: block;
     margin: 4rem 0;
-    border-radius: var(--border-radius-12);
+    border-radius: var(--border-radius-20);
 }
 
 .article-image-caption {
@@ -316,6 +316,11 @@
     .blog-posts-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
+    }
+
+    .blog-post-card,
+    .article-inline-image {
+        border-radius: var(--border-radius-30);
     }
 
     .article-content {

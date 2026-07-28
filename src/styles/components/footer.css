@@ -8,7 +8,7 @@ footer {
 }
 
 footer > .container {
-  padding: 6rem 2rem 5rem;
+  padding: 6rem var(--page-padding-inline) 5rem;
   max-width: 161rem;
   gap: 4rem;
   display: flex;

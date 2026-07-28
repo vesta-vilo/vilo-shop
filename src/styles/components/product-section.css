@@ -171,13 +171,13 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: calc( var(--border-radius-12) / 2);
+  border-radius: calc(var(--border-radius-12) / 2);
   border: 1px solid transparent;
 }
 
 .product-content {
-  padding: 4rem 2rem 0;
-  border-radius: var(--border-radius-18) var(--border-radius-18) 0 0;
+  padding: 4rem var(--page-padding-inline) 0;
+  border-radius: var(--border-radius-20) var(--border-radius-20) 0 0;
   margin-top: -2.5rem;
   position: relative;
   z-index: 20;
@@ -521,7 +521,7 @@ size-guide .size-guide-slider {
 }
 
 :is(size-guide, hsa-fsa-guide) .swiper-slide img {
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
 }
 
 :is(size-guide, hsa-fsa-guide) :is(.size-guide-step-title, .hsa-fsa-guide-step-title) {
@@ -563,7 +563,7 @@ size-guide .size-guide-footnote {
 }
 
 .buy-option-visual {
-  padding: 2rem 1.8rem;
+  padding: 2rem var(--page-padding-inline);
   border-radius: var(--border-radius-12);
 }
 
@@ -928,6 +928,9 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
   }
   :is(size-guide, hsa-fsa-guide) .swiper-slide img {
     border-radius: var(--border-radius-30);
+  }
+  .buy-option-visual {
+    border-radius: var(--border-radius-12);
   }
   size-guide .size-guide-footnote a,
   size-guide .size-guide-footnote {

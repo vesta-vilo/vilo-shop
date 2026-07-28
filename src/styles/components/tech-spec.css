@@ -4,8 +4,8 @@
 
 .tech-specifications-wrapper {
   background: var(--tertiary-color);
-  border-radius: var(--border-radius-12);
-  padding: 4.5rem 1.8rem;
+  border-radius: var(--border-radius-20);
+  padding: 4.5rem var(--page-padding-inline);
   width: 100%;
 }
 
@@ -26,7 +26,7 @@
 
 .tech-specifications-description img {
   max-width: 40%;
-  border-radius: var(--border-radius-12);
+  border-radius: var(--border-radius-20);
 }
 
 .tech-specifications-description-content {

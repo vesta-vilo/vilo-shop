@@ -61,7 +61,7 @@ desktop-menu {
 }
 
 .desktop-menu-image {
-  border-radius: var(--border-radius-20);
+  border-radius: var(--border-radius-30);
   width: 37rem;
 }
 
@@ -315,7 +315,7 @@ desktop-menu:defined {
 .shop-extended__menu-text {
   display: inline-flex;
   flex-direction: column;
-  margin-left: 1.5rem;
+  padding-left: 1.5rem;
   white-space: nowrap;
   color: #212121;
   font-family: var(--primary-font);
