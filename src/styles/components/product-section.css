@@ -1103,6 +1103,7 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
 
 .product-media-slider .swiper-slide img {
   aspect-ratio: auto;
+  border-radius: var(--border-radius-20);
 }
 
 .product-wrapper-homepage .product-content {
