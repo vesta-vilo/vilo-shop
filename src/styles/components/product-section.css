@@ -994,7 +994,7 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
   }
 
   .product-thumb-swiper img {
-    border-radius: var(--border-radius-30);
+    border-radius: var(--border-radius-12);
   }
   .product-content .product-section-promo {
     display: none;
