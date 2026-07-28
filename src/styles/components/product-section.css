@@ -458,7 +458,7 @@ size-guide {
   justify-content: space-between;
   background-color: var(--background-color-secondary);
   border: 1px solid var(--primary-color);
-  border-radius: var(--border-radius-20);
+  border-radius: var(--border-radius-12);
   position: relative;
   padding: 1.4rem 1.4rem 1.4rem 1.8rem;
   margin-bottom: 1.8rem;
@@ -564,7 +564,7 @@ size-guide .size-guide-footnote {
 
 .buy-option-visual {
   padding: 2rem var(--page-padding-inline);
-  border-radius: var(--border-radius-20);
+  border-radius: var(--border-radius-12);
 }
 
 .buy-option-visual h5 {
