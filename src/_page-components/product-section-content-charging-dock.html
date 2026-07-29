@@ -1,84 +1,94 @@
-
-
-
+  <hsa-fsa-guide>
+    <card-modal style="--modal-height-mobile: 93svh;">
+      <load src="/_page-components/card-modal-component-template.html" />
+    </card-modal>
+    <div class="hsa-fsa-promo-block">
+      <div class="hsa-fsa-promo-block__content">
+        <div class="hsa-fsa-promo-block__content__text">
+          <p>HSA/FSA eligible with
+            <img class="skip-img-fadein hsa-fsa-promo-block__truemed-icon" src="/images/icons/icon-truemed-blue.png" alt="TrueMed" width="73" height="11" decoding="async">
+          </p>
+        </div>
+        <div class="hsa-fsa-promo-block__content__icon">
+          <button type="button" class="js-hsa-fsa-guide-modal-open" aria-label="Learn about HSA/FSA eligibility">
+            <img src="/images/icons/icon-info.png" alt="" width="23" height="23" decoding="async">
+          </button>
+        </div>
+      </div>
+    </div>
+    <template class="js-modal-content-template">
+      <h3 class="slider-title">How to Pay with HSA/FSA</h3>
+      <p class="hsa-fsa-guide-description"><span class="hsa-fsa-guide-description__lead">Save an average of 30%</span> when you use your pre-tax HSA/FSA funds.*</p>
+      <load src="/_page-components/hsa-fsa-guide-slider.html" />
+    </template>
+  </hsa-fsa-guide>
+  
   <h1 class="product-title">Vilo Dark Pebble Charging Dock</h1>
  
-  <p class="product-price"> <span class="deposit-label-text" data-deposit-label></span> </p>
+  <div class="product-price">
+    <div class="product-price__primary">
+      <span data-original-price>$79.00 </span> 
+      <span class="deposit-label-text" data-deposit-label></span> 
+      <span class="compare-at-price light-text" data-compare-price> </span>
+    </div>
+    <div class="product-price__secondary">
+      <div class="product-selling-info">
+        <div class="product-selling-info__lead">HSA/FSA eligible</div>
+        <div class="product-selling-info__installments bnpl-installments">
+          <span class="bnpl-installments__lead">4 payments with</span>
+          <span class="bnpl-installments__money">
+            <span class="js-product-installment-price"></span>
+          </span>
+          <span class="bnpl-installments__with">with</span>
+          <img src="/images/icons/icon-shop-pay.png" alt="" class="product-selling-info__shoppay-icon" loading="lazy" width="41" height="12">
+        </div>
+      </div>
+    </div>
+  </div>
   <p class="product-description">
-    <strong>Your ring, stood up and shown off.</strong>
+        <strong>Your ring, stood up and shown off.</strong>
     <span>A small black stone for your desk. Drop your Vilo over the top and it stands upright, lit from within, charging in plain sight.
 </span>
-  
-  
   </p>
   <product-form data-product-handle="vilo-charging-dock">
     <div class="product-variant-picker">
-      <fieldset class="swatch-container payment-plan-picker" data-option-name="payment-plan">
-        <legend class="swatch-container-label">Be among the first to wear it. <span class="light-text"> Hear first. Shape it. Skip the line.</span></legend>
-        <label class="buy-option-item">
-          <input type="radio" name="payment-plan" value="Deposit" checked>
-          <div class="product-promo-info buy-option-visual">
-            <div class="product-badges">
-              <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-early-access-badge.png" alt="Early Access" width="414" height="84" decoding="async">
-            </div>
-            <h5>What you get</h5>
-            <p>Join the list. No payment, no commitment.</p>
-            
-            <hr>
-            <ul>
-              <li><strong>First to know when it's ready</strong></li>
-              <li>
-                <strong>A say in styles, finishes, and features</strong>
-              </li>
-              <li>
-                <strong>Priority access before everyone else</strong>
-              </li>
-             
-            </ul>
-           
-          </div>
-        </label>
-        <label class="buy-option-item">
-          <input type="radio" name="payment-plan" value="Full Payment">
-          <div class="product-promo-info-secondary buy-option-visual">
-            <div class="product-badges">
-              <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-late-2027-badge.png" alt="Late 2027" width="414" height="84" decoding="async">
-            </div>
-            <h5>What you're waiting for</h5>
-            <p>Vilo Earring. $399, at launch.</p>
-           
-            <hr>
-            <ul>
-              <li><strong>Sensing hidden in the back of an earring</strong></li>
-              <li>
-                <strong>Run by Signal OS, the calm intelligence behind Vilo</strong>
-              </li>
-              <li>
-                <strong>Worn as jewelry, or behind the jewelry you love</strong>
-              </li>
-            </ul>
-            <p>Not available to buy yet. Join the list and we'll tell you the moment that changes.</p>
-          </div>
-        </label>
+      <fieldset class="swatch-container" data-option-name="color">
+        <div class="swatch-list">
+           <label class="swatch-item">
+            <input type="radio" name="color-variant" value="Black" checked>
+            <span class="swatch-visual">
+              <img src="/images/product-page/charging-base-black.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - Black Charging Base">
+            </span>
+            <span class="sr-only">Black</span>
+          </label>
+
+          <label class="swatch-item">
+            <input type="radio" name="color-variant" value="White">
+            <span class="swatch-visual">
+              <img src="/images/product-page/charging-base-white.webp" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Vilo - White Charging Base">
+            </span>
+            <span class="sr-only">White</span>
+          </label>
+
+        
+    
+          
+    
+     
+        
+     
+        </div>
+
       </fieldset>
+      
+    
     </div>
-    <product-payment-variant-marquee>
-      <div class="marquee-track">
-        <div class="marquee-content is-active" data-variant="Full Payment">
-          <span>Coming Late 2027</span>
-          <span>Join the Early List</span>
-          <span>Cancel Anytime</span>
-          <span>No Commitment</span>
-        </div>
-        <div class="marquee-content" data-variant="Deposit">
-          <span>Flexible Deposit</span>
-          <span>Ships by Oct ’26</span>
-          <span>1-Year Warranty</span>
-          <span>No Interest</span>
-        </div>
-      </div>
-    </product-payment-variant-marquee>
-   
+    <button class="preorder-button js-preorder-button" data-fb-event="InitiateCheckout">
+      <span>Pre-Order Now</span>
+      <load src="/_icons/icon-animation-arrow.html" />
+    </button>
     <div class="js-contact-us-form get-notify-form">
       <form method="post" data-no-redirect>
         <div class="form-input-elements">

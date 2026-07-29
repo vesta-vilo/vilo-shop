@@ -92,6 +92,7 @@
   object-position: center;
   transition: filter 0.55s ease;
   filter: blur(3px) saturate(0);
+  border-radius: var(--border-radius-20);
 }
 
 .polaroid-card--1 {

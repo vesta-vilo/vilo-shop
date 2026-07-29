@@ -42,7 +42,11 @@
     --border-radius-full: 100rem;
 
     /* Layout token */
-    --page-padding-inline: 1.8rem; /* 18px mobile horizontal gutter */
+    --page-padding-inline: 1.8rem;
+    --layout-gutter-mobile: 1.8rem;
+    --layout-gutter-desktop: 3rem;
+    --layout-product-section-max: 128rem;
+    --layout-menubar-max: 145rem;
 
     --primary-font: 'Geograph', sans-serif;
     --secondary-font: 'Rastano-3', sans-serif;
