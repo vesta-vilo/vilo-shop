@@ -96,9 +96,13 @@ class ModalDialog extends HTMLElement {
   _render() {
     this.shadowRoot.innerHTML = `
       <style>
+        dialog:not([open]) {
+          display: none !important;
+          pointer-events: none;
+        }
+
         dialog {
           opacity: 0;
-          display: var(--modal-dialog-display, block);
           flex-direction: var(--modal-dialog-flex-direction, column);
           overflow: var(--modal-dialog-overflow, visible);
           width: var(--modal-dialog-width, 100%);
@@ -133,6 +137,7 @@ class ModalDialog extends HTMLElement {
         }
 
         dialog[open] {
+          display: var(--modal-dialog-display, block);
           opacity: 1;
         }
 

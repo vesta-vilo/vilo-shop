@@ -73,6 +73,27 @@ class ProductForm extends HTMLElement {
         });
       }
     });
+
+    this.emitInitialVariantChanged();
+  }
+
+  emitVariantChanged(variant) {
+    if (!variant) return;
+    globalThis.dispatchEvent(
+      new CustomEvent("variant:changed", {
+        detail: { variant },
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
+  emitInitialVariantChanged() {
+    const checkedColor = this.querySelector(
+      'fieldset[data-option-name="color"] input:checked',
+    );
+    const variant = checkedColor?.value || this.dataset.defaultVariant;
+    this.emitVariantChanged(variant);
   }
 
   async initShopify() {
@@ -96,16 +117,7 @@ class ProductForm extends HTMLElement {
   }
 
   handleColorChange(e) {
-    const selectedColor = e.target.value;
-    if (selectedColor) {
-      globalThis.dispatchEvent(
-        new CustomEvent("variant:changed", {
-          detail: { variant: selectedColor },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
+    this.emitVariantChanged(e.target.value);
   }
 
   handlePaymentPlanChange(e) {

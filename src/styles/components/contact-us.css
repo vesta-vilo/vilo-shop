@@ -137,7 +137,8 @@
 }
 
 .get-notify-form .form-input-elements input {
-  height: 5rem;
+  height: 5.6rem;
+  box-sizing: border-box;
   border-radius: var(--border-radius-12);
   border: 1px solid var(--text-color-disabled);
   padding: 1.5rem;
@@ -145,6 +146,12 @@
 }
 
 .get-notify-form button[type="submit"] {
+  height: 5.6rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0;
   border-radius: var(--border-radius-12);
   background-color: var(--green-badge);
   border: none;

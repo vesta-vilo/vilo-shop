@@ -20,6 +20,12 @@
     type="image/webp">
   <link rel="preload" fetchpriority="high" as="image" href="/images/product-page/skins/Pebble/pebble6.webp"
     type="image/webp">
+  <link rel="preload" fetchpriority="low" as="image" href="/images/product-page/skins/Pebble/pebble4.webp"
+    type="image/webp">
+  <link rel="preload" fetchpriority="low" as="image" href="/images/product-page/skins/Pebble/pebble5.webp"
+    type="image/webp">
+  <link rel="preload" fetchpriority="low" as="image" href="/images/product-page/skins/Pebble/pebble6.webp"
+    type="image/webp">
   <load src="/_page-components/tags-and-pixels-head.html" />
 </head>
 
@@ -58,6 +64,15 @@
               <div class="swiper-slide">
                 <img src="/images/product-page/skins/Pebble/pebble6.webp" alt="Vilo Skin Pebble - view 6">
               </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/skins/Pebble/pebble4.webp" alt="Vilo Skin Pebble - view 7">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/skins/Pebble/pebble5.webp" alt="Vilo Skin Pebble - view 8">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/skins/Pebble/pebble6.webp" alt="Vilo Skin Pebble - view 9">
+              </div>
             </div>
             <div class="product-main-swiper-navigation">
               <div class="product-main-swiper-button-prev product-main-swiper-navigation-btn">
@@ -95,9 +110,24 @@
                   <img src="/images/product-page/skins/Pebble/pebble6.webp" alt="Vilo Skin Pebble - thumbnail 6"
                     loading="eager" decoding="async">
                 </div>
+                <div class="swiper-slide">
+                  <img src="/images/product-page/skins/Pebble/pebble4.webp" alt="Vilo Skin Pebble - thumbnail 7"
+                    loading="lazy" decoding="async">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/images/product-page/skins/Pebble/pebble5.webp" alt="Vilo Skin Pebble - thumbnail 8"
+                    loading="lazy" decoding="async">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/images/product-page/skins/Pebble/pebble6.webp" alt="Vilo Skin Pebble - thumbnail 9"
+                    loading="lazy" decoding="async">
+                </div>
               </div>
             </div>
             <div class="swiper-pagination product-main-swiper-pagination"></div>
+          </div>
+          <div class="product-media-video">
+            <img src="/images/product-page/skins/Pebble/Pebble.webp" alt="Vilo Skins - Pebble" loading="lazy" decoding="async">
           </div>
           <load src="/_page-components/product-section-promo.html" />
         </product-media>
@@ -144,7 +174,7 @@
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/reed.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Reed">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Reed</h2>
@@ -158,7 +188,7 @@
         <div class="container image-with-copy-container desktop-row-reverse">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/halo.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Halo">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Halo</h2>
@@ -172,7 +202,7 @@
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/pebble.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Pebble">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Pebble</h2>
@@ -184,7 +214,7 @@
         <div class="container image-with-copy-container desktop-row-reverse">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/knot.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Knot">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Knot</h2>
@@ -197,7 +227,7 @@
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/mosaic.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Mosaic">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Mosaic</h2>
@@ -209,7 +239,7 @@
         <div class="container image-with-copy-container desktop-row-reverse">
           <div class="image-with-copy-image">
             <img src="/images/product-page/skins/chain.webp" loading="lazy" fetchpriority="low" decoding="async"
-              alt="Product 1 screenshot">
+              alt="Chain">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Chain</h2>
@@ -290,62 +320,110 @@
   <load src="/_page-components/footer.html" />
   <load src="/_page-components/email-subscribe-dialog.html" />
 
-  <!--
-    Variant gallery map for managers (kept at end of body to avoid blocking render):
-    - Keys must match color radio `value`s in the product form
-    - Arrays update main + thumb slides in order on variant change
-    - Also update the visible <img> srcs / preload links for the default variant
-  -->
   <script type="application/json" data-product-variant-media>
             {
-              "Pebble": [
-                "/images/product-page/skins/Pebble/Pebble.webp",
-                "/images/product-page/skins/Pebble/pebble2.webp",
-                "/images/product-page/skins/Pebble/pebble3.webp",
-                "/images/product-page/skins/Pebble/pebble4.webp",
-                "/images/product-page/skins/Pebble/pebble5.webp",
-                "/images/product-page/skins/Pebble/pebble6.webp"
-              ],
-              "Chain": [
-                "/images/product-page/skins/Chain/chain1.webp",
-                "/images/product-page/skins/Chain/chain2.webp",
-                "/images/product-page/skins/Chain/chain3.webp",
-                "/images/product-page/skins/Chain/chain4.webp",
-                "/images/product-page/skins/Chain/chain5.webp",
-                "/images/product-page/skins/Chain/chain6.webp"
-              ],
-              "Mosaic": [
-                "/images/product-page/skins/Mosaic/mosaic1.webp",
-                "/images/product-page/skins/Mosaic/mosaic2.webp",
-                "/images/product-page/skins/Mosaic/mosaic3.webp",
-                "/images/product-page/skins/Mosaic/mosaic4.webp",
-                "/images/product-page/skins/Mosaic/mosaic5.webp",
-                "/images/product-page/skins/Mosaic/mosaic6.webp"
-              ],
-              "Knot": [
-                "/images/product-page/skins/Knot/knot1.webp",
-                "/images/product-page/skins/Knot/knot2.webp",
-                "/images/product-page/skins/Knot/knot3.webp",
-                "/images/product-page/skins/Knot/knot4.webp",
-                "/images/product-page/skins/Knot/knot5.webp",
-                "/images/product-page/skins/Knot/knot6.webp"
-              ],
-              "Halo": [
-                "/images/product-page/skins/Halo/halo1.webp",
-                "/images/product-page/skins/Halo/halo2.webp",
-                "/images/product-page/skins/Halo/halo3.webp",
-                "/images/product-page/skins/Halo/halo4.webp",
-                "/images/product-page/skins/Halo/halo5.webp",
-                "/images/product-page/skins/Halo/halo6.webp"
-              ],
-              "Reed": [
-                "/images/product-page/skins/Reed/reed1.webp",
-                "/images/product-page/skins/Reed/reed2.webp",
-                "/images/product-page/skins/Reed/reed3.webp",
-                "/images/product-page/skins/Reed/reed4.webp",
-                "/images/product-page/skins/Reed/reed5.webp",
-                "/images/product-page/skins/Reed/reed6.webp"
-              ]
+              "Pebble": {
+                "images": [
+                  "/images/product-page/skins/Pebble/Pebble.webp",
+                  "/images/product-page/skins/Pebble/pebble2.webp",
+                  "/images/product-page/skins/Pebble/pebble3.webp",
+                  "/images/product-page/skins/Pebble/pebble4.webp",
+                  "/images/product-page/skins/Pebble/pebble5.webp",
+                  "/images/product-page/skins/Pebble/pebble6.webp",
+                  "/images/product-page/skins/Pebble/pebble4.webp",
+                  "/images/product-page/skins/Pebble/pebble5.webp",
+                  "/images/product-page/skins/Pebble/pebble6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Pebble/Pebble.webp",
+                  "alt": "Vilo Skins - Pebble"
+                }
+              },
+              "Chain": {
+                "images": [
+                  "/images/product-page/skins/Chain/chain1.webp",
+                  "/images/product-page/skins/Chain/chain2.webp",
+                  "/images/product-page/skins/Chain/chain3.webp",
+                  "/images/product-page/skins/Chain/chain4.webp",
+                  "/images/product-page/skins/Chain/chain5.webp",
+                  "/images/product-page/skins/Chain/chain6.webp",
+                  "/images/product-page/skins/Chain/chain4.webp",
+                  "/images/product-page/skins/Chain/chain5.webp",
+                  "/images/product-page/skins/Chain/chain6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Chain/chain1.webp",
+                  "alt": "Vilo Skins - Chain"
+                }
+              },
+              "Mosaic": {
+                "images": [
+                  "/images/product-page/skins/Mosaic/mosaic1.webp",
+                  "/images/product-page/skins/Mosaic/mosaic2.webp",
+                  "/images/product-page/skins/Mosaic/mosaic3.webp",
+                  "/images/product-page/skins/Mosaic/mosaic4.webp",
+                  "/images/product-page/skins/Mosaic/mosaic5.webp",
+                  "/images/product-page/skins/Mosaic/mosaic6.webp",
+                  "/images/product-page/skins/Mosaic/mosaic4.webp",
+                  "/images/product-page/skins/Mosaic/mosaic5.webp",
+                  "/images/product-page/skins/Mosaic/mosaic6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Mosaic/mosaic1.webp",
+                  "alt": "Vilo Skins - Mosaic"
+                }
+              },
+              "Knot": {
+                "images": [
+                  "/images/product-page/skins/Knot/knot1.webp",
+                  "/images/product-page/skins/Knot/knot2.webp",
+                  "/images/product-page/skins/Knot/knot3.webp",
+                  "/images/product-page/skins/Knot/knot4.webp",
+                  "/images/product-page/skins/Knot/knot5.webp",
+                  "/images/product-page/skins/Knot/knot6.webp",
+                  "/images/product-page/skins/Knot/knot4.webp",
+                  "/images/product-page/skins/Knot/knot5.webp",
+                  "/images/product-page/skins/Knot/knot6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Knot/knot1.webp",
+                  "alt": "Vilo Skins - Knot"
+                }
+              },
+              "Halo": {
+                "images": [
+                  "/images/product-page/skins/Halo/halo1.webp",
+                  "/images/product-page/skins/Halo/halo2.webp",
+                  "/images/product-page/skins/Halo/halo3.webp",
+                  "/images/product-page/skins/Halo/halo4.webp",
+                  "/images/product-page/skins/Halo/halo5.webp",
+                  "/images/product-page/skins/Halo/halo6.webp",
+                  "/images/product-page/skins/Halo/halo4.webp",
+                  "/images/product-page/skins/Halo/halo5.webp",
+                  "/images/product-page/skins/Halo/halo6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Halo/halo1.webp",
+                  "alt": "Vilo Skins - Halo"
+                }
+              },
+              "Reed": {
+                "images": [
+                  "/images/product-page/skins/Reed/reed1.webp",
+                  "/images/product-page/skins/Reed/reed2.webp",
+                  "/images/product-page/skins/Reed/reed3.webp",
+                  "/images/product-page/skins/Reed/reed4.webp",
+                  "/images/product-page/skins/Reed/reed5.webp",
+                  "/images/product-page/skins/Reed/reed6.webp",
+                  "/images/product-page/skins/Reed/reed4.webp",
+                  "/images/product-page/skins/Reed/reed5.webp",
+                  "/images/product-page/skins/Reed/reed6.webp"
+                ],
+                "video": {
+                  "src": "/images/product-page/skins/Reed/reed1.webp",
+                  "alt": "Vilo Skins - Reed"
+                }
+              }
             }
           </script>
 
