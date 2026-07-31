@@ -1,13 +1,29 @@
 const SCRIPT_SELECTOR = 'script[type="application/json"][data-product-variant-media]';
 
-/**
- * Reads the per-page variant → gallery image map from a JSON script near
- * the end of <body>:
- *   <script type="application/json" data-product-variant-media>...</script>
- *
- * Keys must match the color/style radio `value` attributes on the product form.
- * Keep this script at the end of the page so it does not sit in the media markup.
- */
+export function parseVariantEntry(entry) {
+  if (Array.isArray(entry)) {
+    return {
+      images: entry,
+      video: entry[0] ? { src: entry[0] } : null,
+    };
+  }
+
+  if (!entry || typeof entry !== 'object') {
+    return { images: [], video: null };
+  }
+
+  const images = Array.isArray(entry.images) ? entry.images : [];
+  let video = entry.video ?? null;
+
+  if (typeof video === 'string') {
+    video = { src: video };
+  } else if (!video && images[0]) {
+    video = { src: images[0] };
+  }
+
+  return { images, video };
+}
+
 export function getVariantMediaMap() {
   const el = document.querySelector(SCRIPT_SELECTOR);
   if (!el) return {};
@@ -21,13 +37,19 @@ export function getVariantMediaMap() {
   }
 }
 
+export function getVariantMedia(variantName) {
+  const entry = getVariantMediaMap()[variantName];
+  return entry ? parseVariantEntry(entry) : null;
+}
+
 export const preloadAllVariants = () => {
   const task = () => {
     const map = getVariantMediaMap();
-    Object.values(map).forEach((urls) => {
-      if (!Array.isArray(urls)) return;
+    Object.values(map).forEach((entry) => {
+      const { images, video } = parseVariantEntry(entry);
+      const urls = new Set([...images, video?.src].filter(Boolean));
+
       urls.forEach((url) => {
-        if (!url) return;
         const img = new Image();
         img.src = url;
       });
