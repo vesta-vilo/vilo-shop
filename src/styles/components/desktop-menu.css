@@ -24,9 +24,9 @@ desktop-menu {
 
 .desktop-menu-container {
   min-height: 26rem;
-  width: 100%;
-  max-width: 187.5rem;
-  padding: 2.8rem 8rem;
+  width: calc(100% - 2 * var(--layout-gutter-desktop));
+  max-width: 141.6rem;
+  padding: 2.8rem 0rem;
   display: flex;
 }
 
@@ -174,6 +174,103 @@ desktop-menu:defined {
   gap: 0;
 }
 
+.desktop-menu-row--experience {
+  max-height: none;
+}
+
+.desktop-menu-row--experience.is-active {
+  display: block;
+}
+
+.experience-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.experience-menu-cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: block;
+  padding: 1.8rem 2.1rem 2rem 1.6rem;
+  border-radius: 2.23rem;
+  background-image: var(--experience-menu-cell-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.experience-menu-cell__title {
+  display: block;
+  color: var(--white);
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 2.826rem;
+}
+
+.experience-menu-cell__action {
+  position: absolute;
+  right: 2.1rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--border-radius-full);
+  background-color: color-mix(in srgb, var(--background-color-secondary) 90%, transparent);
+}
+
+.experience-menu-cell__action .icon-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-menu-cell__action .icon-plus img {
+  width: 2.28rem;
+  height: 2.28rem;
+  object-fit: contain;
+  display: block;
+}
+
+.secondary-menu-item--experience {
+  gap: 0;
+}
+
+.secondary-menu-item--experience .experience-menu-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.secondary-menu-item--experience .experience-menu-cell {
+  padding: 1.2rem;
+  border-radius: 2.1rem;
+}
+
+.secondary-menu-item--experience .experience-menu-cell__action {
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.secondary-menu-item--experience .experience-menu-cell__action .icon-plus img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.secondary-menu-item--experience .experience-menu-cell__title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 1.882rem;
+  color: var(--white);
+}
+
 .shop-extended {
   display: flex;
   flex-direction: column;
@@ -199,7 +296,7 @@ desktop-menu:defined {
 .shop-extended__showcase {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
+  gap: 1.1rem;
   width: 100%;
   max-width: 100%;
   align-items: start;
@@ -234,12 +331,12 @@ desktop-menu:defined {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 3rem 1.5rem 1.5rem 1.5rem;
+  gap: 1.1rem;
+  padding: 1.5rem;
 }
 
 .shop-extended__showcase-heading {
-  color: #FFFFFF;
+  color: var(--white);
   font-family: var(--primary-font);
   font-weight: 500;
   font-size: 1.8rem;
@@ -247,7 +344,7 @@ desktop-menu:defined {
 }
 
 .shop-extended__showcase-subheading {
-  color: #FFFFFF;
+  color: var(--white);
   font-family: var(--primary-font);
   font-size: 1.4rem;
   line-height: 1.4rem;
@@ -278,7 +375,8 @@ desktop-menu:defined {
   display: flex;
   align-items: stretch;
   flex-shrink: 0;
-  padding-inline: 5rem;
+  padding-left: 7rem;
+  padding-right: 6rem;
 }
 
 .shop-extended__splitter {
@@ -383,10 +481,10 @@ desktop-menu:defined {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2.4rem;
   width: 100%;
-  max-width: 112rem;
+  max-width: 87rem;
   margin-inline: auto;
   padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-bottom: 5.5rem;
 }
 
 .shop-extended__promo {
@@ -468,6 +566,31 @@ desktop-menu:defined {
 
   .shop-extended__menu-link:has(.menu-list-item-icon-hover):active .menu-list-item-icon-hover {
     opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shop-extended__showcase {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.7rem;
+    width: 100%;
+    max-width: 100%;
+    align-items: start;
+  }
+  .shop-extended__showcase-copy {
+    gap: 0.6rem;
+    padding: 3rem 2.2rem 2.1rem 1.6rem;
+  }
+  .shop-extended__showcase-heading {
+    font-size: 2.4rem;
+  }
+  .shop-extended__showcase-arrow {
+    width: 4rem;
+    height: 4rem;
+  }
+  .shop-extended__showcase-arrow img {
+    width: 2.2rem;
   }
 }
 

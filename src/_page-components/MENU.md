@@ -18,9 +18,9 @@ Header `data-dropdown-id` (desktop) and mobile `data-child-links-list-id` must m
 
 | What | File |
 |------|------|
-| Desktop layout & hero image | `components/desktop-menu-row-experience.html` |
-| Desktop link columns | `components/menu-experience-links-col-1.html`, `menu-experience-links-col-2.html` |
+| Desktop layout | `components/desktop-menu-row-experience.html` |
 | Mobile sub-menu | `components/mobile-menu-row-experience.html` |
+| Shared 6-cell grid (desktop + mobile) | `components/menu-experience-grid.html` |
 | Styles | `src/styles/components/desktop-menu.css` |
 
 ---

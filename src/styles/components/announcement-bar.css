@@ -98,40 +98,6 @@ announcement-bar a {
     text-decoration: underline;
 }
 
-.drawer-announcement-bar-content {
-    text-align: center;
-    width: 100%;
-}
-
-.drawer-announcement-bar-content a,
-.drawer-announcement-bar-content span {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    color: var(--text-color-secondary);
-}
-
-.drawer-announcement-bar-content .announcement-bar-slider {
-    width: 100%;
-}
-
-.drawer-announcement-bar-content .announcement-bar-caret--default {
-    opacity: 0;
-}
-
-.drawer-announcement-bar-content .announcement-bar-caret--active {
-    opacity: 1;
-    position: static;
-}
-
-.drawer-announcement-bar-content .announcement-bar-slide {
-    flex-direction: column;
-    gap: 0.2rem;
-}
-
-.drawer-announcement-bar-content a {
-    text-decoration: underline;
-}
-
 @media (min-width: 768px) {
     announcement-bar {
         font-size: 1.6rem;

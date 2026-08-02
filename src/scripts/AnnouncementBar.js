@@ -48,7 +48,7 @@ function initAnnouncementSlider(root) {
 }
 
 function initAllAnnouncementSliders() {
-  document.querySelectorAll('announcement-bar, .drawer-announcement-bar-content').forEach(initAnnouncementSlider);
+  document.querySelectorAll('announcement-bar').forEach(initAnnouncementSlider);
 }
 
 class AnnouncementBar extends HTMLElement {
