@@ -121,11 +121,6 @@ class MobileMenu extends HTMLElement {
 
                 <div class="drawer">
                   <div class="drawer-content-wrapper">
-                    <div class="drawer-announcement-bar">
-                      <div class="announcement-bar-content">
-                        <slot name="announcement-bar"></slot>
-                      </div>
-                    </div>
                     <div class="drawer-header">
                       <div class="drawer-header-btn">
                         <div class="icon-back" aria-label="Back to main menu">

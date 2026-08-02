@@ -301,7 +301,7 @@ header .mobile-menu-btn img {
     opacity: 0;
     pointer-events: none;
     will-change: transform;
-    padding-block: 2.4rem;
+    padding-bottom: 2.4rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;

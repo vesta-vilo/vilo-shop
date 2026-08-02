@@ -12,6 +12,9 @@ class CardModal extends HTMLElement {
     this.CLOSE_TRANSITION = `transform ${this.CLOSE_TRANSITION_MS}ms cubic-bezier(0.2, 0, 0, 1)`
     this.PIXELS_SCROLLED_FOR_CLOSE = 200
 
+    this._getBackdropOpacity = () =>
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--backdrop-opacity')) || 0.8
+
     this._mediaQuery = globalThis.matchMedia('(max-width: 768px)')
     this._mobileState = this._mediaQuery.matches
 
@@ -96,8 +99,9 @@ class CardModal extends HTMLElement {
     const dragY = this.currentY < 0 ? this.currentY * 0.2 : this.currentY
     this.modal.style.transform = `translateY(${dragY}px)`
 
-    const newAlpha = Math.max(0, 0.8 - (dragY / 400))
-    this.style.setProperty('--backdrop-alpha', newAlpha)
+    const baseOpacity = this._getBackdropOpacity()
+    const newAlpha = Math.max(0, baseOpacity - (dragY / 400))
+    this.style.setProperty('--backdrop-opacity', String(newAlpha))
 
     const newBlur = Math.max(0, 5 - (dragY / 80))
     this.overlay.style.backdropFilter = `blur(${newBlur}px)`
@@ -114,8 +118,8 @@ class CardModal extends HTMLElement {
     } else {
       this.modal.style.transition = 'transform 0.4s cubic-bezier(0.2, 0, 0, 1)'
       this.modal.style.transform = 'translateY(0)'
-      this.style.setProperty('--backdrop-alpha', '0.8')
-      this.style.setProperty('--backdrop-blur', '5px')
+      this.style.removeProperty('--backdrop-opacity')
+      this.style.removeProperty('--backdrop-blur')
       this.overlay.style.backdropFilter = ''
       this.overlay.style.webkitBackdropFilter = ''
     }
@@ -125,8 +129,8 @@ class CardModal extends HTMLElement {
     this.modal.style.transition = 'none'
     this.modal.style.transform = this._mobileState ? 'translateY(var(--modal-hide-y))' : 'translateX(100%)'
 
-    this.style.setProperty('--backdrop-alpha', '0.8')
-    this.style.setProperty('--backdrop-blur', '5px')
+    this.style.removeProperty('--backdrop-opacity')
+    this.style.removeProperty('--backdrop-blur')
     this.overlay.style.backdropFilter = ''
     this.overlay.style.webkitBackdropFilter = ''
 
@@ -159,8 +163,8 @@ class CardModal extends HTMLElement {
 
     setTimeout(() => {
       this._unlockBodyScroll()
-      this.style.setProperty('--backdrop-alpha', '0.8')
-      this.style.setProperty('--backdrop-blur', '5px')
+      this.style.removeProperty('--backdrop-opacity')
+      this.style.removeProperty('--backdrop-blur')
       this.overlay.style.backdropFilter = ''
     }, this.CLOSE_TRANSITION_MS)
 

@@ -123,9 +123,9 @@ class ModalDialog extends HTMLElement {
         }
 
         dialog::backdrop {
-          background-color: var(--modal-dialog-backdrop-color, rgba(168, 176, 183, .8));
-          backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
-          -webkit-backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
+          background-color: var(--modal-dialog-backdrop-color, rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity)));
+          backdrop-filter: blur(var(--modal-dialog-backdrop-blur, var(--backdrop-blur)));
+          -webkit-backdrop-filter: blur(var(--modal-dialog-backdrop-blur, var(--backdrop-blur)));
           opacity: 0;
           transition:
             background 0.3s ease-out,
