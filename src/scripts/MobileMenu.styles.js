@@ -4,10 +4,12 @@ mobileMenuStyles.replaceSync(`
      position: fixed;
      top: 0;
      left: -100%;
-     width: 100%;
+     width: calc(100% - 4rem);
      height: 100dvh;
-     max-width: 43rem;
+     max-width: calc(43rem - 4rem);
      background: var(--white);
+     border-radius: 0 var(--border-radius-20) var(--border-radius-20) 0;
+     overflow: hidden;
      transition: 0.3s;
      z-index: 120;
      box-shadow: -0.2rem 0 .5rem rgba(var(--black),0.5);
@@ -23,22 +25,19 @@ mobileMenuStyles.replaceSync(`
    .drawer.open {
      left: 0;
    }
-   .drawer-announcement-bar {
-     display: flex;
-     justify-content: center;
-     padding-block: 2.7rem;
-   }
    .drawer-header {
      display: flex;
      justify-content: space-between;
      align-items: center;
+     padding-top: 6rem;
+     padding-bottom: 2.4rem;
    }
    .drawer-content {
      flex: 1;
      display: flex;
      flex-direction: column;
      justify-content: space-between;
-     max-height: calc(100% - 12rem);
+     max-height: calc(100% - 6rem);
      position: relative;
      overflow: hidden;
    }
@@ -61,7 +60,9 @@ mobileMenuStyles.replaceSync(`
        left: 0;
        width: 100%;
        height: 100%;
-       background: rgba(0,0,0, .5);
+       background: rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity));
+       backdrop-filter: blur(var(--backdrop-blur));
+       -webkit-backdrop-filter: blur(var(--backdrop-blur));
        visibility: hidden;
        opacity: 0;
        transition: 0.3s;

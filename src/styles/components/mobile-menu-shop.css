@@ -8,7 +8,7 @@
 }
 
 .mobile-shop-menu__row--links {
-  margin-top: 2rem;
+  margin-top: 2.6rem;
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -34,7 +34,7 @@
 }
 
 .mobile-shop-menu__cards .swiper-slide {
-  width: 30.4rem;
+  width: 27.7rem;
   max-width: 100%;
   height: auto;
 }
@@ -72,7 +72,7 @@
 }
 
 .mobile-shop-menu__card-heading {
-  color: #FFFFFF;
+  color: var(--white);
   font-family: var(--primary-font);
   font-weight: 500;
   font-size: 1.8rem;
@@ -80,7 +80,7 @@
 }
 
 .mobile-shop-menu__card-subheading {
-  color: #FFFFFF;
+  color: var(--white);
   font-family: var(--primary-font);
   font-size: 1.4rem;
   line-height: 1.4rem;

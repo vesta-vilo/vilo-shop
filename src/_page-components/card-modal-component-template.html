@@ -4,8 +4,6 @@
         display: block;
         position: relative;
         z-index: 9999;
-        --backdrop-alpha: 0.8;
-        --backdrop-blur: 5px;
         --modal-height-mobile: 93svh;
         --modal-height-desktop: 100dvh;
         --modal-hide-y: calc(100svh + env(safe-area-inset-bottom, 0px) + 24px);
@@ -14,7 +12,7 @@
       .overlay {
         position: fixed;
         inset: 0;
-        background-color: rgba(168, 176, 183, 0);
+        background-color: rgb(var(--backdrop-color-rgb) / 0);
         backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
         z-index: 9998;
@@ -25,7 +23,7 @@
 
       :host([open]) .overlay {
         visibility: visible;
-        background-color: rgba(168, 176, 183, var(--backdrop-alpha));
+        background-color: rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity));
         backdrop-filter: blur(var(--backdrop-blur));
         -webkit-backdrop-filter: blur(var(--backdrop-blur));
         pointer-events: auto;

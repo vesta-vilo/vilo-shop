@@ -96,9 +96,13 @@ class ModalDialog extends HTMLElement {
   _render() {
     this.shadowRoot.innerHTML = `
       <style>
+        dialog:not([open]) {
+          display: none !important;
+          pointer-events: none;
+        }
+
         dialog {
           opacity: 0;
-          display: var(--modal-dialog-display, block);
           flex-direction: var(--modal-dialog-flex-direction, column);
           overflow: var(--modal-dialog-overflow, visible);
           width: var(--modal-dialog-width, 100%);
@@ -123,9 +127,9 @@ class ModalDialog extends HTMLElement {
         }
 
         dialog::backdrop {
-          background-color: var(--modal-dialog-backdrop-color, rgba(168, 176, 183, .8));
-          backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
-          -webkit-backdrop-filter: blur(var(--modal-dialog-backdrop-blur, 5px));
+          background-color: var(--modal-dialog-backdrop-color, rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity)));
+          backdrop-filter: blur(var(--modal-dialog-backdrop-blur, var(--backdrop-blur)));
+          -webkit-backdrop-filter: blur(var(--modal-dialog-backdrop-blur, var(--backdrop-blur)));
           opacity: 0;
           transition:
             background 0.3s ease-out,
@@ -133,6 +137,7 @@ class ModalDialog extends HTMLElement {
         }
 
         dialog[open] {
+          display: var(--modal-dialog-display, block);
           opacity: 1;
         }
 

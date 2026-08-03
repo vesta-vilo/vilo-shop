@@ -39,6 +39,33 @@ Two initialization patterns are used throughout `src/scripts/`:
 
 Swiper (`swiper` npm package) powers the various carousels/sliders (galleries, product media, menus); GSAP (`gsap`) powers scroll/parallax animation. `EventTracking.js` wires up Facebook Pixel tracking generically via a `data-fb-event="EventName"` attribute on any clickable element — prefer adding that attribute over writing bespoke tracking code.
 
+### Product pages (`product-media`, variant media JSON)
+
+PDP galleries use the `ProductMedia` custom element (`ProductMedia.js`) — main fade swiper, thumb strip, pagination, and a desktop-only `.product-media-video` block (image in markup; styled in `product-section.css`).
+
+Each PDP ends with a JSON script tag (kept at the bottom of `<body>` so it does not block render):
+
+```html
+<script type="application/json" data-product-variant-media>{ ... }</script>
+```
+
+Parsed by `media-utils.js`; consumed by `ProductMedia` on `variant:changed` (`detail.variant`), which `ProductForm` emits on color swatch change and once on connect (checked color, or `data-default-variant` when there is no color picker).
+
+**Schema per variant key** (key = color radio `value`, or a single key like `"Default"` when there is no color picker):
+
+```json
+"Glass Jade": {
+  "images": ["...", "..."],
+  "video": { "src": "...", "alt": "VILO Ring - Glass Jade" }
+}
+```
+
+- `images` — 7–9 gallery URLs (markup has 9 slides; slides 7–9 usually duplicate 4–6). Updates main + thumb swipers on variant change.
+- `video` — updates `.product-media-video img` (`src` + `alt`). `video` may be a src string; if omitted, the first gallery image is used.
+- Legacy array-only values (`"Glass Jade": ["url", ...]`) still work.
+
+When editing the default variant, also update the visible gallery `<img>` srcs, `.product-media-video` defaults, and `<link rel="preload">` entries in `<head>`.
+
 ### Styles
 
 Plain CSS, no preprocessor. `src/styles/index.css` is the entry point pulling in `reset.css`, `variables.css`, `fonts.css`, `flex.css`, and everything under `src/styles/components/` — one file per component/section, generally mirroring the `_page-components` partial it styles.
