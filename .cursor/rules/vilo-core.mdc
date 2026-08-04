@@ -1,5 +1,5 @@
 ---
-description: Vilo repo essentials — stack, commands, assets, git workflow
+description: Vilo project architecture, commands, and conventions
 alwaysApply: true
 ---
 
@@ -23,9 +23,17 @@ No test suite, linter, or type checker — do not add tooling unless requested.
 - Root-relative paths (`/images/...`) → `public/` (copied verbatim to `dist/`).
 - Fonts and build-processed assets → `src/assets/`.
 
+## JavaScript
+
+Islands architecture — see `.cursor/rules/javascript.mdc` for details.
+
+- **Entry:** `src/scripts/index.js` on every page (imports core + island boot).
+- **Core** (`core.js`): site chrome loaded on all pages.
+- **Islands** (`islands/registry.js`): lazy-loaded per page based on DOM selectors; Vite code-splits each island.
+
 ## Styles
 
-Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md`.
+Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md` (includes collage — see `COLLAGE.md`).
 
 ## Git workflow
 

@@ -1,6 +1,6 @@
 # Section partials
 
-Guidance for page sections in `src/_page-components/` (e.g. `media-icons.html`, `customer-voice.html`).
+Guidance for page sections in `src/_page-components/` (e.g. `media-icons.html`, `collage.html`, `customer-voice.html`). Prefer these docs (and `.cursor/rules/section-layout.mdc` when present) before changing layout width or gutters.
 
 ## Horizontal layout baseline
 
@@ -46,3 +46,13 @@ Put width constraints on the **`<section>` root**, not on inner rows or `.contai
 ## HTML blank lines
 
 See `.cursor/rules/html-formatting.mdc` — at most one consecutive blank line between blocks.
+
+---
+
+## Section guides
+
+| Doc | Section | Partial | Styles |
+|-----|---------|---------|--------|
+| `COLLAGE.md` | Homepage collage (stacked + cover media rows) | `collage.html` | `collage.css` |
+| `EXPERIENCE-GRID.md` | Why Vilo / Experience grid | `why-vilo-section.html` + `components/experience-grid-*.html` | `experience-grid.css` |
+| `MENU.md` | Site nav (not a page section; linked for completeness) | `desktop-menu.html`, `mobile-menu.html`, … | `desktop-menu.css`, … |

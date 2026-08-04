@@ -1,22 +1,57 @@
 ---
-description: Plain ES module patterns — custom elements, init, Swiper, GSAP, tracking
-globs: src/scripts/**/*.js
+description: JavaScript entry, islands architecture, and init patterns
+globs: src/scripts/**/*
 alwaysApply: false
 ---
 
 # JavaScript
 
-Plain ES modules — no framework or centralized state.
+Plain ES modules — no framework or centralized state. Full reference: `CLAUDE.md`.
 
-## Entry and init
+## Entry
 
-- `src/scripts/index.js` — flat side-effect imports for homepage; other pages import their own subset.
-- Scripts **self-initialize** (`DOMContentLoaded` or IIFE) — not called from a central orchestrator.
+- `src/scripts/index.js` — imports `core.js` + `islands/boot.js`; all pages use this single entry.
+- Do **not** add flat side-effect imports to `index.js`; register new behavior as an island or add to core if it is site-wide chrome.
 
-## Patterns
+## Islands (`src/scripts/islands/`)
 
-1. **Custom elements** (`customElements.define`) for lifecycle components — e.g. `AnnouncementBar`, `DesktopMenu`, `MobileMenu`, `ModalDialog`, `ProductMedia`. Use `connectedCallback` / `disconnectedCallback`.
-2. **Query-and-bind** functions on `DOMContentLoaded` for simpler behavior (parallax, swipers, fade-in, tracking).
+| File | Role |
+|------|------|
+| `core.js` | Always loaded: fade-in, tracking, header scroll, mobile/desktop menus, announcement bar |
+| `registry.js` | Maps a DOM selector → dynamic `import()`. Vite emits one chunk per island. |
+| `boot.js` | On ready, loads every registry entry whose selector matches the page |
+| `on-ready.js` | `onReady(fn)` — safe init when a module may load after `DOMContentLoaded` |
+
+**Add a new island:**
+
+1. Create the script module (or reuse an existing one in `src/scripts/`).
+2. Add an entry to `registry.js` with the selector that gates loading (custom element tag or CSS selector).
+3. Wrap DOM-query init in `onReady` from `islands/on-ready.js` — not raw `DOMContentLoaded`.
+
+```js
+// registry.js
+{
+  id: 'my-component',
+  selector: 'my-component',
+  load: () => import('../MyComponent.js'),
+},
+```
+
+```js
+// MyComponent.js
+import { onReady } from './islands/on-ready.js';
+
+onReady(() => {
+  // init
+});
+```
+
+**Core vs island:** put script in `core.js` only if it belongs to shared partials on every page (menus, announcement bar, global fade-in, tracking). Everything else → island.
+
+## Init patterns
+
+1. **Custom elements** (`customElements.define`) for lifecycle components — e.g. `AnnouncementBar`, `MobileMenu`, `DesktopMenu`, `ModalDialog`, `ProductMedia`. Use `connectedCallback` / `disconnectedCallback`.
+2. **Query-and-bind** for simpler behavior (swipers, parallax, fade-in, tracking). Island-bound scripts use `onReady`.
 
 ## Libraries
 
@@ -25,7 +60,7 @@ Plain ES modules — no framework or centralized state.
 
 ## Event tracking
 
-Prefer `data-fb-event="EventName"` on clickables (wired by `EventTracking.js`) over bespoke tracking code.
+Prefer `data-fb-event="EventName"` on clickables (wired by `EventTracking.js` in core) over bespoke tracking code.
 
 ## Avoid
 
