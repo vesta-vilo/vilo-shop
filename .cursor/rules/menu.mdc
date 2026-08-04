@@ -1,0 +1,24 @@
+---
+description: Site nav — desktop/mobile menu partials and data-attribute wiring
+globs: src/_page-components/**/menu*.html,src/_page-components/desktop-menu.html,src/_page-components/mobile-menu.html,src/_page-components/header-content.html,src/styles/components/desktop-menu.css,src/styles/components/mobile-menu*.css
+alwaysApply: false
+---
+
+# Menu
+
+Read **`src/_page-components/MENU.md`** before editing nav content.
+
+## Wiring
+
+- Desktop/mobile driven from `desktop-menu.html`, `mobile-menu.html`, `header-content.html`
+- Header `data-dropdown-id` and mobile `data-child-links-list-id` must match each row's `data-menu-id` / `data-parent-link-id`
+
+## Shop menu
+
+Active variant is **`-extended`**; legacy variant kept for reference only — check MENU.md before changes.
+
+## Shop extended labels
+
+`menu-shop-extended-links.html`: `.shop-extended__menu-text` uses `data-text` so CSS reserves bold-hover width via `attr(data-text)`.
+
+**`data-text` must exactly match the text inside that span** — mismatch shifts badges/layout on hover.

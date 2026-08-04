@@ -7,20 +7,10 @@
   <title>Vilo - Understand yourself, gently.</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="stylesheet" href="./styles/index.css">
-  <link
-    rel="preload"
-    fetchpriority="high"
-    as="image"
-    href="/images/home-page/vilo-hero-image-main.webp"
-    media="(max-width: 767px)"
-    type="image/webp">
-  <link
-    rel="preload"
-    fetchpriority="high"
-    as="image"
-    href="/images/home-page/vilo-hero-image-main.webp"
-    media="(min-width: 768px)"
-    type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="/images/home-page/vilo-hero-image-main.webp"
+    media="(max-width: 767px)" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="/images/home-page/vilo-hero-image-main.webp"
+    media="(min-width: 768px)" type="image/webp">
   <load src="/_page-components/tags-and-pixels-head.html" />
 </head>
 
@@ -36,112 +26,74 @@
   <main>
     <section class="hero-section">
       <div class="hero-section-wrapper gsap-hero-section-wrapper">
-          <div class="container hero-section-content gsap-hero-content-animation">
-            <h1 class="hero-section-title"><span class="secondary-text">The Ring</span> That <br> Listens to You </h1>
-            <div class="hero-section-ctas">
-              <a href="/product/" class="btn-with-animation">
-                Join the Quiet Revolution
-                <load src="/_icons/icon-animation-arrow.html" />
-              </a>
-            </div>
+        <div class="container hero-section-content gsap-hero-content-animation">
+          <h1 class="hero-section-title"><span class="secondary-text">The Ring</span> That <br> Listens to You </h1>
+          <div class="hero-section-ctas">
+            <a href="/product/" class="btn-with-animation">
+              Join the Quiet Revolution
+              <load src="/_icons/icon-animation-arrow.html" />
+            </a>
           </div>
-          <div class="hero-image-holder">
-            <!-- !! in case of updating this images src, please update the 'href' for preload links in the head -->
-            <img
-              class="hero-main-image-mobile skip-img-fadein"
-              src="/images/home-page/hero-background-mobile.webp"
-              fetchpriority="high"
-              loading="eager"
-              decoding="async"
-              alt="">
-            <img
-              class="hero-main-image-desktop skip-img-fadein"
-              src="/images/home-page/hero-background-desktop.webp"
-              fetchpriority="high"
-              loading="eager"
-              decoding="async"
-              alt="">
-          </div>
+        </div>
+        <div class="hero-image-holder">
+          <!-- !! in case of updating this images src, please update the 'href' for preload links in the head -->
+          <img class="hero-main-image-mobile skip-img-fadein" src="/images/home-page/hero-background-mobile.webp"
+            fetchpriority="high" loading="eager" decoding="async" alt="">
+          <img class="hero-main-image-desktop skip-img-fadein" src="/images/home-page/hero-background-desktop.webp"
+            fetchpriority="high" loading="eager" decoding="async" alt="">
+        </div>
       </div>
     </section>
+
+    <load src="/_page-components/media-icons.html" />
 
     <section class="heading-section">
       <div class="container flex justify-center">
         <div class="heading-section-content-holder">
           <h2 class="section-title">Inside Out, In <span class="rastano-font">Style</span>.</h2>
-          <p class="section-subhead">Not a gadget. It is an Agent first wearable. It learns your rhythm and hormonal shifts, then responds with a new kind of interaction that feels calm, personal, and useful. Steadier nights. Lighter mornings. Long term ease.</p>
+          <p class="section-subhead">Not a gadget. It is an Agent first wearable. It learns your rhythm and hormonal
+            shifts, then responds with a new kind of interaction that feels calm, personal, and useful. Steadier nights.
+            Lighter mornings. Long term ease.</p>
         </div>
       </div>
     </section>
 
-    <section class="gallery-section" >
+    <section class="gallery-section">
       <div class="container">
         <div class="gallery-grid">
           <figure class="gallery-item aspect-square order-1">
-            <img
-              src="/images/home-page/image-0610.webp"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
+            <img src="/images/home-page/image-0610.webp" loading="eager" fetchpriority="high" decoding="async"
               alt="Gallery 1">
           </figure>
           <figure class="gallery-item aspect-rect order-3">
-            <img
-              src="/images/home-page/product-image-3.webp"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
+            <img src="/images/home-page/product-image-3.webp" loading="eager" fetchpriority="high" decoding="async"
               alt="Gallery 3">
           </figure>
           <figure class="gallery-item aspect-rect order-2">
-            <img
-              src="/images/home-page/product-video-1.webp"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
+            <img src="/images/home-page/product-video-1.webp" loading="eager" fetchpriority="high" decoding="async"
               alt="Gallery 2">
           </figure>
           <figure class="gallery-item aspect-square order-4">
-            <img
-              src="/images/home-page/product-image-4.webp"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
+            <img src="/images/home-page/product-image-4.webp" loading="eager" fetchpriority="high" decoding="async"
               alt="Gallery 4">
           </figure>
         </div>
         <div class="swiper gallery-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img
-                src="/images/home-page/image-0610.webp"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
+              <img src="/images/home-page/image-0610.webp" loading="eager" fetchpriority="high" decoding="async"
                 alt="Gallery 1">
             </div>
             <div class="swiper-slide">
-              <img
-                src="/images/home-page/product-video-1.webp"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
+              <img src="/images/home-page/product-video-1.webp" loading="eager" fetchpriority="high" decoding="async"
                 alt="Gallery 2">
             </div>
             <div class="swiper-slide">
-              <img
-                src="/images/home-page/product-image-5.webp"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
+              <img src="/images/home-page/product-image-5.webp" loading="eager" fetchpriority="high" decoding="async"
                 alt="Gallery 3">
             </div>
             <div class="swiper-slide">
-              <img
-                src="/images/home-page/product-image-4.webp"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
+              <img src="/images/home-page/product-image-4.webp" loading="eager" fetchpriority="high" decoding="async"
                 alt="Gallery 4">
             </div>
           </div>
@@ -164,7 +116,9 @@
       <div class="container flex justify-center">
         <div class="heading-section-content-holder">
           <h2 class="section-title">Vital × <span class="rastano-font">Love</span>, made wearable.</h2>
-          <p class="section-subhead">Not a gadget. Not an AI agent. A new kind of hardware—refined, personal, and quietly intelligent. It learns your rhythm and reflects it back in a softer voice, for steadier nights, lighter mornings, and long-term ease.</p>
+          <p class="section-subhead">Not a gadget. Not an AI agent. A new kind of hardware—refined, personal, and
+            quietly intelligent. It learns your rhythm and reflects it back in a softer voice, for steadier nights,
+            lighter mornings, and long-term ease.</p>
           <a href="#contact-us" class="btn-with-animation">
             Get Early Access
             <load src="/_icons/icon-animation-arrow.html" />
@@ -182,7 +136,10 @@
           <div class="contact-us-content">
             <h2 class="title">Join <span class="rastano-font">the Journey</span></h2>
             <p>
-            We're building Vilo as an agent-first ring — quiet by design — so you can read your sleep, your rhythm, and your cycle with real clarity, and without the noise.<br><br>Reserve now to lock in <strong>Co-Founder terms — up to 47% off </strong> and join the first wave. You're not just buying a ring. You're helping shape what this new kind of interaction becomes.
+              We're building Vilo as an agent-first ring — quiet by design — so you can read your sleep, your rhythm,
+              and your cycle with real clarity, and without the noise.<br><br>Reserve now to lock in <strong>Co-Founder
+                terms — up to 47% off </strong> and join the first wave. You're not just buying a ring. You're helping
+              shape what this new kind of interaction becomes.
             </p>
 
           </div>
@@ -191,8 +148,10 @@
               <div class="error-tooltip" aria-live="polite">
                 Please enter a valid email address
               </div>
-              <input type="email" id="email" autocomplete="email" name="email" required placeholder="Enter your email address">
-              <textarea id="message" autocomplete="on" name="message" rows="4" placeholder="Share your thoughts, shape what we build, and help Vilo grow with you. In return, we’ll offer our earliest supporters the best access, care, and pricing—always."></textarea>
+              <input type="email" id="email" autocomplete="email" name="email" required
+                placeholder="Enter your email address">
+              <textarea id="message" autocomplete="on" name="message" rows="4"
+                placeholder="Share your thoughts, shape what we build, and help Vilo grow with you. In return, we’ll offer our earliest supporters the best access, care, and pricing—always."></textarea>
               <button type="submit" class="btn-with-animation" variant="primary" data-fb-event="SubmitApplication">
                 Preorder Now
                 <load src="/_icons/icon-animation-arrow.html" />
@@ -206,7 +165,8 @@
     <section class="heading-section">
       <div class="container flex justify-center">
         <div class="heading-section-content-holder">
-          <h2 class="section-title no-padding">Naturally <span class="rastano-font">eye-catching</span>. Powerfully <span class="rastano-font">personal</span>.</h2>
+          <h2 class="section-title no-padding">Naturally <span class="rastano-font">eye-catching</span>. Powerfully
+            <span class="rastano-font">personal</span>.</h2>
         </div>
       </div>
     </section>
@@ -215,16 +175,13 @@
       <section class="image-with-copy-section">
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/image-1.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/home-page/image-1.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="Made to fade in.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Made to <span class="rastano-font">fade</span> in.</h2>
-            <p class="subtitle">Slim, light, easy to forget. No new rituals. It stays close, reads quietly, and shows up only when it helps.</p>
+            <p class="subtitle">Slim, light, easy to forget. No new rituals. It stays close, reads quietly, and shows up
+              only when it helps.</p>
 
           </div>
         </div>
@@ -233,36 +190,28 @@
       <section class="image-with-copy-section">
         <div class="container image-with-copy-container desktop-row-reverse">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/image-3.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/home-page/image-3.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="There, never loud.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">There, never loud.</h2>
-            <p class="subtitle">Vilo senses in the background, night and day, learning your baseline. Steady, never noisy.</p>
+            <p class="subtitle">Vilo senses in the background, night and day, learning your baseline. Steady, never
+              noisy.</p>
 
           </div>
         </div>
       </section>
 
-     
-
       <section class="image-with-copy-section">
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/made-deeper-to-read.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/home-page/made-deeper-to-read.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="Sleep, deeper to read.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Sleep, deeper to read.</h2>
-            <p class="subtitle">Beyond stages and HRV, Signal OS learns the shape of your nights. Wake gently, to a haptic alarm, no startle.</p>
+            <p class="subtitle">Beyond stages and HRV, Signal OS learns the shape of your nights. Wake gently, to a
+              haptic alarm, no startle.</p>
 
           </div>
         </div>
@@ -271,95 +220,81 @@
       <section class="image-with-copy-section">
         <div class="container image-with-copy-container desktop-row-reverse">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/Intelligence-that-stays-calm.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
-              alt="Hormonal rhythm, softly.">
+            <img src="/images/home-page/Intelligence-that-stays-calm.webp" loading="lazy" fetchpriority="low"
+              decoding="async" alt="Hormonal rhythm, softly.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Hormonal rhythm, <span class="rastano-font">softly</span>.</h2>
-            <p class="subtitle">After ovulation your temperature rises and resting heart rate climbs. Physiology, not guesswork. Vilo follows the shift, so hard days make sense.</p>
+            <p class="subtitle">After ovulation your temperature rises and resting heart rate climbs. Physiology, not
+              guesswork. Vilo follows the shift, so hard days make sense.</p>
 
           </div>
         </div>
       </section>
 
-  
     </div>
-        <section class="alter-gallery-section" >
+    <section class="alter-gallery-section">
       <div class="container">
         <div class="alter-gallery-headings">
           <h2 class="title">
             Wear it daily. Live it better.
           </h2>
           <p class="subtitle">
-           Sleep, heart, energy, recovery, cycle. Vilo sweats the small stuff so your days get better.</p>
+            Sleep, heart, energy, recovery, cycle. Vilo sweats the small stuff so your days get better.</p>
         </div>
-       
+
       </div>
     </section>
-      <load src="/_page-components/customer-voice.html" />
-      <div class="flex column items-center features-sections-wrapper">
 
-        <section class="image-with-copy-section">
+    <load src="/_page-components/customer-voice.html" />
+    
+    <div class="flex column items-center features-sections-wrapper">
+
+      <section class="image-with-copy-section">
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/image-2.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/home-page/image-2.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="A piece people notice.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">A piece people notice.</h2>
-            <p class="subtitle">Designed from the ring outward, not the circuit in. A small collection of looks, chosen like taste.</p>
+            <p class="subtitle">Designed from the ring outward, not the circuit in. A small collection of looks, chosen
+              like taste.</p>
 
           </div>
         </div>
       </section>
 
-       
- <section class="image-with-copy-section">
+
+      <section class="image-with-copy-section">
         <div class="container image-with-copy-container  desktop-row-reverse">
           <div class="image-with-copy-image">
-            <img
-              src="/images/product-page/sensors-that-read.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/product-page/sensors-that-read.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="Sensors read. AI understands.">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Sensors read. AI <span class="rastano-font">understands</span>.</h2>
-            <p class="subtitle">Advanced optical, temperature, and motion sensors read you cleanly. The hardware catches the signal. The AI makes sense of it.</p>
+            <p class="subtitle">Advanced optical, temperature, and motion sensors read you cleanly. The hardware catches
+              the signal. The AI makes sense of it.</p>
 
           </div>
         </div>
       </section>
-        <section class="image-with-copy-section">
+      <section class="image-with-copy-section">
         <div class="container image-with-copy-container">
           <div class="image-with-copy-image">
-            <img
-              src="/images/home-page/rhythm-made-visible.webp"
-              loading="lazy"
-              fetchpriority="low"
-              decoding="async"
+            <img src="/images/home-page/rhythm-made-visible.webp" loading="lazy" fetchpriority="low" decoding="async"
               alt="Product 1 screenshot">
           </div>
           <div class="image-with-copy-text">
             <h2 class="title">Powered by Signal <span class="rastano-font">OS</span>.</h2>
-            <p class="subtitle">Signal OS leaves numbers and charts behind, drawing sleep, mood, recovery, and cycle into patterns you can actually read.</p>
+            <p class="subtitle">Signal OS leaves numbers and charts behind, drawing sleep, mood, recovery, and cycle
+              into patterns you can actually read.</p>
 
           </div>
         </div>
       </section>
     </div>
-        
- 
-
 
     <section class="free-scroll-section">
       <div class="container free-scroll-section__container">
@@ -370,25 +305,25 @@
           <div class="swiper free-scroll-swiper">
             <div class="swiper-wrapper">
 
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-1.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-2.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-8.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-3.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-4.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-5.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-6.webp" loading="lazy" alt=""></div>
-          <div class="swiper-slide"><img src="/images/home-page/swiper-img-7.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-1.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-2.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-8.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-3.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-4.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-5.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-6.webp" loading="lazy" alt=""></div>
+              <div class="swiper-slide"><img src="/images/home-page/swiper-img-7.webp" loading="lazy" alt=""></div>
 
-        </div>
+            </div>
           </div>
           <div class="free-scroll-swiper-navigation">
-          <div class="free-scroll-swiper-button-prev free-scroll-swiper-navigation-btn">
-            <load src="/_icons/icon-prev-slide-arrow-dark.html" />
+            <div class="free-scroll-swiper-button-prev free-scroll-swiper-navigation-btn">
+              <load src="/_icons/icon-prev-slide-arrow-dark.html" />
+            </div>
+            <div class="free-scroll-swiper-button-next free-scroll-swiper-navigation-btn">
+              <load src="/_icons/icon-next-slide-arrow-dark.html" />
+            </div>
           </div>
-          <div class="free-scroll-swiper-button-next free-scroll-swiper-navigation-btn">
-            <load src="/_icons/icon-next-slide-arrow-dark.html" />
-          </div>
-        </div>
         </div>
       </div>
     </section>
@@ -408,46 +343,26 @@
         <div class="product-media-content">
           <div class="swiper product-media-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img
-                    src="/images/product-page/PV01/glass-jade-1.webp"
-                    loading="lazy"
-                    fetchpriority="low"
-                    decoding="async"
-                    alt="Vilo ring 1">
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="/images/product-page/PV01/glass-jade-4.webp"
-                    loading="lazy"
-                    fetchpriority="low"
-                    decoding="async"
-                    alt="Vilo ring 2">
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="/images/product-page/PV02/golden-twist-1.webp"
-                    loading="lazy"
-                    fetchpriority="low"
-                    decoding="async"
-                    alt="Vilo ring 3">
-                </div>
-               <div class="swiper-slide">
-                  <img
-                    src="/images/product-page/PV03/silver-twist-1.webp"
-                    loading="lazy"
-                    fetchpriority="low"
-                    decoding="async"
-                    alt="Vilo ring 4">
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="/images/product-page/PV03/silver-twist-2.webp"
-                    loading="lazy"
-                    fetchpriority="low"
-                    decoding="async"
-                    alt="Vilo ring 5">
-                </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/PV01/glass-jade-1.webp" loading="lazy" fetchpriority="low"
+                  decoding="async" alt="Vilo ring 1">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/PV01/glass-jade-4.webp" loading="lazy" fetchpriority="low"
+                  decoding="async" alt="Vilo ring 2">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/PV02/golden-twist-1.webp" loading="lazy" fetchpriority="low"
+                  decoding="async" alt="Vilo ring 3">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/PV03/silver-twist-1.webp" loading="lazy" fetchpriority="low"
+                  decoding="async" alt="Vilo ring 4">
+              </div>
+              <div class="swiper-slide">
+                <img src="/images/product-page/PV03/silver-twist-2.webp" loading="lazy" fetchpriority="low"
+                  decoding="async" alt="Vilo ring 5">
+              </div>
             </div>
           </div>
           <div class="swiper-ps-nav-holder">
@@ -466,11 +381,8 @@
           <load src="/_page-components/product-section-content.html" />
         </div>
       </div>
-      <script
-        id="shopify-sdk-script"
-        src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"
-        onload="globalThis.dispatchEvent(new CustomEvent('shopify-sdk-loaded'))"
-        async></script>
+      <script id="shopify-sdk-script" src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"
+        onload="globalThis.dispatchEvent(new CustomEvent('shopify-sdk-loaded'))" async></script>
     </section>
 
     <div class="floating-cta-wrapper">

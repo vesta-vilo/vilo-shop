@@ -1,0 +1,37 @@
+---
+description: Section horizontal layout — width calc and 145rem max-width on section root
+globs: src/_page-components/**/*.html,src/styles/components/**/*.css
+alwaysApply: false
+---
+
+# Section layout baseline
+
+When adding or editing page sections, apply horizontal sizing on the **section root** (`<section class="…">`), not on inner rows or `.container`.
+
+## CSS
+
+**Mobile (default):**
+
+```css
+.my-section {
+  width: calc(100% - 2 * var(--page-padding-inline));
+  max-width: 145rem;
+  margin-inline: auto;
+}
+```
+
+**Desktop (`min-width: 1024px`):**
+
+```css
+@media (min-width: 1024px) {
+  .my-section {
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
+  }
+}
+```
+
+## Rules
+
+- Use `max-width: 145rem` (or `var(--layout-menubar-max)`) — do not add `padding-inline` on the same element; the width `calc` handles gutters.
+- Inner content rows: `width: 100%`.
+- Reference: `src/_page-components/SECTIONS.md`, `src/styles/components/media-icons.css`.
