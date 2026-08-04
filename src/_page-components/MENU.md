@@ -14,14 +14,15 @@ Header `data-dropdown-id` (desktop) and mobile `data-child-links-list-id` must m
 
 ---
 
-## Why Vilo (Experience)
+## Experience (Why Vilo menu)
+
+Uses `experience-grid-menu.html` in the Experience dropdown and mobile drawer. See **`EXPERIENCE-GRID.md`** for the full component guide (section variant, styles, accessibility).
 
 | What | File |
 |------|------|
-| Desktop layout | `components/desktop-menu-row-experience.html` |
-| Mobile sub-menu | `components/mobile-menu-row-experience.html` |
-| Shared 6-cell grid (desktop + mobile) | `components/menu-experience-grid.html` |
-| Styles | `src/styles/components/desktop-menu.css` |
+| Desktop row | `components/desktop-menu-row-experience.html` |
+| Mobile row | `components/mobile-menu-row-experience.html` |
+| Grid cells | `components/experience-grid-menu.html` |
 
 ---
 

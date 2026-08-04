@@ -25,7 +25,16 @@ Vilo is a static marketing site (product landing pages, blog, FAQ, team bios) bu
 
 Shared markup is not templated via JS includes but via `vite-plugin-html-inject`, which processes a custom `<load src="/path/to/partial.html" />` tag at build time and inlines the referenced file's contents. Partials live in `src/_page-components/` (page sections: menus, footer, FAQ, product content, person-page bios) and `src/_icons/` (inline SVG icon fragments). Pages compose themselves almost entirely out of these `<load>` tags plus page-specific markup — read a page's `index.html` top-to-bottom to see which partials it pulls in.
 
+Some reusable components have their own guides under `src/_page-components/` — check these before editing:
+
+| Doc | Scope |
+|-----|--------|
+| `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
+| `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
+
 `src/_page-components/MENU.md` documents the site nav specifically: desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — check that file before touching menu content.
+
+**Experience grid (Why Vilo):** six linked image tiles used in the Experience menu and as a page section. Menu and section have **separate partials** (`components/experience-grid-menu.html`, `components/experience-grid-section.html`) in `_page-components/components/` so content can diverge; styles are shared in `experience-grid.css`. Menu mobile layout is scoped via `.second-level-menus`; section-only layout via `section.why-vilo` (do not put `why-vilo` on menu rows). Menu row visibility: `desktop-menu.css`. Full details: `EXPERIENCE-GRID.md`. Homepage: separate `heading-section` above `<load src="/_page-components/why-vilo-section.html" />` — heading is not inside the section partial.
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
 
@@ -38,6 +47,8 @@ Two initialization patterns are used throughout `src/scripts/`:
 - **Plain query-and-bind functions** run on `DOMContentLoaded` for simpler behavior (parallax, swipers, fade-in-on-scroll in `script.js`, event tracking).
 
 Swiper (`swiper` npm package) powers the various carousels/sliders (galleries, product media, menus); GSAP (`gsap`) powers scroll/parallax animation. `EventTracking.js` wires up Facebook Pixel tracking generically via a `data-fb-event="EventName"` attribute on any clickable element — prefer adding that attribute over writing bespoke tracking code.
+
+**Mobile menu:** `MobileMenu.js` uses shadow DOM; drawer/overlay styles are in `MobileMenu.styles.js` (not `header.css`). Overlay color/blur reads `--backdrop-color-rgb`, `--backdrop-opacity`, and `--backdrop-blur` from `variables.css`. The announcement bar is not rendered inside the mobile drawer.
 
 ### Product pages (`product-media`, variant media JSON)
 
@@ -69,6 +80,10 @@ When editing the default variant, also update the visible gallery `<img>` srcs, 
 ### Styles
 
 Plain CSS, no preprocessor. `src/styles/index.css` is the entry point pulling in `reset.css`, `variables.css`, `fonts.css`, `flex.css`, and everything under `src/styles/components/` — one file per component/section, generally mirroring the `_page-components` partial it styles.
+
+**Design units:** specs are usually in px; in CSS use `rem` with **1rem = 10px** (e.g. 18px → `1.8rem`, 1450px → `145rem`). Shared layout tokens live in `variables.css` — e.g. `--page-padding-inline`, `--layout-menubar-max` (1450px), `--layout-product-section-max`.
+
+**Heading sections:** optional mobile text alignment via `heading-section--text-left-mobile` or `heading-section--text-right-mobile` on `heading-section` (centered again from 768px up); see `heading-section.css`.
 
 ### Assets
 
