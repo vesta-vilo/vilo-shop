@@ -1,0 +1,32 @@
+---
+description: Plain ES module patterns — custom elements, init, Swiper, GSAP, tracking
+globs: src/scripts/**/*.js
+alwaysApply: false
+---
+
+# JavaScript
+
+Plain ES modules — no framework or centralized state.
+
+## Entry and init
+
+- `src/scripts/index.js` — flat side-effect imports for homepage; other pages import their own subset.
+- Scripts **self-initialize** (`DOMContentLoaded` or IIFE) — not called from a central orchestrator.
+
+## Patterns
+
+1. **Custom elements** (`customElements.define`) for lifecycle components — e.g. `AnnouncementBar`, `DesktopMenu`, `MobileMenu`, `ModalDialog`, `ProductMedia`. Use `connectedCallback` / `disconnectedCallback`.
+2. **Query-and-bind** functions on `DOMContentLoaded` for simpler behavior (parallax, swipers, fade-in, tracking).
+
+## Libraries
+
+- **Swiper** — carousels (galleries, product media, menus)
+- **GSAP** — scroll / parallax
+
+## Event tracking
+
+Prefer `data-fb-event="EventName"` on clickables (wired by `EventTracking.js`) over bespoke tracking code.
+
+## Avoid
+
+Do not add JS for layout concerns solvable in CSS (e.g. section padding from data attributes) unless explicitly requested.

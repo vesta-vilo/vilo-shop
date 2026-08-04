@@ -1,0 +1,38 @@
+---
+description: Collapse excessive blank lines in HTML to a single empty line
+globs: **/*.html
+alwaysApply: false
+---
+
+# HTML blank-line formatting
+
+When creating or editing HTML files, keep **at most one consecutive blank line** between blocks of code.
+
+## Rule
+
+- **Allowed:** one empty line between sections, tags, or logical blocks
+- **Not allowed:** two or more consecutive blank lines with no code on them
+
+Collapse runs of blank lines down to a single blank line.
+
+## Example
+
+```html
+<!-- BAD: 4 consecutive blank lines between sections -->
+    </section>
+
+
+
+    <section class="next">
+
+<!-- GOOD: 1 blank line -->
+    </section>
+
+    <section class="next">
+```
+
+Four empty lines → one empty line (three removed). Same for two or three consecutive blank lines: always reduce to one.
+
+## Scope
+
+Apply when writing or refactoring HTML under `src/` (pages, partials in `_page-components`, icons, etc.). Do not add trailing blank lines at EOF beyond a single final newline if the file already ends that way.

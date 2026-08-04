@@ -1,0 +1,38 @@
+---
+description: PDP galleries, ProductMedia, and variant media JSON schema
+globs: src/product/**/*.html,src/_page-components/product-section-content*.html,src/_page-components/earring-product-section-content.html,src/scripts/ProductMedia.js,src/scripts/ProductForm.js,src/scripts/media-utils.js
+alwaysApply: false
+---
+
+# Product pages
+
+## ProductMedia
+
+PDP galleries use the `ProductMedia` custom element — main fade swiper, thumb strip, pagination, desktop `.product-media-video` (image in markup; styles in `product-section.css`).
+
+## Variant media JSON
+
+At bottom of `<body>` (non-blocking):
+
+```html
+<script type="application/json" data-product-variant-media>{ ... }</script>
+```
+
+Parsed by `media-utils.js`. `ProductMedia` listens for `variant:changed` (`detail.variant`) from `ProductForm` (color swatch change + initial connect).
+
+**Schema per variant key** (color radio `value`, or `"Default"` without color picker):
+
+```json
+"Glass Jade": {
+  "images": ["...", "..."],
+  "video": { "src": "...", "alt": "VILO Ring - Glass Jade" }
+}
+```
+
+- `images` — 7–9 URLs (markup has 9 slides; 7–9 often duplicate 4–6)
+- `video` — updates `.product-media-video img`; may be a src string; if omitted, first gallery image is used
+- Legacy array-only values still work
+
+## Default variant edits
+
+When changing the default variant, also update visible gallery `<img>` srcs, `.product-media-video` defaults, and matching `<link rel="preload">` in `<head>`.
