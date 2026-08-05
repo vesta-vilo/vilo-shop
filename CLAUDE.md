@@ -31,23 +31,37 @@ Some reusable components have their own guides under `src/_page-components/` —
 
 | Doc | Scope |
 |-----|--------|
-| `SECTIONS.md` | Section layout (145rem max width, mobile/desktop width `calc` gutters) |
+| `SECTIONS.md` | Section layout (145rem max width, gutters) + index of section guides |
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
+| `COLLAGE.md` | Homepage collage (two media + copy rows; stack + cover layouts) |
 
 **Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
 **Experience grid (Why Vilo):** six linked image tiles used in the Experience menu and as a page section. Menu and section have **separate partials** (`components/experience-grid-menu.html`, `components/experience-grid-section.html`) in `_page-components/components/` so content can diverge; styles are shared in `experience-grid.css`. Menu mobile layout is scoped via `.second-level-menus`; section-only layout via `section.why-vilo` (do not put `why-vilo` on menu rows). Menu row visibility: `desktop-menu.css`. Full details: `EXPERIENCE-GRID.md`. Homepage: separate `heading-section` above `<load src="/_page-components/why-vilo-section.html" />` — heading is not inside the section partial.
 
+**Collage:** two homepage rows of lifestyle media + copy (`collage.html` / `collage.css`). Row 1 stacks two 75% images in a 1:1 block (media left); row 2 is a single cover image (media right). Mobile stacks media above text. Uses the 145rem section width pattern. Full details: `COLLAGE.md`.
+
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
 
 ### JavaScript
 
-Plain ES modules, no framework or centralized state management. `src/scripts/index.js` is the single entry point imported from `src/index.html` (other pages import their own subset of scripts directly, as needed) and is just a flat list of side-effecting imports — each script self-initializes via `DOMContentLoaded` listeners or immediately-invoked init functions, rather than being called from a central orchestrator.
+Plain ES modules, no framework or centralized state management.
+
+**Entry:** `src/scripts/index.js` imports `core.js` (always loaded) and `islands/boot.js` (lazy-loads page-specific modules). All pages still reference `index.js`; no per-page script entry files needed.
+
+**Islands architecture** (`src/scripts/islands/`):
+
+- `core.js` — site chrome on every page: fade-in (`script.js`), tracking, header scroll behavior, mobile/desktop menus, announcement bar.
+- `registry.js` — maps a DOM selector to a dynamic `import()`. Vite emits one chunk per island; only islands whose selector matches the current page are downloaded.
+- `boot.js` — on `DOMContentLoaded`, scans the registry and loads matching islands in parallel.
+- `on-ready.js` — `onReady(fn)` helper for island modules that may load after `DOMContentLoaded` (use instead of a raw `DOMContentLoaded` listener).
+
+To add a new island: create the script module (if new), add an entry to `registry.js` with the selector that gates loading, and use `onReady` for any init that queries the DOM.
 
 Two initialization patterns are used throughout `src/scripts/`:
 - **Custom elements** (`customElements.define(...)`) for components with lifecycle needs — e.g. `AnnouncementBar.js`, `DesktopMenu.js`, `MobileMenu.js`, `ModalDialog.js`, `ProductMedia.js`. These hook `connectedCallback`/`disconnectedCallback`.
-- **Plain query-and-bind functions** run on `DOMContentLoaded` for simpler behavior (parallax, swipers, fade-in-on-scroll in `script.js`, event tracking).
+- **Plain query-and-bind functions** for simpler behavior (parallax, swipers, fade-in-on-scroll in `script.js`, event tracking). Island-bound scripts should wrap init in `onReady` from `islands/on-ready.js`.
 
 Swiper (`swiper` npm package) powers the various carousels/sliders (galleries, product media, menus); GSAP (`gsap`) powers scroll/parallax animation. `EventTracking.js` wires up Facebook Pixel tracking generically via a `data-fb-event="EventName"` attribute on any clickable element — prefer adding that attribute over writing bespoke tracking code.
 

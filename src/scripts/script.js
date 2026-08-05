@@ -3,6 +3,7 @@ const excludedSelectors = [
   '.email-subscribe-dialog-holder',
   'card-modal img',
   '.skip-img-fadein',
+  '.tech-specifications-details-icon',
 ];
 const getExcludedSelector = (baseTag, exclusions) =>
   `${baseTag}${exclusions.filter((i) => i.trim()).map((i) => `:not(${i})`).join('')}`;
@@ -43,25 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const mark = (img) => {
     if (img.closest('.swiper-slide')) return;
+    if (img.closest('.polaroid-gallery')) return;
     if (img.dataset.fadeinInitialized) return;
     img.dataset.fadeinInitialized = "1";
     img.dataset.fadein = "1";
   };
-
-  // Mark current images
-  document.querySelectorAll(SELECTOR).forEach(mark);
-
-  // Observe newly added images too
-  const mo = new MutationObserver((mutations) => {
-    for (const m of mutations) {
-      m.addedNodes?.forEach((node) => {
-        if (node.nodeType !== 1) return;
-        if (node.matches?.(SELECTOR)) mark(node);
-        node.querySelectorAll?.(SELECTOR).forEach(mark);
-      });
-    }
-  });
-  mo.observe(document.documentElement, { childList: true, subtree: true });
 
   // IntersectionObserver to toggle visibility
   const io = new IntersectionObserver(
@@ -91,12 +78,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 
+  const observeImage = (img) => {
+    if (!img.matches?.(SELECTOR)) return;
+    mark(img);
+    if (img.dataset.fadein) {
+      io.observe(img);
+    }
+  };
+
+  // Observe newly added images too
+  const mo = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      m.addedNodes?.forEach((node) => {
+        if (node.nodeType !== 1) return;
+        if (node.matches?.(SELECTOR)) observeImage(node);
+        node.querySelectorAll?.(SELECTOR).forEach(observeImage);
+      });
+    }
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+
   // Start observing all images
   const observeAll = () => {
-    document.querySelectorAll(SELECTOR).forEach((img) => {
-      mark(img);
-      io.observe(img);
-    });
+    document.querySelectorAll(SELECTOR).forEach(observeImage);
   };
   observeAll();
 });

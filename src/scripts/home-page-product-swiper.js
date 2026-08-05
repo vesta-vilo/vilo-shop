@@ -3,6 +3,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { onReady } from './islands/on-ready.js';
 
 let productSwiperInstance = null;
 
@@ -33,4 +34,4 @@ function initProductHomePageSwiper() {
   }
 }
 
-globalThis.addEventListener('DOMContentLoaded', initProductHomePageSwiper);
+onReady(initProductHomePageSwiper);
