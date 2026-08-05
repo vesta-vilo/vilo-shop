@@ -15,7 +15,7 @@
   width: calc(100% - 2 * var(--page-padding-inline));
   max-width: 145rem;
   margin-inline: auto;
-  padding-block: 12rem 12rem; /* mobile — section padding Y */
+  padding-block: 12rem 7rem; /* mobile — section padding Y */
 }
 
 .media-icons__row {
@@ -67,7 +67,7 @@
 @media (min-width: 1024px) {
   .media-icons {
     gap: 6rem;
-    padding-block: 16rem 18rem; /* desktop — section padding Y */
+    padding-block: 16rem 6rem; /* desktop — section padding Y */
     width: calc(100% - 2 * var(--layout-gutter-desktop));
   }
 

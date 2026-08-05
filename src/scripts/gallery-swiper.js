@@ -3,6 +3,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { onReady } from './islands/on-ready.js';
 
 const gallerySwiperInstances = new Map();
 
@@ -53,7 +54,7 @@ function initSwiper() {
   });
 }
 
-globalThis.addEventListener('DOMContentLoaded', initSwiper);
+onReady(initSwiper);
 
 let resizeTimer;
 globalThis.addEventListener('resize', () => {

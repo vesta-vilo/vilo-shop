@@ -1,8 +1,10 @@
+import { onReady } from './islands/on-ready.js';
+
 /**
  * Hide the fixed floating CTA while the site footer is in the viewport.
  * (Scroll-driven view timelines are brittle across browsers without timeline-scope.)
  */
-document.addEventListener('DOMContentLoaded', () => {
+onReady(() => {
     const wrapper = document.querySelector('.floating-cta-wrapper');
     const footer = document.querySelector('footer.site-footer');
     if (!wrapper || !footer) return;
