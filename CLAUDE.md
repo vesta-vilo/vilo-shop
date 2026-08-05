@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Cursor-specific rule files mirroring this guidance live in **`.cursor/rules/`** (`vilo-core.mdc`, `html-partials.mdc`, `section-layout.mdc`, `javascript.mdc`, `product-pages.mdc`, `menu.mdc`, `html-formatting.mdc`).
+
 ## Commands
 
 Package manager is pnpm (see `pnpm-lock.yaml` / `pnpm-workspace.yaml`; CI installs with `pnpm install --frozen-lockfile`).
@@ -29,10 +31,11 @@ Some reusable components have their own guides under `src/_page-components/` —
 
 | Doc | Scope |
 |-----|--------|
+| `SECTIONS.md` | Section layout (145rem max width, mobile/desktop width `calc` gutters) |
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
 
-`src/_page-components/MENU.md` documents the site nav specifically: desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — check that file before touching menu content.
+**Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
 **Experience grid (Why Vilo):** six linked image tiles used in the Experience menu and as a page section. Menu and section have **separate partials** (`components/experience-grid-menu.html`, `components/experience-grid-section.html`) in `_page-components/components/` so content can diverge; styles are shared in `experience-grid.css`. Menu mobile layout is scoped via `.second-level-menus`; section-only layout via `section.why-vilo` (do not put `why-vilo` on menu rows). Menu row visibility: `desktop-menu.css`. Full details: `EXPERIENCE-GRID.md`. Homepage: separate `heading-section` above `<load src="/_page-components/why-vilo-section.html" />` — heading is not inside the section partial.
 
@@ -84,6 +87,32 @@ Plain CSS, no preprocessor. `src/styles/index.css` is the entry point pulling in
 **Design units:** specs are usually in px; in CSS use `rem` with **1rem = 10px** (e.g. 18px → `1.8rem`, 1450px → `145rem`). Shared layout tokens live in `variables.css` — e.g. `--page-padding-inline`, `--layout-menubar-max` (1450px), `--layout-product-section-max`.
 
 **Heading sections:** optional mobile text alignment via `heading-section--text-left-mobile` or `heading-section--text-right-mobile` on `heading-section` (centered again from 768px up); see `heading-section.css`.
+
+#### Section layout baseline
+
+Apply horizontal sizing on the **section root** (not inner rows/containers). This keeps side gutters on narrow viewports and caps content at **145rem** (`--layout-menubar-max`) on wide screens — no extra `padding-inline` needed when using the width `calc`.
+
+**Mobile (default):**
+
+```css
+.my-section {
+  width: calc(100% - 2 * var(--page-padding-inline));
+  max-width: 145rem;
+  margin-inline: auto;
+}
+```
+
+**Desktop (`min-width: 1024px`):**
+
+```css
+@media (min-width: 1024px) {
+  .my-section {
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
+  }
+}
+```
+
+Reference: `src/styles/components/media-icons.css`, `src/_page-components/SECTIONS.md`.
 
 ### Assets
 

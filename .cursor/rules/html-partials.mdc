@@ -1,0 +1,32 @@
+---
+description: HTML pages, vite-plugin-html-inject partials, and page composition
+globs: src/**/*.html
+alwaysApply: false
+---
+
+# HTML partials and pages
+
+## Composition
+
+Shared markup uses **`<load src="/path/to/partial.html" />`** (processed at build time by `vite-plugin-html-inject` — not JS includes).
+
+- Partials: `src/_page-components/` (sections, menus, footer, FAQ, product content, bios)
+- Icon fragments: `src/_icons/`
+- Compose pages top-to-bottom with `<load>` tags + page-specific markup
+
+## New page
+
+Add `src/<route>/index.html` only — no vite config change.
+
+## Formatting
+
+At most **one consecutive blank line** between blocks (see `html-formatting.mdc`).
+
+## Section docs
+
+- Layout: `src/_page-components/SECTIONS.md`, `section-layout.mdc`
+- Nav/menus: `src/_page-components/MENU.md` before editing menu partials
+
+## Images
+
+Prefer `loading="lazy"`, `decoding="async"`. Hero/critical images may use `fetchpriority="high"`. Icons that must show immediately: class `skip-img-fadein` (excluded from global fade-in in `script.js`).

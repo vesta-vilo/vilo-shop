@@ -1,0 +1,38 @@
+---
+description: Vilo repo essentials — stack, commands, assets, git workflow
+alwaysApply: true
+---
+
+# Vilo core
+
+Static marketing site: **Vite multi-page mode**, no client-side framework or router. Full reference: `CLAUDE.md`.
+
+## Commands
+
+Use **pnpm** (not npm): `pnpm dev`, `pnpm build`, `pnpm preview`, `pnpm deploy`.
+
+No test suite, linter, or type checker — do not add tooling unless requested.
+
+## Pages and routing
+
+- Each route is `src/<route>/index.html` — Vite discovers them automatically; no manual registration.
+- Dev server 301-redirects extensionless URLs to directory `index.html` form.
+
+## Assets
+
+- Root-relative paths (`/images/...`) → `public/` (copied verbatim to `dist/`).
+- Fonts and build-processed assets → `src/assets/`.
+
+## Styles
+
+Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md`.
+
+## Git workflow
+
+- Branches: `vilo-<ticket>` or `fix/vilo-<ticket>` off `main`.
+- PR into **`staging`** first (staging deploy preview); merge `staging` → **`main`** after approval.
+- `staging` and `main` can drift — diff the branch you care about, do not assume they match.
+
+## Scope
+
+Minimal diffs. Match existing patterns. Read surrounding code before adding abstractions.
