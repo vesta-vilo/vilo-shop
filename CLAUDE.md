@@ -35,12 +35,15 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
 | `COLLAGE.md` | Homepage collage (two media + copy rows; stack + cover layouts) |
+| `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
+| `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 
 **Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
 **Experience grid (Why Vilo):** six linked image tiles used in the Experience menu and as a page section. Menu and section have **separate partials** (`components/experience-grid-menu.html`, `components/experience-grid-section.html`) in `_page-components/components/` so content can diverge; styles are shared in `experience-grid.css`. Menu mobile layout is scoped via `.second-level-menus`; section-only layout via `section.why-vilo` (do not put `why-vilo` on menu rows). Menu row visibility: `desktop-menu.css`. Full details: `EXPERIENCE-GRID.md`. Homepage: separate `heading-section` above `<load src="/_page-components/why-vilo-section.html" />` — heading is not inside the section partial.
 
 **Collage:** two homepage rows of lifestyle media + copy (`collage.html` / `collage.css`). Row 1 stacks two 75% images in a 1:1 block (media left); row 2 is a single cover image (media right). Mobile stacks media above text. Uses the 145rem section width pattern. Full details: `COLLAGE.md`.
+**Glass Swiper navigation:** frosted circular prev/next shared across carousels. Styles use `.glass-swiper-navigation` / `.glass-swiper-navigation-btn` in `base.css`; each section keeps its own `*-button-prev` / `*-button-next` for JS. Do not use Swiper’s default `.swiper-button-prev` / `.swiper-button-next` on these controls. Full details: `GLASS-SWIPER-NAV.md`.
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
 
@@ -63,7 +66,7 @@ Two initialization patterns are used throughout `src/scripts/`:
 - **Custom elements** (`customElements.define(...)`) for components with lifecycle needs — e.g. `AnnouncementBar.js`, `DesktopMenu.js`, `MobileMenu.js`, `ModalDialog.js`, `ProductMedia.js`. These hook `connectedCallback`/`disconnectedCallback`.
 - **Plain query-and-bind functions** for simpler behavior (parallax, swipers, fade-in-on-scroll in `script.js`, event tracking). Island-bound scripts should wrap init in `onReady` from `islands/on-ready.js`.
 
-Swiper (`swiper` npm package) powers the various carousels/sliders (galleries, product media, menus); GSAP (`gsap`) powers scroll/parallax animation. `EventTracking.js` wires up Facebook Pixel tracking generically via a `data-fb-event="EventName"` attribute on any clickable element — prefer adding that attribute over writing bespoke tracking code.
+Swiper (`swiper` npm package) powers the various carousels/sliders (galleries, product media, menus); GSAP (`gsap`) powers scroll/parallax animation. Overlay prev/next on most carousels use the shared glass nav pattern — see `GLASS-SWIPER-NAV.md`. `EventTracking.js` wires up Facebook Pixel tracking generically via a `data-fb-event="EventName"` attribute on any clickable element — prefer adding that attribute over writing bespoke tracking code.
 
 **Mobile menu:** `MobileMenu.js` uses shadow DOM; drawer/overlay styles are in `MobileMenu.styles.js` (not `header.css`). Overlay color/blur reads `--backdrop-color-rgb`, `--backdrop-opacity`, and `--backdrop-blur` from `variables.css`. The announcement bar is not rendered inside the mobile drawer.
 
