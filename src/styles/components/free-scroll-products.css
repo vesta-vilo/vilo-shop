@@ -37,83 +37,6 @@
   line-height: 3.4rem;
 }
 
-.free-scroll-swiper-navigation {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  display: none;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding-inline: 0;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.free-scroll-swiper-navigation-btn {
-  width: 6rem;
-  height: 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  backdrop-filter:
-    blur(15px)
-    saturate(3)
-    brightness(0.8);
-  -webkit-backdrop-filter: blur(15px) saturate(3) brightness(0.8);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow:
-    0 8px 32px 0 rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  user-select: none;
-  pointer-events: auto;
-}
-
-.free-scroll-swiper-navigation-btn:hover {
-  backdrop-filter:
-    blur(15px)
-    saturate(3)
-    brightness(0.9);
-  -webkit-backdrop-filter: blur(15px) saturate(3) brightness(0.9);
-}
-
-.free-scroll-swiper-navigation-btn svg {
-  width: 2.8rem;
-  height: auto;
-  color: var(--white);
-  opacity: 0.6;
-}
-
-.free-scroll-swiper-navigation-btn .slide-nav-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-}
-
-.free-scroll-swiper-navigation-btn .slide-nav-arrow img {
-  width: 2.8rem;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  opacity: 0.6;
-}
-
-.free-scroll-swiper-button-prev.swiper-button-disabled,
-.free-scroll-swiper-button-next.swiper-button-disabled {
-  opacity: 0;
-  cursor: auto;
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
 @media (min-width: 768px) {
     .free-scroll-swiper img {
         max-width: 46.6rem;
@@ -123,10 +46,6 @@
     .free-scroll-section .title{
         font-size: 4.8rem;
         line-height: 6.2rem;
-    }
-
-    .free-scroll-swiper-navigation {
-        display: flex;
     }
 }
 
@@ -165,11 +84,12 @@
     width: 100%;
   }
 
-  .free-scroll-swiper-navigation {
+  .free-scroll-section .glass-swiper-navigation {
     left: var(--free-scroll-gutter);
     right: var(--free-scroll-gutter);
     width: auto;
     max-width: 145rem;
+    padding-inline: 2rem;
     transform: translateY(-50%);
   }
 }

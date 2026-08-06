@@ -1,13 +1,16 @@
 .polaroid-gallery-section {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc(100% - 2 * var(--page-padding-inline));
+  max-width: 145rem;
+  margin-inline: auto;
   padding-block: 5rem 6rem;
 }
 
 .polaroid-gallery-section__container {
-  max-width: 145rem;
-  padding-inline: 0;
+  width: 100%;
+  max-width: none;
+  padding: 0;
 }
 
 .polaroid-gallery-section__header {
@@ -36,13 +39,12 @@
 .polaroid-gallery {
   position: relative;
   width: 100%;
-  height: 64rem;
-  padding-top: 4rem;
-  padding-bottom: 5rem;
+  height: 55rem;
+  padding-block: 5rem;
   margin-inline: auto;
   overflow: hidden;
-  --polaroid-inactive-width: min(48vw, 22rem);
-  --polaroid-active-width: min(60vw, 25.1rem);
+  --polaroid-inactive-width: min(39vw, 18rem);
+  --polaroid-active-width: min(53vw, 22.5rem);
 }
 
 .polaroid-card {
@@ -51,7 +53,7 @@
   flex-direction: column;
   width: var(--polaroid-inactive-width);
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 0.72;
   padding: 1rem 1rem 3.8rem;
   border: none;
   border-radius: var(--border-radius-12);
@@ -96,24 +98,24 @@
 }
 
 .polaroid-card--1 {
-  top: 8%;
-  left: -10%;
+  top: 6%;
+  left: -2%;
   z-index: 1;
   opacity: 0.37;
-  transform: rotate(-14deg);
+  transform: rotate(-10deg);
 }
 
 .polaroid-card--2 {
   top: 2%;
-  left: 75%;
+  left: 68%;
   z-index: 1;
   opacity: 0.8;
   transform: rotate(9deg);
 }
 
 .polaroid-card--3 {
-  top: 35%;
-  left: 8%;
+  top: 30%;
+  left: 14%;
   z-index: 2;
   opacity: 0.8;
   transform: rotate(9deg);
@@ -121,16 +123,16 @@
 
 .polaroid-card--4 {
   top: 25%;
-  left: 58%;
+  left: 55%;
   z-index: 2;
   opacity: .37;
   transform: rotate(-15deg);
 }
 
 .polaroid-card--5 {
-  width: 18rem;
-  top: 58%;
-  left: 3%;
+  width: 16rem;
+  top: 56%;
+  left: 7%;
   z-index: 3;
   opacity: 0.3;
   transform: rotate(-15deg);
@@ -138,19 +140,19 @@
 
 .polaroid-card--6 {
   top: 50%;
-  left: 73%;
+  left: 70%;
   z-index: 1;
   opacity: 0.3;
   transform: rotate(4deg);
 }
 
 .polaroid-card.is-active {
-  top: 50%;
+  top: 40%;
   left: 50%;
   z-index: 50;
   width: var(--polaroid-active-width);
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 0.72;
   opacity: 1;
   padding: 1.2rem 1.2rem 4.7rem;
   border-radius: 1.4rem;
@@ -180,10 +182,6 @@
   .polaroid-gallery-section__description {
     font-size: 1.8rem;
     line-height: 2.6rem;
-  }
-
-  .polaroid-gallery {
-    max-width: 145rem;
   }
 
   .polaroid-card {
@@ -227,8 +225,8 @@
 }
 
 @media (min-width: 1024px) {
-  .polaroid-gallery-section__container {
-    padding-inline: 0;
+  .polaroid-gallery-section {
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
   }
 
   .polaroid-gallery {
@@ -244,33 +242,33 @@
   }
 
   .polaroid-card--1 {
-    top: 8%;
-    left: 6%;
+    top: 3%;
+    left: 9%;
   }
 
   .polaroid-card--2 {
-    top: 8%;
+    top: 3%;
     left: 70%;
   }
 
   .polaroid-card--3 {
-    top: 36%;
-    left: 13%;
+    top: 25%;
+    left: 12%;
   }
 
   .polaroid-card--4 {
-    top: 40%;
-    left: 58%;
+    top: 30%;
+    left: 60%;
   }
 
   .polaroid-card--5 {
-    top: 65%;
+    top: 57%;
     left: 3%;
     width: 30rem;
   }
 
   .polaroid-card--6 {
-    top: 62%;
+    top: 58%;
     left: calc(99% - var(--polaroid-inactive-width));
   }
 

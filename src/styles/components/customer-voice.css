@@ -141,6 +141,15 @@
   line-height: 3.4rem;
 }
 
+.customer-voice-modal .swiper-button-prev,
+.customer-voice-modal .swiper-button-next {
+  background-color: #212121;
+}
+
+.customer-voice-modal .swiper-button-disabled {
+  background-color: #f1fafe;
+}
+
 @media (min-width: 768px) {
   .customer-voice-card {
     border-radius: var(--border-radius-30);
@@ -191,21 +200,12 @@
     overflow: hidden;
     width: 100%;
   }
-}
 
-.customer-voice-section .swiper-button-prev,
-.customer-voice-section .swiper-button-next,
-.customer-voice-modal .swiper-button-prev,
-.customer-voice-modal .swiper-button-next {
-  background-color: #212121;
-}
-
-.customer-voice-section .swiper-button-disabled,
-.customer-voice-modal .swiper-button-disabled {
-  background-color: #f1fafe;
-}
-
-.customer-voice-section .swiper-nav-holder {
-  gap: 1.6rem;
-  justify-content: flex-end;
+  .customer-voice-section .glass-swiper-navigation {
+    left: var(--customer-voice-gutter);
+    right: var(--customer-voice-gutter);
+    width: auto;
+    max-width: 145rem;
+    padding-inline: 2rem;
+  }
 }

@@ -364,9 +364,7 @@ body.modal-open {
 
 /* swiper nav and pagination */
 .cards-section .swiper-nav-holder,
-.gallery-section .swiper-nav-holder,
-.customer-voice-section .swiper-nav-holder,
-.alter-gallery-section .swiper-nav-holder {
+.customer-voice-section .swiper-nav-holder {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -386,9 +384,7 @@ body.modal-open {
 size-guide .size-guide-swiper-pagination,
 hsa-fsa-guide .hsa-fsa-guide-swiper-pagination,
 .cards-section .swiper-pagination,
-.gallery-section .swiper-pagination,
-.customer-voice-section .swiper-pagination,
-.alter-gallery-section .swiper-pagination {
+.customer-voice-section .swiper-pagination {
     position: relative !important;
     width: auto !important;
     font-size: 1.5rem;
@@ -400,10 +396,8 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-pagination,
 size-guide .swiper-nav-btns,
 hsa-fsa-guide .swiper-nav-btns,
 .cards-section .swiper-nav-btns,
-.gallery-section .swiper-nav-btns,
 .customer-voice-section .swiper-nav-btns,
-.customer-voice-modal .swiper-nav-btns,
-.alter-gallery-section .swiper-nav-btns {
+.customer-voice-modal .swiper-nav-btns {
     display: flex;
     position: relative;
     gap: 1.6rem;
@@ -416,14 +410,8 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev,
 hsa-fsa-guide .hsa-fsa-guide-swiper-button-next,
 .cards-section .swiper-button-prev,
 .cards-section .swiper-button-next,
-.gallery-section .swiper-button-prev,
-.gallery-section .swiper-button-next,
-.customer-voice-section .swiper-button-prev,
-.customer-voice-section .swiper-button-next,
 .customer-voice-modal .swiper-button-prev,
-.customer-voice-modal .swiper-button-next,
-.alter-gallery-section .swiper-button-prev,
-.alter-gallery-section .swiper-button-next {
+.customer-voice-modal .swiper-button-next {
     position: relative !important;
     width: 4.5rem;
     height: 4.5rem;
@@ -440,14 +428,8 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev svg,
 hsa-fsa-guide .hsa-fsa-guide-swiper-button-next svg,
 .cards-section .swiper-button-prev svg,
 .cards-section .swiper-button-next svg,
-.gallery-section .swiper-button-prev svg,
-.gallery-section .swiper-button-next svg,
-.customer-voice-section .swiper-button-prev svg,
-.customer-voice-section .swiper-button-next svg,
 .customer-voice-modal .swiper-button-prev svg,
-.customer-voice-modal .swiper-button-next svg,
-.alter-gallery-section .swiper-button-prev svg,
-.alter-gallery-section .swiper-button-next svg {
+.customer-voice-modal .swiper-button-next svg {
     width: 2.8rem !important;
     color: var(--white);
 }
@@ -458,14 +440,8 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev .slide-nav-arrow,
 hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow,
 .cards-section .swiper-button-prev .slide-nav-arrow,
 .cards-section .swiper-button-next .slide-nav-arrow,
-.gallery-section .swiper-button-prev .slide-nav-arrow,
-.gallery-section .swiper-button-next .slide-nav-arrow,
-.customer-voice-section .swiper-button-prev .slide-nav-arrow,
-.customer-voice-section .swiper-button-next .slide-nav-arrow,
 .customer-voice-modal .swiper-button-prev .slide-nav-arrow,
-.customer-voice-modal .swiper-button-next .slide-nav-arrow,
-.alter-gallery-section .swiper-button-prev .slide-nav-arrow,
-.alter-gallery-section .swiper-button-next .slide-nav-arrow {
+.customer-voice-modal .swiper-button-next .slide-nav-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -478,14 +454,8 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-prev .slide-nav-arrow img,
 hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow img,
 .cards-section .swiper-button-prev .slide-nav-arrow img,
 .cards-section .swiper-button-next .slide-nav-arrow img,
-.gallery-section .swiper-button-prev .slide-nav-arrow img,
-.gallery-section .swiper-button-next .slide-nav-arrow img,
-.customer-voice-section .swiper-button-prev .slide-nav-arrow img,
-.customer-voice-section .swiper-button-next .slide-nav-arrow img,
 .customer-voice-modal .swiper-button-prev .slide-nav-arrow img,
-.customer-voice-modal .swiper-button-next .slide-nav-arrow img,
-.alter-gallery-section .swiper-button-prev .slide-nav-arrow img,
-.alter-gallery-section .swiper-button-next .slide-nav-arrow img {
+.customer-voice-modal .swiper-button-next .slide-nav-arrow img {
     width: 2.8rem !important;
     height: auto;
     object-fit: contain;
@@ -507,10 +477,7 @@ hsa-fsa-guide .hsa-fsa-guide-swiper-button-next .slide-nav-arrow img,
 size-guide .swiper-button-disabled,
 hsa-fsa-guide .swiper-button-disabled,
 .cards-section .swiper-button-disabled,
-.gallery-section .swiper-button-disabled,
-.customer-voice-section .swiper-button-disabled,
-.customer-voice-modal .swiper-button-disabled,
-.alter-gallery-section .swiper-button-disabled {
+.customer-voice-modal .swiper-button-disabled {
     cursor: not-allowed;
     background-color: var(--white);
 }
@@ -518,10 +485,7 @@ hsa-fsa-guide .swiper-button-disabled,
 size-guide .swiper-button-disabled svg,
 hsa-fsa-guide .swiper-button-disabled svg,
 .cards-section .swiper-button-disabled svg,
-.gallery-section .swiper-button-disabled svg,
-.customer-voice-section .swiper-button-disabled svg,
-.customer-voice-modal .swiper-button-disabled svg,
-.alter-gallery-section .swiper-button-disabled svg {
+.customer-voice-modal .swiper-button-disabled svg {
     color: var(--arrow-icon-color);
 }
 
@@ -548,6 +512,90 @@ hsa-fsa-guide .swiper-button-disabled svg,
 
 /* swiper nav and pagination end */
 
+/* Glass overlay swiper navigation (shared styles; section-specific *-button-prev/next for JS) */
+.glass-swiper-navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding-inline: 2.6rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.glass-swiper-navigation-btn {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  margin: 0;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  backdrop-filter:
+    blur(15px)
+    saturate(3)
+    brightness(0.8);
+  -webkit-backdrop-filter: blur(15px) saturate(3) brightness(0.8);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.glass-swiper-navigation-btn:hover {
+  backdrop-filter:
+    blur(15px)
+    saturate(3)
+    brightness(0.9);
+  -webkit-backdrop-filter: blur(15px) saturate(3) brightness(0.9);
+}
+
+.glass-swiper-navigation-btn svg {
+  width: 2.8rem;
+  height: auto;
+  color: var(--white);
+  opacity: 0.6;
+}
+
+.glass-swiper-navigation-btn .slide-nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.glass-swiper-navigation-btn .slide-nav-arrow img {
+  width: 2.8rem;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  opacity: 0.6;
+}
+
+.glass-swiper-navigation-btn.swiper-button-disabled {
+  opacity: 0;
+  cursor: auto;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 @media (min-width: 768px) {
     .floating-cta-wrapper {
         right: 6rem;
@@ -565,12 +613,19 @@ hsa-fsa-guide .swiper-button-disabled svg,
     }
     /* swiper nav and pagination */
     .cards-section .swiper-nav-holder,
-    .gallery-slider,
-    .gallery-section .swiper-nav-holder,
     .customer-voice-section .swiper-nav-holder {
         display: none !important;
     }
     /* swiper nav and pagination end */
+
+    .glass-swiper-navigation-btn {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    .glass-swiper-navigation {
+      padding-inline: 2rem;
+    }
 }
 
 @media (min-width: 1440px) {

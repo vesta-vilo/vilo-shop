@@ -26,6 +26,8 @@ At most **one consecutive blank line** between blocks (see `html-formatting.mdc`
 
 - Layout: `src/_page-components/SECTIONS.md`, `section-layout.mdc`
 - Nav/menus: `src/_page-components/MENU.md` before editing menu partials
+- Glass carousel nav: `src/_page-components/GLASS-SWIPER-NAV.md`
+- FAQ tabs/icons: `src/_page-components/FAQ.md`
 
 ## Images
 
