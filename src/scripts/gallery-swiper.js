@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { onReady } from './islands/on-ready.js';
 
@@ -12,9 +11,8 @@ function getScopedEls(sliderEl) {
   if (!sectionEl) return {};
 
   return {
-    paginationEl: sectionEl.querySelector('.swiper-pagination'),
-    nextEl: sectionEl.querySelector('.swiper-button-next'),
-    prevEl: sectionEl.querySelector('.swiper-button-prev'),
+    nextEl: sectionEl.querySelector('.gallery-swiper-button-next'),
+    prevEl: sectionEl.querySelector('.gallery-swiper-button-prev'),
   };
 }
 
@@ -27,18 +25,14 @@ function initSwiper() {
     if (isMobile) {
       if (gallerySwiperInstances.has(sliderEl)) return;
 
-      const { paginationEl, nextEl, prevEl } = getScopedEls(sliderEl);
-      if (!paginationEl || !nextEl || !prevEl) return;
+      const { nextEl, prevEl } = getScopedEls(sliderEl);
+      if (!nextEl || !prevEl) return;
 
       const instance = new Swiper(sliderEl, {
-        modules: [Pagination, Navigation],
+        modules: [Navigation],
         slidesPerView: 1.2,
         spaceBetween: 16,
         centeredSlides: false,
-        pagination: {
-          el: paginationEl,
-          type: 'fraction',
-        },
         navigation: {
           addIcons: false,
           nextEl,

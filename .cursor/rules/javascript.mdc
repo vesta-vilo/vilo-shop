@@ -58,6 +58,12 @@ onReady(() => {
 - **Swiper** — carousels (galleries, product media, menus)
 - **GSAP** — scroll / parallax
 
+### Glass Swiper navigation
+
+Shared frosted prev/next: styles on `.glass-swiper-navigation` / `.glass-swiper-navigation-btn` (`base.css`); section-specific `*-button-prev` / `*-button-next` for JS hooks. Do **not** use Swiper’s default `.swiper-button-prev` / `.swiper-button-next` on these controls.
+
+Full guide: `src/_page-components/GLASS-SWIPER-NAV.md`.
+
 ## Event tracking
 
 Prefer `data-fb-event="EventName"` on clickables (wired by `EventTracking.js` in core) over bespoke tracking code.

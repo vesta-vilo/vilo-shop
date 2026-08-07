@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { onReady } from './islands/on-ready.js';
 
@@ -16,13 +15,12 @@ function initAlterSwiper() {
     const sectionEl = sliderEl.closest('.alter-gallery-section') || sliderEl.parentElement;
     if (!sectionEl) return;
 
-    const paginationEl = sectionEl.querySelector('.swiper-pagination');
-    const nextEl = sectionEl.querySelector('.swiper-button-next');
-    const prevEl = sectionEl.querySelector('.swiper-button-prev');
-    if (!paginationEl || !nextEl || !prevEl) return;
+    const nextEl = sectionEl.querySelector('.alter-gallery-swiper-button-next');
+    const prevEl = sectionEl.querySelector('.alter-gallery-swiper-button-prev');
+    if (!nextEl || !prevEl) return;
 
     const instance = new Swiper(sliderEl, {
-      modules: [Pagination, Navigation],
+      modules: [Navigation],
       slidesPerView: 1.2,
       spaceBetween: 16,
       centeredSlides: false,
@@ -31,10 +29,6 @@ function initAlterSwiper() {
           slidesPerView: 'auto',
           spaceBetween: 20,
         }
-      },
-      pagination: {
-        el: paginationEl,
-        type: 'fraction',
       },
       navigation: {
         addIcons: false,

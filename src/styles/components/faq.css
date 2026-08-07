@@ -23,24 +23,48 @@ faq-tabs {
 .faq-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .tab-btn {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.4rem;
+  height: 4.4rem;
+  box-sizing: border-box;
   color: var(--primary-color);
-  background: var(--background-color-tertiary);
-  font-size: 1.2rem;
-  line-height: 1.5rem;
+  background-color: var(--background-color-tertiary);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   border-radius: var(--border-radius-12);
-  padding: 1.2rem;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
   border: none;
 }
 
+.tab-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -0.2rem;
+  z-index: -1;
+  background: url("/images/icons/faq-tab-active-bg.png") center / 100% 100% no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
 .tab-btn.active {
-  background: var(--primary-color);
+  background-color: transparent;
   color: var(--primary-color-inverse);
+  border-radius: 0;
+}
+
+.tab-btn.active::before {
+  opacity: 1;
 }
 
 .tab-content {
@@ -92,37 +116,40 @@ faq-tabs {
 
 .faq-icon {
   position: relative;
+  flex-shrink: 0;
   width: 1.4rem;
   height: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .faq-icon::before,
 .faq-icon::after {
   content: "";
   position: absolute;
-  width: 100%;
-  height: .2rem;
-  background-color: currentColor;
-  border-radius: .2rem;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .faq-icon::before {
-  width: 100%;
-  height: .2rem;
+  background-image: url("/images/icons/icon-faq-plus.png");
+  opacity: 1;
 }
 
 .faq-icon::after {
-  width: .2rem;
-  height: 100%;
-  transition: transform 0.2s ease-in-out, opacity 0.2s;
+  background-image: url("/images/icons/icon-faq-minus.png");
+  opacity: 0;
+}
+
+.faq-item[open] .faq-icon::before {
+  opacity: 0;
 }
 
 .faq-item[open] .faq-icon::after {
-  transform: rotate(90deg);
-  opacity: 0;
+  opacity: 1;
 }
 
 .faq-item::details-content {
@@ -185,6 +212,10 @@ faq-tabs {
   }
   faq-tabs {
     gap: 6rem;
+  }
+  .tab-btn {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
   }
   .faq-items-list {
     gap: 1.6rem;

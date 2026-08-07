@@ -293,10 +293,10 @@ class CustomerVoice extends HTMLElement {
 
   #initGalleryMobileSwiper() {
     const el = this.querySelector('.customer-voice-swiper');
-    const nextEl = this.querySelector('.swiper-nav-holder .swiper-button-next');
-    const prevEl = this.querySelector('.swiper-nav-holder .swiper-button-prev');
+    const nextEl = this.querySelector('.customer-voice-swiper-button-next');
+    const prevEl = this.querySelector('.customer-voice-swiper-button-prev');
 
-    if (!el || !nextEl || !prevEl) return;
+    if (!el) return;
 
     this.#swiper = new Swiper(el, {
       modules: [Navigation],
@@ -318,6 +318,8 @@ class CustomerVoice extends HTMLElement {
   #initFreeScrollSwiper() {
     const el = this.querySelector('.customer-voice-swiper');
     const viewport = this.querySelector('.customer-voice-swiper-viewport');
+    const nextEl = this.querySelector('.customer-voice-swiper-button-next');
+    const prevEl = this.querySelector('.customer-voice-swiper-button-prev');
 
     if (!el) return;
 
@@ -338,7 +340,7 @@ class CustomerVoice extends HTMLElement {
     };
 
     this.#swiper = new Swiper(el, {
-      modules: [FreeMode],
+      modules: [FreeMode, Navigation],
       slidesPerView: 'auto',
       spaceBetween: 26,
       initialSlide: 0,
@@ -353,6 +355,11 @@ class CustomerVoice extends HTMLElement {
       slidesOffsetAfter: initialOffsets.after,
       observer: true,
       observeParents: true,
+      navigation: {
+        addIcons: false,
+        nextEl,
+        prevEl,
+      },
     });
 
     this.#swiper.__applyOffsets = applyOffsets;
