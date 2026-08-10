@@ -135,6 +135,10 @@ Reference: `src/styles/components/media-icons.css`, `src/_page-components/SECTIO
 
 Static assets referenced with root-relative paths (e.g. `/images/...`) live in `public/` (served as-is by Vite, copied verbatim into `dist/`). Font files and a few build-processed assets live under `src/assets/`.
 
+### Firmware hosting (`public/app/`)
+
+`public/app/` hosts MRing OTA firmware `.bin` files plus `versions.json`, the manifest the Vilo app reads to discover builds and pre-select the latest (semver order; `file` paths resolve relative to the manifest). **When adding a `.bin`, add a matching entry to `versions.json`** — the app won't see a binary that isn't listed.
+
 ### Deployment
 
 `.github/workflows/ci.yml` builds on push to `main` and deploys `dist/` to GitHub Pages (custom domain via `CNAME`). `pnpm deploy` is the manual equivalent for local use.
