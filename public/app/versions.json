@@ -1,27 +1,6 @@
 {
   "versions": [
     {
-      "version": "1.0.3",
-      "channel": "stable",
-      "file": "vilo_v1.0.3_58ed93c.bin",
-      "hash": "58ed93c",
-      "date": "2026-08-02"
-    },
-    {
-      "version": "1.0.3-alpha",
-      "channel": "alpha",
-      "file": "voli_v1.0.3_alpha_91bb0be.bin",
-      "hash": "91bb0be",
-      "date": "2026-08-03"
-    },
-    {
-      "version": "1.1.0-rc",
-      "channel": "rc",
-      "file": "vilo_v1.1.0_rc_7d8108b.bin",
-      "hash": "7d8108b",
-      "date": "2026-08-13"
-    },
-    {
       "version": "1.1.10",
       "channel": "stable",
       "file": "vilo_v1.1.10_73c41f3.bin",
