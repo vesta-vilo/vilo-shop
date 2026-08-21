@@ -137,7 +137,7 @@ Static assets referenced with root-relative paths (e.g. `/images/...`) live in `
 
 ### Firmware hosting (`public/app/`)
 
-`public/app/` hosts MRing OTA firmware `.bin` files plus `versions.json`, the manifest the Vilo app reads to discover builds and pre-select the latest (newest `date` first; `file` paths resolve relative to the manifest). Entries carry `date` (upload time, ISO 8601 to the minute with offset, e.g. `2026-08-21T00:55-07:00`) and an optional free-text `note` — the app shows both in its build list. **When adding a `.bin`, add a matching entry to `versions.json`** — the app won't see a binary that isn't listed.
+`public/app/` hosts MRing OTA firmware `.bin` files plus `versions.json`, the manifest the Vilo app reads to discover builds and pre-select the latest (newest `date` first; `file` paths resolve relative to the manifest). Entries are `file` + `date` (upload time, ISO 8601 to the minute with offset, e.g. `2026-08-21T00:55-07:00`) + optional free-text `note`; builds are identified by file name alone (no version/channel fields) and the app lists file name, time, and note. **When adding a `.bin`, add a matching entry to `versions.json`** — the app won't see a binary that isn't listed.
 
 ### Deployment
 

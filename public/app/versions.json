@@ -1,20 +1,14 @@
 {
   "versions": [
     {
-      "version": "1.1.10",
-      "channel": "stable",
       "file": "vilo_v1.1.10_73c41f3.bin",
-      "hash": "73c41f3",
       "date": "2026-08-21T00:55-07:00",
       "note": ""
     },
     {
-      "version": "vilo-ring-rc-20260821-022511-4f62fe1.gcc_mac_os",
-      "channel": "rc",
       "file": "vilo-ring-rc-20260821-022511-4f62fe1.gcc_mac_os.bin",
-      "hash": "4f62fe1",
       "date": "2026-08-21T02:30-07:00",
-      "note": "chore: 统一行尾为 LF、忽略 .DS_Store，并补充 AGENT.md"
+      "note": "首个macOS+gcc构建版本"
     }
   ]
 }
