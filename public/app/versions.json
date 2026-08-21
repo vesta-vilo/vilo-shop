@@ -20,6 +20,13 @@
       "file": "vilo_v1.1.0_rc_7d8108b.bin",
       "hash": "7d8108b",
       "date": "2026-08-13"
+    },
+    {
+      "version": "1.1.10",
+      "channel": "stable",
+      "file": "vilo_v1.1.10_73c41f3.bin",
+      "hash": "73c41f3",
+      "date": "2026-08-21"
     }
   ]
 }
