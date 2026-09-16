@@ -110,6 +110,12 @@ class ProductForm extends HTMLElement {
       });
 
       this.productData = await shopifyClient.product.fetchByHandle(handle);
+      if (!this.productData) {
+        console.error(
+          `ProductForm: no Shopify product found for handle "${handle}"`,
+        );
+        return;
+      }
       this.updateVariant();
     } catch (error) {
       console.error("Shopify Initialization Failed:", error);
@@ -136,10 +142,9 @@ class ProductForm extends HTMLElement {
   updateVariant() {
     if (!this.productData) return;
 
-    const fieldsets = this.querySelectorAll("fieldset");
-    const selectedOptions = Array.from(fieldsets).map(
-      (fs) => fs.querySelector("input:checked")?.value,
-    );
+    const selectedOptions = Array.from(
+      this.querySelectorAll('input[type="radio"]:checked'),
+    ).map((input) => input.value);
 
     const matchedVariant = this.productData.variants.find((variant) =>
       selectedOptions.every((val) =>
@@ -152,6 +157,20 @@ class ProductForm extends HTMLElement {
       this.updateDepositLabel(selectedOptions);
       this.currentVariantId = matchedVariant.id.split("/").pop();
       this.toggleUIState(matchedVariant.available);
+    } else {
+      const knownValues = new Set(
+        this.productData.variants.flatMap((variant) =>
+          variant.selectedOptions.map((opt) => opt.value),
+        ),
+      );
+      const unknownOptions = selectedOptions.filter(
+        (val) => !knownValues.has(val),
+      );
+      console.warn("ProductForm: no matching variant", {
+        selected: selectedOptions,
+        notInShopifyResponse: unknownOptions,
+        shopifyValues: [...knownValues],
+      });
     }
   }
 
