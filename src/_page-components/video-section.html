@@ -1,0 +1,13 @@
+<section class="video-section">
+  <h2 class="video-section__title">It’s not a car.<br>It’s a robotaxi designed around you.</h2>
+  <div class="video-section__media js-video-section__media">
+    <!-- Paused on load; play/pause driven by visibility + toggle (video-section.js) -->
+    <video class="video-section__video" src="/videos/vilo-full-video-web.mp4" poster="/images/home-page/vilo-full-video-poster.webp" width="1920" height="1080" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+
+    <!-- Play/pause toggle — controls the <video> inside .video-section__media (video-section.js) -->
+    <button class="video-section__control js-video-section__control" type="button" aria-label="Play video" data-state="paused">
+      <img class="video-section__control-icon video-section__control-icon--pause" src="/images/icons/icon-pause.png" alt="" aria-hidden="true" width="20" height="20" />
+      <img class="video-section__control-icon video-section__control-icon--play" src="/images/icons/icon-play.png" alt="" aria-hidden="true" width="20" height="20" />
+    </button>
+  </div>
+</section>

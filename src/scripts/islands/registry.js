@@ -91,6 +91,11 @@ export const islands = [
     selector: '.gsap-parallax-section',
     load: () => import('../parallax.js'),
   },
+  {
+    id: 'video-section',
+    selector: '.video-section',
+    load: () => import('../video-section.js'),
+  },
 
   // Swipers
   {
