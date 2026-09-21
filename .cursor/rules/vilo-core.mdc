@@ -33,7 +33,7 @@ Islands architecture — see `.cursor/rules/javascript.mdc` for details.
 
 ## Styles
 
-Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md` (includes collage — see `COLLAGE.md`).
+Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md` (includes collage — see `COLLAGE.md`; homepage video — see `VIDEO-SECTION.md`).
 
 ## Git workflow
 
