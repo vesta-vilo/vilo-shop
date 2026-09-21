@@ -38,7 +38,7 @@ The script writes two custom properties on the section root; CSS does the rest.
 
 - **Start:** the media's top edge reaches **70%** of the viewport height (`GROW_START` in the script).
 - **End (`1`):** the full-bleed block would be vertically centered in the viewport.
-- `.video-section__media` widens by `(bleed width − section width) × grow`, with an equal negative `margin-inline` on each side so it stays centered. The radius scales to `0` as `grow` hits `1`.
+- `.video-section__media` starts at `--video-base-width` (`min(100%, 110rem)` — 1100px, or the section width if narrower) and widens by `(bleed width − base width) × grow`, with `margin-inline: (100% − width) / 2` so it stays centered. The radius scales to `0` as `grow` hits `1`.
 - Scroll/resize listeners are attached only while the section intersects the viewport (IntersectionObserver) and are throttled with `requestAnimationFrame`.
 
 The section itself still uses the **145rem width pattern** (see `SECTIONS.md`); only the media breaks out of it.
