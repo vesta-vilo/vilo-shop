@@ -35,7 +35,11 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
 | `COLLAGE.md` | Homepage collage (two media + copy rows; stack + cover layouts) |
+<<<<<<< HEAD
 | `VIDEO-SECTION.md` | Homepage video (scroll-driven full-bleed grow, visibility-driven play/pause) |
+=======
+| `COLOR-SWITCH.md` | Homepage color switch (synced sliders, swatch gradient colors set in HTML) |
+>>>>>>> d5e06d5 (color switch section)
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 
@@ -47,6 +51,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 
 **Video section:** homepage heading + muted looping video (`video-section.html` / `video-section.css`, island `video-section.js` gated on `.video-section`). The section uses the 145rem width pattern, but on scroll the script drives `--video-grow` (0 → 1) and `--video-bleed-width` so the media widens to full viewport width and its radius goes to 0. Playback is visibility-driven (plays when in view, pauses when out), skipped under `prefers-reduced-motion` or after the user pauses via the button. No `autoplay` attribute — the script owns playback. Full details: `VIDEO-SECTION.md`.
 
+**Color switch:** homepage ring color section (`color-switch.html` / `color-switch.css` / `color-switch.js`). Three sliders and the swatches sync by index, so keep them in the same order. Each swatch's dot gradient is set in HTML via inline `--swatch-color-1` (dark), `--swatch-color-2` (base) and `--swatch-color-3` (highlight) on the button. Full details: `COLOR-SWITCH.md`.
 **Glass Swiper navigation:** frosted circular prev/next shared across carousels. Styles use `.glass-swiper-navigation` / `.glass-swiper-navigation-btn` in `base.css`; each section keeps its own `*-button-prev` / `*-button-next` for JS. Do not use Swiper’s default `.swiper-button-prev` / `.swiper-button-next` on these controls. Full details: `GLASS-SWIPER-NAV.md`.
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.

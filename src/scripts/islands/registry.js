@@ -133,4 +133,9 @@ export const islands = [
     selector: '.cards-swiper',
     load: () => import('../cards-swiper.js'),
   },
+  {
+    id: 'color-switch',
+    selector: '.color-switch',
+    load: () => import('../color-switch.js'),
+  },
 ];
