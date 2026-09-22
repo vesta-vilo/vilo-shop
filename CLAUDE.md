@@ -112,6 +112,8 @@ Plain CSS, no preprocessor. `src/styles/index.css` is the entry point pulling in
 
 **Design units:** specs are usually in px; in CSS use `rem` with **1rem = 10px** (e.g. 18px → `1.8rem`, 1450px → `145rem`). Shared layout tokens live in `variables.css` — e.g. `--page-padding-inline`, `--layout-menubar-max` (1450px), `--layout-product-section-max`.
 
+**Glass effect:** the frosted surface used by the header, product sticky bar, and customer-voice cards is the `--glass-backdrop-filter` token in `variables.css` (`blur(1rem) saturate(103%) brightness(90%)`). Use it for both `backdrop-filter` and `-webkit-backdrop-filter` instead of repeating the value; change the token to restyle all of them at once. Other surfaces (glass swiper nav, product media, parallax) still use their own filter values.
+
 **Heading sections:** optional mobile text alignment via `heading-section--text-left-mobile` or `heading-section--text-right-mobile` on `heading-section` (centered again from 768px up); see `heading-section.css`.
 
 #### Section layout baseline

@@ -14,8 +14,8 @@ product-sticky-bar {
   padding: 1rem var(--page-padding-inline) calc(1rem + env(safe-area-inset-bottom));
   /* Same glass as .header-content-wrapper (header.css) */
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
-  -webkit-backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
+  backdrop-filter: var(--glass-backdrop-filter);
+  -webkit-backdrop-filter: var(--glass-backdrop-filter);
   transform: translateY(100%);
   visibility: hidden;
   transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
