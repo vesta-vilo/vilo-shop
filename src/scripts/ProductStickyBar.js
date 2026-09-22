@@ -32,7 +32,7 @@ class ProductStickyBar extends HTMLElement {
     this.buyButton = this.closest("product-form")?.querySelector(
       ".js-preorder-button",
     );
-    this.button = this.querySelector(".product-sticky-bar__button");
+    this.button = this.querySelector(".js-product-sticky-bar-button");
     if (!this.buyButton || !this.button) return;
 
     this.button.addEventListener("click", this.handleClick);
