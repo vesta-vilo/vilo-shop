@@ -35,6 +35,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
 | `COLLAGE.md` | Homepage collage (two media + copy rows; stack + cover layouts) |
+| `VIDEO-SECTION.md` | Homepage video (scroll-driven full-bleed grow, visibility-driven play/pause) |
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 
@@ -43,6 +44,9 @@ Some reusable components have their own guides under `src/_page-components/` —
 **Experience grid (Why Vilo):** six linked image tiles used in the Experience menu and as a page section. Menu and section have **separate partials** (`components/experience-grid-menu.html`, `components/experience-grid-section.html`) in `_page-components/components/` so content can diverge; styles are shared in `experience-grid.css`. Menu mobile layout is scoped via `.second-level-menus`; section-only layout via `section.why-vilo` (do not put `why-vilo` on menu rows). Menu row visibility: `desktop-menu.css`. Full details: `EXPERIENCE-GRID.md`. Homepage: separate `heading-section` above `<load src="/_page-components/why-vilo-section.html" />` — heading is not inside the section partial.
 
 **Collage:** two homepage rows of lifestyle media + copy (`collage.html` / `collage.css`). Row 1 stacks two 75% images in a 1:1 block (media left); row 2 is a single cover image (media right). Mobile stacks media above text. Uses the 145rem section width pattern. Full details: `COLLAGE.md`.
+
+**Video section:** homepage heading + muted looping video (`video-section.html` / `video-section.css`, island `video-section.js` gated on `.video-section`). The section uses the 145rem width pattern, but on scroll the script drives `--video-grow` (0 → 1) and `--video-bleed-width` so the media widens to full viewport width and its radius goes to 0. Playback is visibility-driven (plays when in view, pauses when out), skipped under `prefers-reduced-motion` or after the user pauses via the button. No `autoplay` attribute — the script owns playback. Full details: `VIDEO-SECTION.md`.
+
 **Glass Swiper navigation:** frosted circular prev/next shared across carousels. Styles use `.glass-swiper-navigation` / `.glass-swiper-navigation-btn` in `base.css`; each section keeps its own `*-button-prev` / `*-button-next` for JS. Do not use Swiper’s default `.swiper-button-prev` / `.swiper-button-next` on these controls. Full details: `GLASS-SWIPER-NAV.md`.
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
