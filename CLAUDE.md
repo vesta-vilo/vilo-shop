@@ -35,11 +35,8 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `MENU.md` | Site nav (desktop/mobile entry files, shop menu, Experience menu rows) |
 | `EXPERIENCE-GRID.md` | Why Vilo image-tile grid (menu + page section partials, styles, accessibility) |
 | `COLLAGE.md` | Homepage collage (two media + copy rows; stack + cover layouts) |
-<<<<<<< HEAD
 | `VIDEO-SECTION.md` | Homepage video (scroll-driven full-bleed grow, visibility-driven play/pause) |
-=======
 | `COLOR-SWITCH.md` | Homepage color switch (synced sliders, swatch gradient colors set in HTML) |
->>>>>>> d5e06d5 (color switch section)
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 
