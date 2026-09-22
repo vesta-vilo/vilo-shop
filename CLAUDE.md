@@ -39,6 +39,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `COLOR-SWITCH.md` | Homepage color switch (synced sliders, swatch gradient colors set in HTML) |
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
+| `STICKY-BAR.md` | Product sticky buy bar (partial inside `<product-form>`, visibility rules) |
 
 **Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
@@ -102,6 +103,8 @@ Parsed by `media-utils.js`; consumed by `ProductMedia` on `variant:changed` (`de
 - Legacy array-only values (`"Glass Jade": ["url", ...]`) still work.
 
 When editing the default variant, also update the visible gallery `<img>` srcs, `.product-media-video` defaults, and `<link rel="preload">` entries in `<head>`.
+
+**Sticky buy bar:** load `components/product-sticky-bar.html` inside `<product-form>` right after `.js-preorder-button`, passing `title`, `label`, and `note` args (all required; `note=""` hides the text next to the price). It shows at the bottom on mobile and at the top on desktop (≥768px, only while the nav is hidden) once the buy button scrolls off the top. Full details: `STICKY-BAR.md`.
 
 ### Styles
 

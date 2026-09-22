@@ -60,6 +60,11 @@ export const islands = [
     load: () => import('../ProductForm.js'),
   },
   {
+    id: 'product-sticky-bar',
+    selector: 'product-sticky-bar',
+    load: () => import('../ProductStickyBar.js'),
+  },
+  {
     id: 'product-payment-variant-marquee',
     selector: 'product-payment-variant-marquee',
     load: () => import('../ProductPaymentVariantMarquee.js'),
