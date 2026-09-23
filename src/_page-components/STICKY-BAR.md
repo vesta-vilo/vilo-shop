@@ -28,7 +28,7 @@ Load the partial **inside `<product-form>`, right after the `.js-preorder-button
 |-----|----------|-----|
 | `title` | yes | Product name shown in the bar (usually matches `.product-title`) |
 | `label` | yes | Bar button text (e.g. `Preorder`, `Shop Now`) |
-| `note` | yes (may be `""`) | Small text next to the price (e.g. `deposit today`). Stacked under the price on mobile, same row on desktop; hidden when empty. |
+| `note` | yes (may be `""`) | Small text next to the price (e.g. `deposit today`). Stacked under the price on mobile, same row on desktop; hidden when empty. Shown only while the `Deposit` payment plan is selected — see *Note text* below. |
 
 Always pass all three — `vite-plugin-html-inject` leaves unknown `{=$arg}` placeholders as literal text.
 
@@ -46,6 +46,7 @@ No JS or CSS changes are needed: the island loads automatically when the element
 | What | How |
 |------|-----|
 | Price | `<span data-original-price>` in the partial — `ProductForm` updates every `[data-original-price]` on the page, so no extra wiring. Starts empty until the Shopify price loads. |
+| Note text | `note` (stored in `data-deposit-note`) while the form's checked `payment-plan` radio is `Deposit` — or when the form has no payment plan at all. With any other plan (e.g. `Full Payment`) it shows the compare-at price read from the main `.product-price [data-compare-price]`, struck through via `.product-sticky-bar__note--compare` (the script finds the span by `.js-product-sticky-bar-note`). Falls back to `note` when there is no compare price. Re-rendered on the global `payment-plan:changed` event (emitted by `ProductForm`) and on a MutationObserver over the compare element, which `ProductForm` fills after the Shopify fetch without an event of its own. |
 | Click | Forwarded to the form's `.js-preorder-button` (`.click()`), so checkout stays in `ProductForm`. |
 | Disabled state | Mirrors the main button's `disabled` attribute (MutationObserver). |
 | Tracking | Bar button has **no** `data-fb-event` — the forwarded click already fires the main button's `InitiateCheckout`. Adding it would double-count. |

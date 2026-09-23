@@ -1,6 +1,8 @@
 <!--
   Sticky buy bar — place inside <product-form>, after .js-preorder-button.
   Args: title, label, note (pass note="" for none). Price is filled by ProductForm via [data-original-price].
+  The note shows $note while the Deposit plan is selected and the compare-at price otherwise
+  (ProductStickyBar.js swaps it; data-deposit-note keeps the original text).
   See ProductStickyBar.js / product-sticky-bar.css.
 -->
 <product-sticky-bar role="region" aria-label="Quick buy">
@@ -9,7 +11,7 @@
     <div class="product-sticky-bar__actions">
       <div class="product-sticky-bar__price-block">
         <span class="product-sticky-bar__price" data-original-price></span>
-        <span class="product-sticky-bar__note">{=$note}</span>
+        <span class="product-sticky-bar__note js-product-sticky-bar-note" data-deposit-note="{=$note}">{=$note}</span>
       </div>
       <button type="button" class="product-sticky-bar__button js-product-sticky-bar-button" tabindex="-1">{=$label}</button>
     </div>

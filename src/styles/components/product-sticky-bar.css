@@ -82,6 +82,12 @@ product-sticky-bar.is-active {
   display: none;
 }
 
+/* Compare-at price shown in place of the note when a non-deposit plan is selected */
+.product-sticky-bar__note--compare {
+  text-decoration: line-through;
+  color: var(--text-color-tertiary);
+}
+
 .product-sticky-bar__button {
   flex-shrink: 0;
   height: 4.4rem;
