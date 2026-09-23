@@ -1,0 +1,172 @@
+/* Sticky buy bar — partial components/product-sticky-bar.html inside <product-form> (see ProductStickyBar.js).
+   NOTE: it is position: fixed inside .product-content (z-index: 20), so it can never
+   stack above z-index 20, and any transform/filter/backdrop-filter on an ancestor
+   would pin it to that ancestor instead of the viewport.
+   Mobile: bottom, while the buy button is scrolled past.
+   Desktop: top, while the buy button is scrolled past AND the main nav is hidden. */
+
+product-sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 1rem var(--page-padding-inline) calc(1rem + env(safe-area-inset-bottom));
+  /* Same glass as .header-content-wrapper (header.css) */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: var(--glass-backdrop-filter);
+  -webkit-backdrop-filter: var(--glass-backdrop-filter);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+product-sticky-bar.is-active {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.product-sticky-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  max-width: var(--layout-menubar-max);
+  margin-inline: auto;
+}
+
+.product-sticky-bar__title {
+  min-width: 0;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  color: var(--text-color-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-sticky-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* Price + optional note: 2 rows on mobile, 1 row on desktop */
+.product-sticky-bar__price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.product-sticky-bar__price {
+  font-family: var(--primary-font);
+  font-size: 1.54rem;
+  line-height: 1.8rem;
+  color: var(--text-color-secondary);
+  white-space: nowrap;
+}
+
+.product-sticky-bar__note {
+  opacity: 0.6;
+  font-family: var(--primary-font);
+  font-size: 1.12rem;
+  line-height: 1.4rem;
+  color: #3F4142;
+  white-space: nowrap;
+}
+
+.product-sticky-bar__note:empty {
+  display: none;
+}
+
+/* Compare-at price shown in place of the note when a non-deposit plan is selected */
+.product-sticky-bar__note--compare {
+  text-decoration: line-through;
+  color: var(--text-color-tertiary);
+}
+
+.product-sticky-bar__button {
+  flex-shrink: 0;
+  height: 4.4rem;
+  padding-inline: 2.4rem;
+  background: var(--primary-color);
+  color: var(--primary-color-inverse);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-full);
+  font-family: var(--primary-font);
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+.product-sticky-bar__button:hover {
+  background: var(--white);
+  color: var(--primary-color);
+}
+
+.product-sticky-bar__button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Avoid stacking with the homepage floating CTA */
+body:has(product-sticky-bar.is-active) .floating-cta-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Never over open menus / modals */
+body.dm-open product-sticky-bar,
+body.modal-open product-sticky-bar {
+  transform: translateY(100%);
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  product-sticky-bar {
+    top: 0;
+    bottom: auto;
+    padding: 1.2rem var(--layout-gutter-desktop);
+    transform: translateY(-100%);
+  }
+
+  .product-sticky-bar__title,
+  .product-sticky-bar__price {
+    font-size: 2rem;
+  }
+
+  .product-sticky-bar__price-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .product-sticky-bar__price {
+    line-height: 3.2rem;
+  }
+
+  .product-sticky-bar__note {
+    font-size: 1.6rem;
+  }
+
+  /* Desktop: only while the header has slid away (header-logic.js) */
+  product-sticky-bar.is-active {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+
+  body.header-is-sticky:not(.dm-open):not(.modal-open):has(header.header--hidden) product-sticky-bar.is-active {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  body.dm-open product-sticky-bar,
+  body.modal-open product-sticky-bar {
+    transform: translateY(-100%);
+  }
+}

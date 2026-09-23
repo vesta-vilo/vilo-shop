@@ -39,6 +39,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `COLOR-SWITCH.md` | Homepage color switch (synced sliders, swatch gradient colors set in HTML) |
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
+| `STICKY-BAR.md` | Product sticky buy bar (partial inside `<product-form>`, visibility rules) |
 
 **Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
@@ -103,11 +104,15 @@ Parsed by `media-utils.js`; consumed by `ProductMedia` on `variant:changed` (`de
 
 When editing the default variant, also update the visible gallery `<img>` srcs, `.product-media-video` defaults, and `<link rel="preload">` entries in `<head>`.
 
+**Sticky buy bar:** load `components/product-sticky-bar.html` inside `<product-form>` right after `.js-preorder-button`, passing `title`, `label`, and `note` args (all required; `note=""` hides the text next to the price). It shows at the bottom on mobile and at the top on desktop (≥768px, only while the nav is hidden) once the buy button scrolls off the top. Full details: `STICKY-BAR.md`.
+
 ### Styles
 
 Plain CSS, no preprocessor. `src/styles/index.css` is the entry point pulling in `reset.css`, `variables.css`, `fonts.css`, `flex.css`, and everything under `src/styles/components/` — one file per component/section, generally mirroring the `_page-components` partial it styles.
 
 **Design units:** specs are usually in px; in CSS use `rem` with **1rem = 10px** (e.g. 18px → `1.8rem`, 1450px → `145rem`). Shared layout tokens live in `variables.css` — e.g. `--page-padding-inline`, `--layout-menubar-max` (1450px), `--layout-product-section-max`.
+
+**Glass effect:** the frosted surface used by the header, product sticky bar, and customer-voice cards is the `--glass-backdrop-filter` token in `variables.css` (`blur(1rem) saturate(103%) brightness(90%)`). Use it for both `backdrop-filter` and `-webkit-backdrop-filter` instead of repeating the value; change the token to restyle all of them at once. Other surfaces (glass swiper nav, product media, parallax) still use their own filter values.
 
 **Heading sections:** optional mobile text alignment via `heading-section--text-left-mobile` or `heading-section--text-right-mobile` on `heading-section` (centered again from 768px up); see `heading-section.css`.
 

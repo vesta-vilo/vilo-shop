@@ -77,4 +77,6 @@
     --backdrop-color-rgb: 168 176 183;
     --backdrop-opacity: 0.8;
     --backdrop-blur: 5px;
+
+    --glass-backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
 }
