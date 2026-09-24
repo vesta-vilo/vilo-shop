@@ -79,4 +79,10 @@
     --backdrop-blur: 5px;
 
     --glass-backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
+
+    --glass-light-backdrop: blur(1rem) saturate(3);
+    --glass-light-backdrop-bg: rgba(255, 255, 255, 0.3);
+    --glass-light-backdrop-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
