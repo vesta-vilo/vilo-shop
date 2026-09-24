@@ -18,6 +18,7 @@ section.video-section
 └── div.video-section__media.js-video-section__media
     ├── video.video-section__video   (muted loop playsinline, preload="metadata", no autoplay)
     └── button.video-section__control.js-video-section__control[data-state]
+        ├── svg.video-section__control-progress   (border progress ring)
         ├── img.video-section__control-icon--pause
         └── img.video-section__control-icon--play
 ```
@@ -53,6 +54,15 @@ The section itself still uses the **145rem width pattern** (see `SECTIONS.md`); 
   - the user prefers reduced motion (`prefers-reduced-motion: reduce`, re-checked live), or
   - the user paused it with the button. Pressing play again hands control back to the visibility logic.
 - The button's `data-state` (`playing` / `paused`) is synced from the video's `play` / `pause` events and toggles which icon shows. `aria-label` switches between "Play video" and "Pause video".
+
+### Progress ring
+
+The button's border **is** the playback progress bar: it fills clockwise from **top center**, and a complete border means the video played to the end.
+
+- `.video-section__control-progress` is an inline SVG whose `<path>` traces the button's rounded square (34×34 viewBox, 9.4 corner radius, 1.2px `non-scaling-stroke`). The path **starts at top center** — that's what sets the ring's start point, so redraw it from there if the button's size or radius changes.
+- `pathLength="1"` normalises the path, so CSS is just `stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--video-progress))`.
+- `video-section.js` writes `--video-progress` (0 → 1 = `currentTime / duration`) on the button, on every animation frame while playing — `timeupdate` alone (~4×/s) is too coarse for a smooth sweep. The rAF loop stops on `pause` / `ended`.
+- The video has `loop`, so the ring resets to empty and sweeps again on each pass.
 
 ---
 
