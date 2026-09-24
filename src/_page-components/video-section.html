@@ -5,7 +5,11 @@
     <video class="video-section__video" src="/videos/vilo-full-video-web.mp4" poster="/images/home-page/vilo-full-video-poster.webp" width="1920" height="1080" muted loop playsinline preload="metadata" aria-hidden="true"></video>
 
     <!-- Play/pause toggle — controls the <video> inside .video-section__media (video-section.js) -->
-    <button class="video-section__control js-video-section__control" type="button" aria-label="Play video" data-state="paused">
+    <button class="video-section__control js-video-section__control" type="button" aria-label="Play video" data-state="paused" style="--video-progress: 0">
+      <!-- Playback progress: traces the button border clockwise from top center (video-section.js sets --video-progress) -->
+      <svg class="video-section__control-progress" viewBox="0 0 34 34" fill="none" aria-hidden="true" focusable="false">
+        <path d="M17 0.6H24A9.4 9.4 0 0 1 33.4 10V24A9.4 9.4 0 0 1 24 33.4H10A9.4 9.4 0 0 1 0.6 24V10A9.4 9.4 0 0 1 10 0.6H17Z" pathLength="1" stroke="#7be4e0" stroke-width="1.2" vector-effect="non-scaling-stroke" />
+      </svg>
       <img class="video-section__control-icon video-section__control-icon--pause" src="/images/icons/icon-pause.png" alt="" aria-hidden="true" width="20" height="20" />
       <img class="video-section__control-icon video-section__control-icon--play" src="/images/icons/icon-play.png" alt="" aria-hidden="true" width="20" height="20" />
     </button>
