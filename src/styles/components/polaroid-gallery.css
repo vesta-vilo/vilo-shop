@@ -43,6 +43,7 @@
   padding-block: 5rem;
   margin-inline: auto;
   overflow: hidden;
+  isolation: isolate;
   --polaroid-inactive-width: min(39vw, 18rem);
   --polaroid-active-width: min(53vw, 22.5rem);
 }
