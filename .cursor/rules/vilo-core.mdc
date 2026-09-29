@@ -35,6 +35,8 @@ Islands architecture — see `.cursor/rules/javascript.mdc` for details.
 
 Plain CSS, no preprocessor. Entry: `src/styles/index.css`. One file per section/component under `src/styles/components/`, mirroring `_page-components` partials. Section width baseline: `.cursor/rules/section-layout.mdc`, `src/_page-components/SECTIONS.md` (includes collage — see `COLLAGE.md`; homepage video — see `VIDEO-SECTION.md`).
 
+Glass effect: use `var(--glass-backdrop-filter)` (in `variables.css`) for both `backdrop-filter` and `-webkit-backdrop-filter` instead of repeating `blur(1rem) saturate(103%) brightness(90%)` — shared by header, product sticky bar, and customer-voice cards.
+
 ## Git workflow
 
 - Branches: `vilo-<ticket>` or `fix/vilo-<ticket>` off `main`.

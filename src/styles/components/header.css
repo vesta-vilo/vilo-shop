@@ -46,8 +46,8 @@ header .container {
     width: calc(100% - 2 * var(--layout-gutter-mobile));
     padding-inline: var(--layout-gutter-mobile);
     border-radius: var(--border-radius-20);
-    backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
-    -webkit-backdrop-filter: blur(1rem) saturate(103%) brightness(90%);
+    backdrop-filter: var(--glass-backdrop-filter);
+    -webkit-backdrop-filter: var(--glass-backdrop-filter);
     background: rgba(255, 255, 255, 0.05);
     transition: background-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out;
     position: absolute;

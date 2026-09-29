@@ -1,6 +1,6 @@
 ---
 description: PDP galleries, ProductMedia, and variant media JSON schema
-globs: src/product/**/*.html,src/_page-components/product-section-content*.html,src/_page-components/earring-product-section-content.html,src/scripts/ProductMedia.js,src/scripts/ProductForm.js,src/scripts/media-utils.js
+globs: src/product/**/*.html,src/_page-components/product-section-content*.html,src/_page-components/earring-product-section-content.html,src/scripts/ProductMedia.js,src/scripts/ProductForm.js,src/scripts/ProductStickyBar.js,src/_page-components/components/product-sticky-bar.html,src/scripts/media-utils.js
 alwaysApply: false
 ---
 
@@ -36,3 +36,16 @@ Parsed by `media-utils.js`. `ProductMedia` listens for `variant:changed` (`detai
 ## Default variant edits
 
 When changing the default variant, also update visible gallery `<img>` srcs, `.product-media-video` defaults, and matching `<link rel="preload">` in `<head>`.
+
+## Sticky buy bar
+
+Load inside `<product-form>`, right after `.js-preorder-button`:
+
+```html
+<load src="/_page-components/components/product-sticky-bar.html" title="VILO Ring" label="Preorder" note="deposit today" />
+```
+
+- Pass both `title` and `label` — missing args render as literal `{=$arg}`.
+- Form must have a `.js-preorder-button`; the bar forwards clicks to it and mirrors its `disabled` state.
+- Don't add `data-fb-event` to the bar button (double-counts `InitiateCheckout`).
+- Full details: `src/_page-components/STICKY-BAR.md`.
