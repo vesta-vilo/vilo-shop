@@ -56,5 +56,6 @@ See `.cursor/rules/html-formatting.mdc` — at most one consecutive blank line b
 | `COLLAGE.md` | Homepage collage (stacked + cover media rows) | `collage.html` | `collage.css` |
 | `VIDEO-SECTION.md` | Homepage video (scroll-driven full-bleed grow, play/pause) | `video-section.html` | `video-section.css` (+ `scripts/video-section.js`) |
 | `COLOR-SWITCH.md` | Homepage ring color switch (synced sliders + gradient swatches) | `color-switch.html` | `color-switch.css` |
+| — | Data notice cards: privacy (heading + 3 items) and product specs (4 items); demo at `/page/demo/` | `privacy-data-notice.html`, `product-data-notice.html` | `data-notice.css` (shared) + `privacy-data-notice.css`, `product-data-notice.css` |
 | `EXPERIENCE-GRID.md` | Why Vilo / Experience grid | `why-vilo-section.html` + `components/experience-grid-*.html` | `experience-grid.css` |
 | `MENU.md` | Site nav (not a page section; linked for completeness) | `desktop-menu.html`, `mobile-menu.html`, … | `desktop-menu.css`, … |

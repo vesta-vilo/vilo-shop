@@ -20,6 +20,9 @@
 @import './components/polaroid-gallery.css';
 @import './components/column-cards.css';
 @import './components/media-icons.css';
+@import './components/data-notice.css';
+@import './components/privacy-data-notice.css';
+@import './components/product-data-notice.css';
 @import './components/collage.css';
 @import './components/video-section.css';
 @import './components/color-switch.css';
