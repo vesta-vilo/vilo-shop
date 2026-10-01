@@ -1,0 +1,218 @@
+.feature-showcase {
+  display: block;
+  width: calc(100% - 2 * var(--page-padding-inline));
+  max-width: 145rem;
+  margin-inline: auto;
+  padding-block: 12rem;
+}
+
+.feature-showcase-headings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.feature-showcase-headings .title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  color: var(--text-color-secondary);
+}
+
+.feature-showcase-headings .subtitle {
+  padding: 1.65rem 0.4rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: var(--text-color-tertiary);
+}
+
+.feature-showcase-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 0.8rem;
+  padding-block: 2.6rem 4.2rem;
+}
+
+.feature-showcase-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 4.4rem;
+  padding: 0 1.3rem;
+  border: 0.08rem solid var(--text-color-tertiary);
+  border-radius: var(--border-radius-full);
+  background-color: transparent;
+  color: var(--text-color-tertiary);
+  font-family: var(--primary-font);
+  font-size: 1.2rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.feature-showcase-tab-icon {
+  width: auto;
+  height: 2.4rem;
+}
+
+.feature-showcase-tab-icon--active,
+.feature-showcase-tab.is-active .feature-showcase-tab-icon--default {
+  display: none;
+}
+
+.feature-showcase-tab.is-active .feature-showcase-tab-icon--active {
+  display: block;
+}
+
+.feature-showcase-tab.is-active {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--primary-color-inverse);
+}
+
+.feature-showcase-tab:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.feature-showcase-panel {
+  position: relative;
+  container-type: inline-size;
+}
+
+.feature-showcase-panel.is-active .feature-showcase-slider {
+  animation: feature-showcase-fade-in 0.4s ease;
+}
+
+@keyframes feature-showcase-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.feature-showcase-slider:not(.swiper-initialized) + .glass-swiper-navigation {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-showcase-panel.is-active .feature-showcase-slider {
+    animation: none;
+  }
+}
+
+.feature-showcase-slider {
+  width: 100%;
+}
+
+.feature-showcase-slide img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--border-radius-20);
+}
+
+.feature-showcase-slide h6 {
+  padding-block: 1.4rem 1rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  color: var(--text-color-tertiary);
+}
+
+.feature-showcase-slide p {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: var(--text-color-tertiary);
+}
+
+.feature-showcase .feature-showcase-slide--cover {
+  display: none;
+}
+
+.feature-showcase .glass-swiper-navigation {
+  top: calc((100cqw - 0.32rem) / 2.4);
+}
+
+@media (min-width: 768px) {
+  .feature-showcase {
+    padding-block: 15rem 16rem;
+  }
+
+  .feature-showcase-headings {
+    gap: 2.4rem;
+  }
+
+  .feature-showcase-headings .title {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+    max-width: 90rem;
+  }
+
+  .feature-showcase-headings .subtitle {
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    max-width: 81rem;
+  }
+
+  .feature-showcase-tabs {
+    justify-content: center;
+    gap: 1.4rem;
+    padding-block: 5.8rem 7rem;
+  }
+
+  .feature-showcase-tab {
+    gap: 1rem;
+    height: 5.4rem;
+    padding: 0 2.3rem;
+    border-width: 0.1rem;
+    font-size: 1.4rem;
+  }
+
+  .feature-showcase-tab-icon {
+    height: 3rem;
+  }
+
+  .feature-showcase .feature-showcase-slide {
+    width: 30rem;
+  }
+
+  .feature-showcase-slide img {
+    border-radius: var(--border-radius-30);
+  }
+
+  .feature-showcase .feature-showcase-slide--cover {
+    display: block;
+    width: 32.8rem;
+    height: auto;
+    align-self: stretch;
+  }
+
+  .feature-showcase-slide--cover img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .feature-showcase-slide h6 {
+    padding-block: 1.8rem 1rem;
+  }
+
+  .feature-showcase-slide p {
+    line-height: 2rem;
+  }
+
+  .feature-showcase .glass-swiper-navigation {
+    top: 15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature-showcase {
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
+  }
+}

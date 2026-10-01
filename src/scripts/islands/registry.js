@@ -114,6 +114,11 @@ export const islands = [
     load: () => import('../alter-gallery-swiper.js'),
   },
   {
+    id: 'feature-showcase',
+    selector: '.feature-showcase',
+    load: () => import('../feature-showcase.js'),
+  },
+  {
     id: 'who-we-are-team-swiper',
     selector: '.who-we-are-team-slider',
     load: () => import('../who-we-are-team-swiper.js'),
