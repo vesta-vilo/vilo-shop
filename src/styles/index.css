@@ -20,6 +20,9 @@
 @import './components/polaroid-gallery.css';
 @import './components/column-cards.css';
 @import './components/media-icons.css';
+@import './components/data-notice.css';
+@import './components/privacy-data-notice.css';
+@import './components/product-data-notice.css';
 @import './components/collage.css';
 @import './components/video-section.css';
 @import './components/color-switch.css';
@@ -33,6 +36,7 @@
 @import './components/customer-voice-modal.css';
 @import './components/tech-spec.css';
 @import './components/alter-gallery.css';
+@import './components/feature-showcase.css';
 @import './components/product-section.css';
 @import './components/product-sticky-bar.css';
 @import './components/blog.css';

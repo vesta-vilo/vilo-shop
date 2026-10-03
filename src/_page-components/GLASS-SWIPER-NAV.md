@@ -43,6 +43,7 @@ Wire Swiper to the section-specific button classes (scoped to the section when m
 |---------|---------------------|--------|
 | Gallery (mobile) | `.gallery-swiper-button-prev` / `-next` | `gallery-swiper.js` |
 | Alter gallery | `.alter-gallery-swiper-button-prev` / `-next` | `alter-gallery-swiper.js` |
+| Feature showcase | `.feature-showcase-swiper-button-prev` / `-next` (one pair per tab panel) | `feature-showcase.js` |
 | Free-scroll | `.free-scroll-swiper-button-prev` / `-next` | `free-scroll-swiper.js` |
 | Customer voice | `.customer-voice-swiper-button-prev` / `-next` | `customer-voice.js` |
 | Homepage product | `.swiper-ps-button-prev` / `-next` | `home-page-product-swiper.js` |
