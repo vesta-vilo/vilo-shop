@@ -38,6 +38,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `VIDEO-SECTION.md` | Homepage video (scroll-driven full-bleed grow, visibility-driven play/pause) |
 | `COLOR-SWITCH.md` | Homepage color switch (synced sliders, swatch gradient colors set in HTML) |
 | `FEATURE-SHOWCASE.md` | App feature showcase (pill tabs switching per-tab sliders, cover image as first slide) |
+| `MULTIPLE-IMAGE-DISPLAY.md` | Freeform photo collage (single-area grid stack, per-tile `--x`/`--y`/`--w` % offsets) |
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 | `STICKY-BAR.md` | Product sticky buy bar (partial inside `<product-form>`, visibility rules) |
@@ -52,6 +53,7 @@ Some reusable components have their own guides under `src/_page-components/` —
 
 **Color switch:** homepage ring color section (`color-switch.html` / `color-switch.css` / `color-switch.js`). Three sliders and the swatches sync by index, so keep them in the same order. Each swatch's dot gradient is set in HTML via inline `--swatch-color-1` (dark), `--swatch-color-2` (base) and `--swatch-color-3` (highlight) on the button. Full details: `COLOR-SWITCH.md`.
 **Feature showcase:** pill tabs + one slider per tab (`feature-showcase.html` / `feature-showcase.css`, island `feature-showcase.js` gated on `.feature-showcase`). Slider mirrors alter-gallery but the large image is the first slide (`--cover`, hidden on mobile) and swipes with the cards; no loop. Each tab keeps its slide position; the incoming slider fades in. Slide overrides are scoped under `.feature-showcase` (not `!important`) because `swiper/css` loads later. Tab icon file names are inconsistent (cycle is swapped) — pick by color. Full details: `FEATURE-SHOWCASE.md`.
+**Multiple image display:** freeform collage of nine overlapping photos around a heading (`multiple-image-display.html` / `multiple-image-display.css`, no JS). All children share one grid area (`stack`) and are placed with percentage margins (`--x`, `--y`, `--w` per modifier class; vertical % margins resolve against width, so the composition scales and the section height follows the lowest tile). DOM order is paint order. Mobile is full-bleed (tiles clip at the viewport edges); desktop positions apply from 768px. Full details: `MULTIPLE-IMAGE-DISPLAY.md`.
 **Glass Swiper navigation:** frosted circular prev/next shared across carousels. Styles use `.glass-swiper-navigation` / `.glass-swiper-navigation-btn` in `base.css`; each section keeps its own `*-button-prev` / `*-button-next` for JS. Do not use Swiper’s default `.swiper-button-prev` / `.swiper-button-next` on these controls. Full details: `GLASS-SWIPER-NAV.md`.
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
