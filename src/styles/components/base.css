@@ -161,7 +161,6 @@ body.modal-open {
     outline: none;
     font-family: inherit;
     background: var(--primary-color);
-    /* border: 1px solid var(--border-color-animated-btn); */ 
     color: var(--primary-color-inverse);
     padding: 1.8rem 3.5rem;
     border-radius: var(--border-radius-full);
@@ -175,7 +174,7 @@ body.modal-open {
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s ease-out, padding-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15), inset 1px 4px 12px 0 #42577C;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
 }
 .btn-with-animation:hover {
     padding-right: 5.5rem;

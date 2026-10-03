@@ -74,6 +74,28 @@
 }
 .hero-section-ctas {
     pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-section-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.6rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: var(--primary-color-inverse);
+}
+
+.hero-section-badge img {
+    width: auto;
+    height: 1.6rem;
+}
+
+.hero-section-badge strong {
+    font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -110,6 +132,13 @@
     }
     .hero-main-image-mobile {
         display: none;
+    }
+    .hero-section-ctas {
+        align-items: flex-start;
+    }
+    .hero-section-badge {
+        padding-inline-start: 3.5rem;
+        padding-top: 1.3rem;
     }
     .hero-main-image-desktop {
         display: block;
