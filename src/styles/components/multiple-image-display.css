@@ -1,0 +1,97 @@
+/*
+ * Freeform collage: every child sits in the same single grid area ("stack")
+ * and is placed with percentage margins. Vertical % margins resolve against the
+ * section width too, so the whole composition scales proportionally and the
+ * section height follows the lowest item — no fixed aspect-ratio needed.
+ * Item values come from the Sketch artboards: x / y / w ÷ 414 (mobile) or ÷ 1450 (desktop).
+ */
+.multiple-image-display {
+  display: grid;
+  grid-template-areas: "stack";
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  justify-items: start;
+  /* Mobile design bleeds past the viewport edges */
+  width: 100%;
+  padding-block: 12rem;
+  overflow-x: clip;
+  container-type: inline-size;
+}
+
+.multiple-image-display > * {
+  grid-area: stack;
+}
+
+.multiple-image-display__heading {
+  justify-self: center;
+  margin-block-start: 140.628%;
+  font-size: 7.729cqi;
+  font-weight: 400;
+  line-height: 1.1625;
+  color: var(--text-color-secondary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.multiple-image-display__item {
+  display: block;
+  width: var(--w);
+  height: auto;
+  margin-inline-start: var(--x);
+  margin-block-start: var(--y);
+  border-radius: var(--border-radius-20);
+  object-fit: cover;
+}
+
+.multiple-image-display__item--ring {
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile positions (414 artboard) */
+.multiple-image-display__item--1       { --x: 66.280%; --y: 83.285%;  --w: 39.710%; }
+.multiple-image-display__item--1-small { --x: 47.729%; --y: 96.232%;  --w: 35.507%; }
+.multiple-image-display__item--2       { --x: -6.957%; --y: 51.691%;  --w: 51.594%; }
+.multiple-image-display__item--2-small { --x: 20.507%; --y: 40.097%;  --w: 31.594%; }
+.multiple-image-display__item--3       { --x: 27.440%; --y: 0%;       --w: 61.159%; }
+/* .multiple-image-display__item--3-small { --x: 78.647%; --y: 185.845%; --w: 28.261%; } */
+.multiple-image-display__item--4       { --x: 48.623%; --y: 159.179%; --w: 43.478%; }
+.multiple-image-display__item--4-small { --x: 78.647%; --y: 185.845%; --w: 28.261%; }
+.multiple-image-display__item--5       { --x: 9.662%;  --y: 192.560%; --w: 61.159%; }
+.multiple-image-display__item--5-small { --x: -3.527%; --y: 207.633%; --w: 35.507%; }
+
+@media (min-width: 768px) {
+  .multiple-image-display {
+    width: calc(100% - 2 * var(--page-padding-inline));
+    max-width: 145rem;
+    margin-inline: auto;
+    padding-block: 16rem;
+  }
+
+  .multiple-image-display__heading {
+    margin-block-start: 45.241%;
+    font-size: 4.552cqi;
+    line-height: 0.94;
+  }
+
+  /* Desktop positions (1450 artboard) */
+  .multiple-image-display__item--1       { --x: 81.103%; --y: 24.345%; --w: 18.897%; }
+  .multiple-image-display__item--1-small { --x: 71.241%; --y: 29.793%; --w: 16.897%; }
+  .multiple-image-display__item--2       { --x: 0%;      --y: 15.862%; --w: 24.552%; }
+  .multiple-image-display__item--2-small { --x: 16.448%; --y: 10.345%; --w: 15.034%; }
+  .multiple-image-display__item--3       { --x: 38.138%; --y: 0%;      --w: 29.103%; }
+  /* .multiple-image-display__item--3-small { --x: 77.103%; --y: 68.897%; --w: 13.448%; } */
+  .multiple-image-display__item--4       { --x: 62.814%; --y: 56.207%; --w: 20.690%; }
+  .multiple-image-display__item--4-small { --x: 77.103%; --y: 68.897%; --w: 13.448%; }
+  .multiple-image-display__item--5       { --x: 17.724%; --y: 60.138%; --w: 29.103%; }
+  .multiple-image-display__item--5-small { --x: 6.621%;  --y: 67.310%; --w: 16.897%; }
+}
+
+@media (min-width: 1024px) {
+  .multiple-image-display {
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
+  }
+
+  .multiple-image-display__item {
+    border-radius: var(--border-radius-30);
+  }
+}
