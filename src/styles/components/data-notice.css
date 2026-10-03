@@ -1,0 +1,100 @@
+/*
+ * Data notice cards — shared base (Sketch: "Privacy Data Notice Page")
+ *
+ * Section-specific layout lives in:
+ *   privacy-data-notice.css  (.data-notice--privacy)
+ *   product-data-notice.css  (.data-notice--product)
+ *
+ * Section vertical padding: .data-notice { padding-block: … }
+ */
+
+.data-notice {
+  --data-notice-bg: var(--background-color-secondary);
+  --data-notice-title-color: var(--primary-color);
+  --data-notice-text-color: var(--text-color-tertiary);
+  --data-notice-divider-color: var(--border-color-divider);
+
+  width: calc(100% - 2 * var(--page-padding-inline));
+  max-width: 145rem;
+  margin-inline: auto;
+  padding-block: 4rem; /* mobile — section padding Y */
+  font-family: var(--primary-font);
+}
+
+.data-notice__card {
+  width: 100%;
+  background-color: var(--data-notice-bg);
+}
+
+.data-notice__item-title,
+.data-notice__item-subtitle {
+  margin: 0;
+}
+
+.data-notice__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.data-notice__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.data-notice__icon {
+  display: block;
+  flex-shrink: 0;
+  width: 3.6rem;
+  height: 3.6rem;
+  object-fit: contain;
+}
+
+.data-notice__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.data-notice__item-title {
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--data-notice-title-color);
+}
+
+.data-notice__item-subtitle {
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--data-notice-text-color);
+}
+
+/* Vertical divider before an item (height set per section) */
+.data-notice__item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  background-color: var(--data-notice-divider-color);
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .data-notice__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .data-notice {
+    padding-block: 6rem; /* desktop — section padding Y */
+    width: calc(100% - 2 * var(--layout-gutter-desktop));
+  }
+
+  .data-notice__item-title {
+    white-space: nowrap;
+  }
+}
