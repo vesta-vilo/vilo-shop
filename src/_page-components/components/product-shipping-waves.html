@@ -1,0 +1,50 @@
+<!--
+  Shipping Waves — rollout timeline card under the buy button (after the perk row).
+  Static content: mark the current wave with .is-current; the last wave is the arrow-shaped
+  card (.shipping-waves__wave--next, tip drawn by the inline SVGs: mobile and desktop tips have different proportions).
+  See product-shipping-waves.css.
+-->
+<section class="shipping-waves" aria-labelledby="shipping-waves-title">
+  <div class="shipping-waves__header">
+    <img class="skip-img-fadein shipping-waves__icon" src="/images/icons/icon-shipping.webp" alt="" width="240" height="200" loading="lazy" decoding="async">
+    <div>
+      <h3 class="shipping-waves__title" id="shipping-waves-title">Shipping Waves</h3>
+      <p class="shipping-waves__subtitle">Transparent rollout, updated by batch.</p>
+    </div>
+  </div>
+  <ol class="shipping-waves__list">
+    <li class="shipping-waves__wave is-current">
+      <img class="skip-img-fadein shipping-waves__badge" src="/images/badges/badge-earliest.webp" alt="Earliest" width="306" height="84" loading="lazy" decoding="async">
+      <h4 class="shipping-waves__wave-title">Wave 1</h4>
+      <p class="shipping-waves__wave-batch">First 1,000 rings</p>
+      <p class="shipping-waves__wave-date">Last week of October</p>
+    </li>
+    <li class="shipping-waves__wave">
+      <h4 class="shipping-waves__wave-title">Wave 2</h4>
+      <p class="shipping-waves__wave-batch">Next 5,000 rings</p>
+      <p class="shipping-waves__wave-date">Starts<br>Nov 13</p>
+    </li>
+    <li class="shipping-waves__wave">
+      <h4 class="shipping-waves__wave-title">Wave 3</h4>
+      <p class="shipping-waves__wave-batch">Order #5,001‑15,000</p>
+      <p class="shipping-waves__wave-date">Starts late<br>December</p>
+    </li>
+    <li class="shipping-waves__wave shipping-waves__wave--next">
+      <svg class="shipping-waves__wave-tip shipping-waves__wave-tip--mobile" viewBox="0 0 26 127" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="shipping-waves__wave-tip-fill" d="M0 .5Q8.7 .5 11.1 9.4L23.8 57.3Q25.5 63.5 23.8 69.7L11.1 117.6Q8.7 126.5 0 126.5Z" />
+        <path class="shipping-waves__wave-tip-stroke" d="M0 .5Q8.7 .5 11.1 9.4L23.8 57.3Q25.5 63.5 23.8 69.7L11.1 117.6Q8.7 126.5 0 126.5" />
+      </svg>
+      <svg class="shipping-waves__wave-tip shipping-waves__wave-tip--desktop" viewBox="0 0 31 114" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="shipping-waves__wave-tip-fill" d="M0 .5Q8.2 .5 11.2 8.1L27 48.2Q30.5 57 27 65.8L11.2 105.9Q8.2 113.5 0 113.5Z" />
+        <path class="shipping-waves__wave-tip-stroke" d="M0 .5Q8.2 .5 11.2 8.1L27 48.2Q30.5 57 27 65.8L11.2 105.9Q8.2 113.5 0 113.5" />
+      </svg>
+      <h4 class="shipping-waves__wave-title">Wave 4</h4>
+      <p class="shipping-waves__wave-batch">Later batches</p>
+      <p class="shipping-waves__wave-date">Jan-Feb 2027</p>
+    </li>
+  </ol>
+  <p class="shipping-waves__note">
+    <img class="skip-img-fadein" src="/images/icons/icon-info.png" alt="" width="50" height="50" loading="lazy" decoding="async">
+    <span>Check your order confirmation to see your wave.<br>Cancel anytime, or contact us with any questions.</span>
+  </p>
+</section>

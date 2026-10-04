@@ -40,6 +40,8 @@
 @import './components/multiple-image-display.css';
 @import './components/product-section.css';
 @import './components/product-sticky-bar.css';
+@import './components/product-payment-perks.css';
+@import './components/product-shipping-waves.css';
 @import './components/blog.css';
 @import './components/page.css';
 @import './components/faq.css';

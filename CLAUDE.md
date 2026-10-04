@@ -2,8 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Cursor-specific rule files mirroring this guidance live in **`.cursor/rules/`** (`vilo-core.mdc`, `html-partials.mdc`, `section-layout.mdc`, `javascript.mdc`, `product-pages.mdc`, `menu.mdc`, `html-formatting.mdc`).
-
 ## Commands
 
 Package manager is pnpm (see `pnpm-lock.yaml` / `pnpm-workspace.yaml`; CI installs with `pnpm install --frozen-lockfile`).
@@ -42,6 +40,8 @@ Some reusable components have their own guides under `src/_page-components/` —
 | `GLASS-SWIPER-NAV.md` | Shared frosted carousel prev/next (style classes vs section JS hooks) |
 | `FAQ.md` | FAQ tabs, active PNG background, accordion plus/minus icons |
 | `STICKY-BAR.md` | Product sticky buy bar (partial inside `<product-form>`, visibility rules) |
+| `PAYMENT-PLAN.md` | Compact payment plan cards + perks row under the buy button (and the legacy marquee) |
+| `SHIPPING-WAVES.md` | Shipping Waves rollout card (current wave, subgrid rows, arrow-tip SVGs) |
 
 **Menu:** desktop/mobile menus are driven from `desktop-menu.html`, `mobile-menu.html`, and `header-content.html`, with header `data-dropdown-id` / mobile `data-child-links-list-id` needing to match each row's `data-menu-id` / `data-parent-link-id`. The "shop" menu has an active (`-extended`) variant and a legacy variant kept only for reference — see `MENU.md` before touching menu content.
 
@@ -58,6 +58,8 @@ Some reusable components have their own guides under `src/_page-components/` —
 
 Shop extended labels in `menu-shop-extended-links.html` use `data-text` on `.shop-extended__menu-text` so CSS can reserve bold-hover width via `attr(data-text)`. **`data-text` must exactly match the text inside that span** — if they diverge, hover weight will shift badges/layout.
 
+**HTML conventions:** keep at most one consecutive blank line between blocks. Images default to `loading="lazy"` + `decoding="async"` (hero/critical images may use `fetchpriority="high"`); add `skip-img-fadein` to icons that must show immediately (excluded from the global fade-in in `script.js`).
+
 ### JavaScript
 
 Plain ES modules, no framework or centralized state management.
@@ -71,7 +73,7 @@ Plain ES modules, no framework or centralized state management.
 - `boot.js` — on `DOMContentLoaded`, scans the registry and loads matching islands in parallel.
 - `on-ready.js` — `onReady(fn)` helper for island modules that may load after `DOMContentLoaded` (use instead of a raw `DOMContentLoaded` listener).
 
-To add a new island: create the script module (if new), add an entry to `registry.js` with the selector that gates loading, and use `onReady` for any init that queries the DOM.
+To add a new island: create the script module (if new), add an entry to `registry.js` with the selector that gates loading, and use `onReady` for any init that queries the DOM. Don't add flat side-effect imports to `index.js`. Put code in `core.js` only if it serves shared chrome on every page (menus, announcement bar, global fade-in, tracking); everything else is an island. Don't use JS for layout that CSS can handle unless asked.
 
 Two initialization patterns are used throughout `src/scripts/`:
 - **Custom elements** (`customElements.define(...)`) for components with lifecycle needs — e.g. `AnnouncementBar.js`, `DesktopMenu.js`, `MobileMenu.js`, `ModalDialog.js`, `ProductMedia.js`. These hook `connectedCallback`/`disconnectedCallback`.
@@ -109,6 +111,16 @@ Parsed by `media-utils.js`; consumed by `ProductMedia` on `variant:changed` (`de
 When editing the default variant, also update the visible gallery `<img>` srcs, `.product-media-video` defaults, and `<link rel="preload">` entries in `<head>`.
 
 **Sticky buy bar:** load `components/product-sticky-bar.html` inside `<product-form>` right after `.js-preorder-button`, passing `title`, `label`, and `note` args (all required; `note=""` hides the text next to the price). It shows at the bottom on mobile and at the top on desktop (≥768px, only while the nav is hidden) once the buy button scrolls off the top. Full details: `STICKY-BAR.md`.
+
+**Payment plan perks — two similar components:** both show a row of perks under the buy button and switch content on `payment-plan:changed` (from `ProductForm`), one block per plan keyed by `data-variant` (`"Full Payment"` / `"Deposit"`).
+- `<product-payment-perks>` (`ProductPaymentPerks.js`, `components/product-payment-perks.html`, `product-payment-perks.css`) — newer: icon + label per perk in a free-mode Swiper. Used by `product-section-content.html` (`/`, `/product/`).
+- `<product-payment-variant-marquee>` (`ProductPaymentVariantMarquee.js`, styles in `product-section.css`) — older: text-only, auto-scrolls when it overflows. Markup is inline (not a partial) and still used by `person-pages/product-section-content-vilo-ring.html` (`/vilo-ring/`) and `earring-product-section-content.html` (`/vilo-earring/`), each with its own perk text.
+
+When changing perk copy, check which component the page uses. The marquee can be removed (JS, registry entry, CSS) once those two pages move to the perks component. The plan cards themselves use `.buy-option-visual--compact` (custom image radio via `::before`, so the card must directly follow its `input`); radio `value` must match the perks row `data-variant`. Full details: `PAYMENT-PLAN.md`.
+
+**Shipping Waves:** static rollout card loaded inside `<product-form>` after the perks row (`components/product-shipping-waves.html` / `product-shipping-waves.css`, no JS). Mark the current wave with `.is-current`; the last card's arrow tip is drawn by two fixed-width inline SVGs (mobile / desktop proportions, `.shipping-waves__wave--next`) so its corners don't stretch. Full details: `SHIPPING-WAVES.md`.
+
+**Notify form partial:** `components/product-notify-form.html` is the email "Get Notified" form (`.js-contact-us-form.get-notify-form`, handled by `Subscription.js`), extracted from the old PDP markup. It isn't loaded anywhere yet — other PDP partials still inline their own copy. It has a fixed `id="product-notify-email"`, so load it at most once per page.
 
 ### Styles
 
