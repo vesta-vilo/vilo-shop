@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vilo - Demo</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="preload" fetchpriority="high" as="image" href="/images/home-page/hero-background-mobile.webp"
+    media="(max-width: 767px)" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="/images/home-page/hero-background-desktop.webp"
+    media="(min-width: 768px)" type="image/webp">
+</head>
+
+<body>
+  <load src="/_page-components/mobile-menu.html" />
+  <load src="/_page-components/components/announcement-bar.html" />
+  <header>
+    <load src="/_page-components/desktop-menu.html" />
+    <load src="/_page-components/header-content.html" />
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-section-wrapper gsap-hero-section-wrapper">
+        <div class="container hero-section-content gsap-hero-content-animation">
+          <h1 class="hero-section-title"><span class="secondary-text">The Ring</span> That <br> Listens to You </h1>
+          <div class="hero-section-ctas">
+            <a href="/product/" class="btn-with-animation">
+              Join the Quiet Revolution
+              <load src="/_icons/icon-animation-arrow.html" />
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-holder">
+          <!-- !! in case of updating this images src, please update the 'href' for preload links in the head -->
+          <img class="hero-main-image-mobile skip-img-fadein" src="/images/home-page/hero-background-mobile.webp"
+            fetchpriority="high" loading="eager" decoding="async" alt="">
+          <img class="hero-main-image-desktop skip-img-fadein" src="/images/home-page/hero-background-desktop.webp"
+            fetchpriority="high" loading="eager" decoding="async" alt="">
+        </div>
+      </div>
+    </section>
+
+    <load src="/_page-components/privacy-data-notice.html" />
+
+    <load src="/_page-components/product-data-notice.html" />
+
+    <load src="/_page-components/feature-showcase.html" />
+
+    <load src="/_page-components/multiple-image-display.html" />
+      <load src="/_page-components/color-switch.html" />
+            <load src="/_page-components/video-section.html" />
+  </main>
+
+  <load src="/_page-components/footer.html" />
+  <script type="module" src="/scripts/index.js"></script>
+</body>
+
+</html>
