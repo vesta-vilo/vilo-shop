@@ -1,6 +1,6 @@
 # Section partials
 
-Guidance for page sections in `src/_page-components/` (e.g. `media-icons.html`, `collage.html`, `customer-voice.html`). Prefer these docs (and `.cursor/rules/section-layout.mdc` when present) before changing layout width or gutters.
+Guidance for page sections in `src/_page-components/` (e.g. `media-icons.html`, `collage.html`, `customer-voice.html`). Prefer these docs before changing layout width or gutters.
 
 ## Horizontal layout baseline
 
@@ -45,7 +45,7 @@ Put width constraints on the **`<section>` root**, not on inner rows or `.contai
 
 ## HTML blank lines
 
-See `.cursor/rules/html-formatting.mdc` — at most one consecutive blank line between blocks.
+Keep at most one consecutive blank line between blocks.
 
 ---
 
@@ -59,5 +59,8 @@ See `.cursor/rules/html-formatting.mdc` — at most one consecutive blank line b
 | — | Data notice cards: privacy (heading + 3 items) and product specs (4 items); demo at `/page/demo/` | `privacy-data-notice.html`, `product-data-notice.html` | `data-notice.css` (shared) + `privacy-data-notice.css`, `product-data-notice.css` |
 | `FEATURE-SHOWCASE.md` | App feature showcase (pill tabs, one alter-gallery-style slider per tab, cover image as first slide); demo at `/page/demo/` | `feature-showcase.html` | `feature-showcase.css` (+ `scripts/feature-showcase.js`) |
 | `MULTIPLE-IMAGE-DISPLAY.md` | Freeform photo collage around a heading (single-area grid stack, % offsets); demo at `/page/demo/` | `multiple-image-display.html` | `multiple-image-display.css` |
+| `PAYMENT-PLAN.md` | PDP payment plan cards + perks row (inside `<product-form>`, not a page section) | `components/product-payment-perks.html` (cards inline in `product-section-content.html`) | `product-payment-perks.css`, `product-section.css` (+ `scripts/ProductPaymentPerks.js`) |
+| `SHIPPING-WAVES.md` | PDP Shipping Waves rollout card (inside `<product-form>`, not a page section) | `components/product-shipping-waves.html` | `product-shipping-waves.css` |
+| `STICKY-BAR.md` | PDP sticky buy bar (inside `<product-form>`, not a page section) | `components/product-sticky-bar.html` | `product-sticky-bar.css` (+ `scripts/ProductStickyBar.js`) |
 | `EXPERIENCE-GRID.md` | Why Vilo / Experience grid | `why-vilo-section.html` + `components/experience-grid-*.html` | `experience-grid.css` |
 | `MENU.md` | Site nav (not a page section; linked for completeness) | `desktop-menu.html`, `mobile-menu.html`, … | `desktop-menu.css`, … |

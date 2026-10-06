@@ -1,0 +1,46 @@
+/* Perk row under the buy button (after the sticky bar partial): free-swipe slider per payment plan (ProductPaymentPerks.js) */
+product-payment-perks {
+  display: block;
+  width: 100%;
+  padding-top: 1.1rem;
+}
+
+/* Scoped under the element so it beats swiper/css's `.swiper { display: block }`, which loads later */
+product-payment-perks .product-payment-perks-swiper {
+  display: none;
+}
+
+product-payment-perks .product-payment-perks-swiper.is-active {
+  display: block;
+}
+
+.product-payment-perks-swiper .swiper-wrapper {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-payment-perks-swiper .product-payment-perk {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  width: auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.product-payment-perk img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.product-payment-perk span {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  letter-spacing: -0.02px;
+  color: var(--green-badge);
+}
