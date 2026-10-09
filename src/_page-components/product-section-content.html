@@ -190,90 +190,62 @@
         </div>
       </size-guide>
       <fieldset class="swatch-container payment-plan-picker" data-option-name="payment-plan">
-        <legend class="swatch-container-label">Lock in founder terms. <span class="light-text"> The best deal we'll ever offer.</span></legend>
+        <legend class="swatch-container-label">Lock in founder perks. <span class="light-text"> The best deal we'll ever offer.</span></legend>
         <label class="buy-option-item">
           <input type="radio" name="payment-plan" value="Deposit" checked>
-          <div class="product-promo-info buy-option-visual">
+          <div class="product-promo-info buy-option-visual buy-option-visual--compact">
             <div class="product-badges">
               <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-deposit-recommended-badge.png" alt="Recommended" width="414" height="84" decoding="async">
             </div>
-            <h5>$100 Deposit — Co-Founder · Save 37%</h5>
-            <p><strong>Reserve with a $100 deposit.</strong> Cancel anytime.</p>
-            <p>Includes (a $599 value, <strong>you save $220</strong>):</p>
-            <hr>
-            <ul>
+            <h5>Reserve - $100 today</h5>
+            <p>Pay $279 at launch • Save 37%</p>
+            <ul class="buy-option-perks">
               <li>
-                <strong>$50 off</strong> the ring ($429 → $379)
+                <img class="skip-img-fadein" src="/images/icons/icon-50-off.webp" alt="$50 off ring" width="95" height="66" decoding="async">
+                $50 off ring
               </li>
               <li>
-                2-year warranty included (a $50 value)
+                <img class="skip-img-fadein" src="/images/icons/icon-2-year-warranty.webp" alt="2-year warranty" width="66" height="66" decoding="async">
+                2-year warranty
               </li>
               <li>
-                12 months of Membership included <strong>(a $120 value)</strong>
+                <img class="skip-img-fadein" src="/images/icons/icon-12-months-membership.webp" alt="12 months Membership" width="70" height="66" decoding="async">
+                12 months Membership
               </li>
             </ul>
-            <p>Place <strong>$100 today</strong> to unlock Co-Founder terms. Pay $279 at launch, <strong>$379 in all.</strong> </p>
           </div>
         </label>
         <label class="buy-option-item">
           <input type="radio" name="payment-plan" value="Full Payment">
-          <div class="product-promo-info-secondary buy-option-visual">
+          <div class="product-promo-info-secondary buy-option-visual buy-option-visual--compact">
             <div class="product-badges">
               <img class="skip-img-fadein product-payment-plan-badge" src="/images/icons/icon-full-payment-badge.png" alt="Best value" width="414" height="84" decoding="async">
             </div>
-            <h5>Full $379 — Full Journey · Save 47%</h5>
-            <p><strong>Confirm today with the full $379.</strong> Fully refundable, cancel anytime.</p>
-            <p>Includes (a $719 value, <strong>you save $340</strong>):</p>
-            <hr>
-            <ul>
+            <h5>Pay in full - $379</h5>
+            <p>Best value • Save 47%</p>
+            <ul class="buy-option-perks">
               <li>
-                <strong>$50 off</strong> the ring ($429 → $379)
+                <img class="skip-img-fadein" src="/images/icons/icon-50-off.webp" alt="$50 off ring" width="95" height="66" decoding="async">
+                $50 off ring
               </li>
               <li>
-                2-year warranty included (a $50 value)
+                <img class="skip-img-fadein" src="/images/icons/icon-2-year-warranty.webp" alt="2-year warranty" width="66" height="66" decoding="async">
+                2-year warranty
               </li>
               <li>
-                24 months of Membership included <strong>(a $240 value)</strong>
+                <img class="skip-img-fadein" src="/images/icons/icon-24-months-membership.webp" alt="24 months Membership" width="70" height="66" decoding="async">
+                24 months Membership
               </li>
             </ul>
-            <p><strong>Pay $379 now, $0 at launch</strong>. The strongest way to back us early, repaid with an extra year of Membership.</p>
           </div>
         </label>
       </fieldset>
     </div>
-    <product-payment-variant-marquee>
-      <div class="marquee-track">
-        <div class="marquee-content is-active" data-variant="Full Payment">
-          <span>Cancel Anytime</span>
-          <span>Ships by Oct ’26</span>
-          <span>2-Year Warranty</span>
-          <span>60-Day Free Trial</span>
-        </div>
-        <div class="marquee-content" data-variant="Deposit">
-          <span>Flexible Deposit</span>
-          <span>Ships by Oct ’26</span>
-          <span>1-Year Warranty</span>
-          <span>No Interest</span>
-        </div>
-      </div>
-    </product-payment-variant-marquee>
     <button class="preorder-button js-preorder-button" data-fb-event="InitiateCheckout">
       <span>Pre-Order Now</span>
       <load src="/_icons/icon-animation-arrow.html" />
     </button>
     <load src="/_page-components/components/product-sticky-bar.html" title="VILO Ring" label="Preorder" note="deposit today" />
-    <div class="js-contact-us-form get-notify-form">
-      <form method="post" data-no-redirect>
-        <div class="form-input-elements">
-          <div class="error-tooltip" aria-live="polite">
-            Please enter a valid email address
-          </div>
-          <input type="email" autocomplete="email" name="email" required placeholder="Leave your email for updates">
-        </div>
-        <button type="submit" class="btn" variant="primary" data-fb-event="SubmitApplication">
-          Get Notified
-
-        </button>
-      </form>
-    </div>
+    <load src="/_page-components/components/product-payment-perks.html" />
+    <load src="/_page-components/components/product-shipping-waves.html" />
   </product-form>

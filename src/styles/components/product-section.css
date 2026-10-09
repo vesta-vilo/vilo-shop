@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
 }
 
 .product-wrapper.product-wrapper-homepage {
@@ -20,7 +21,7 @@ product-media {
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
-  aspect-ratio: 1398 / 2042;
+  aspect-ratio: 415 / 458;
 }
 
 .product-main-swiper .swiper-wrapper,
@@ -101,7 +102,7 @@ product-media .product-media-images-grid > .product-main-swiper-pagination.swipe
 
 .product-media-images-grid {
   position: absolute;
-  bottom: 4.4rem;
+  bottom: 3.5rem;
   padding-inline: 1.7rem;
   width: 100%;
   pointer-events: auto;
@@ -136,8 +137,11 @@ product-media .glass-swiper-navigation {
   border: 1px solid transparent;
 }
 
+/* Fill the column and never grow to fit wide children (perk slider, shipping waves) — they overflow the viewport otherwise */
 .product-content {
-  padding: 4rem var(--page-padding-inline) 0;
+  width: 100%;
+  min-width: 0;
+  padding: 1.8rem var(--page-padding-inline) 0;
   border-radius: var(--border-radius-20) var(--border-radius-20) 0 0;
   margin-top: -2.5rem;
   position: relative;
@@ -149,7 +153,6 @@ product-media .glass-swiper-navigation {
   font-size: 2.4rem;
   line-height: 2.9rem;
   color: var(--text-color-secondary);
-  padding-top: 0.5rem;
   padding-bottom: 1.7rem;
 }
 
@@ -277,7 +280,7 @@ product-media .glass-swiper-navigation {
 }
 
 .swatch-container:last-child {
-  padding-block: 0rem 1.2rem;
+  padding-block: 0rem 2rem;
 }
 
 .swatch-container-label {
@@ -574,6 +577,84 @@ size-guide .size-guide-footnote {
   font-weight: 600;
 }
 
+/* Compact plan card: custom radio on the left, badge + title + one-line perks with icons */
+.buy-option-visual--compact {
+  position: relative;
+  padding: 1.2rem 1.2rem 1.3rem 5.2rem;
+  background-color: var(--background-color-secondary);
+  cursor: pointer;
+}
+
+.buy-option-visual--compact::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  transform: translateY(-50%);
+  background: url("/images/icons/icon-radio-input.webp") center / contain no-repeat;
+}
+
+.buy-option-item input:checked + .buy-option-visual--compact::before {
+  background-image: url("/images/icons/icon-radio-input-active.webp");
+}
+
+.buy-option-item input:focus-visible + .buy-option-visual--compact {
+  outline: 1px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.buy-option-visual--compact .product-badges {
+  padding-bottom: .2rem;
+}
+
+.buy-option-visual--compact .product-payment-plan-badge {
+  height: 1.8rem;
+}
+
+.buy-option-visual--compact h5 {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  color: var(--text-color-tertiary);
+  padding-bottom: .6rem;
+}
+
+.buy-option-item input:checked + .buy-option-visual--compact h5 {
+  color: var(--primary-color);
+}
+
+.buy-option-visual--compact p {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+}
+
+.buy-option-visual--compact .buy-option-perks {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .4rem 1.2rem;
+  padding: 1.2rem 0 0;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.buy-option-visual--compact .buy-option-perks li {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.3rem;
+}
+
+.buy-option-perks img {
+  width: 2rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
 .preorder-button {
   width: 100%;
   background: var(--primary-color);
@@ -811,7 +892,7 @@ hsa-fsa-guide {
   display: block;
   position: relative;
   width: 100%;
-  padding-bottom: 1.4rem;
+  padding-bottom: 1.8rem;
 }
 
 hsa-fsa-guide .slider-title {
@@ -846,7 +927,7 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
 .product-badges {
   display: flex;
   gap: .6rem;
-  padding-bottom: .6rem;
+  padding-bottom: 1.8rem;
 }
 
 .product-badge {
@@ -874,6 +955,9 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
 }
 
 @media (min-width: 768px) {
+  .product-main-swiper {
+    aspect-ratio: 1398 / 2042;
+  }
   :is(size-guide, hsa-fsa-guide) .slider-title {
     text-align: start;
     color: var(--black);
@@ -900,6 +984,26 @@ hsa-fsa-guide .hsa-fsa-guide-slider {
   }
   .buy-option-visual {
     border-radius: var(--border-radius-12);
+  }
+  .buy-option-visual--compact {
+    padding: 1.6rem 1.6rem 1.5rem 5.6rem;
+  }
+  .buy-option-visual--compact::before {
+    left: 1.7rem;
+  }
+  .buy-option-visual--compact .product-badges {
+    padding-bottom: .3rem;
+  }
+  .buy-option-visual--compact .product-payment-plan-badge {
+    height: 2rem;
+  }
+  .buy-option-visual--compact .buy-option-perks {
+    padding-top: 1.3rem;
+    column-gap: 1.4rem;
+  }
+  .buy-option-visual--compact .buy-option-perks li {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
   }
   size-guide .size-guide-footnote a,
   size-guide .size-guide-footnote {
