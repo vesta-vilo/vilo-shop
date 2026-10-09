@@ -48,20 +48,21 @@ Load it inside `<product-form>`, after the sticky bar partial:
 <load src="/_page-components/components/product-shipping-waves.html" />
 ```
 
-The partial has one `.swiper.product-payment-perks-swiper` per plan, keyed by `data-variant` (`"Deposit"`, `"Full Payment"`). Each slide is `li.swiper-slide.product-payment-perk` with an icon (`2.4rem`) and a `<span>` label.
+The partial has one `.product-payment-perks-row` per plan, keyed by `data-variant` (`"Deposit"`, `"Full Payment"`). Each row holds a `ul.product-payment-perks-list`, and each perk is `li.product-payment-perk` with an icon (`2.4rem`) and a `<span>` label.
 
 | What | How |
 |------|-----|
 | Initial plan | On connect, it reads the checked `input[name="payment-plan"]` in the closest `product-form`. `ProductForm` doesn't emit an event on load. |
-| Plan change | Listens for the global `payment-plan:changed` event (`detail.plan`, emitted by `ProductForm`) and toggles `.is-active` on the matching slider. |
-| Visibility | Inactive sliders are `display: none`. The rule is scoped under `product-payment-perks` so it beats `swiper/css`'s `.swiper { display: block }`, which loads later. |
-| Swiping | Free-mode Swiper, `slidesPerView: 'auto'`, `centerInsufficientSlides` (centered when all perks fit, swipeable when they overflow). When a slider becomes active, it is re-measured and reset to the first perk. |
+| Plan change | Listens for the global `payment-plan:changed` event (`detail.plan`, emitted by `ProductForm`) and toggles `.is-active` on the matching row. |
+| Visibility | Inactive rows are `display: none`. |
+| Loop | Infinite marquee, no swiping. The script clones the list (`aria-hidden`) until the copies cover the row width plus one extra list, and each copy animates `translateX(-100%)`, so the loop has no seam. Speed is constant (`SPEED` px/s in the script, set as `--perks-loop-duration` on the row). A `ResizeObserver` re-fills the row on resize and font swap. |
+| Reduced motion | Under `prefers-reduced-motion`, the animation is off, clones are hidden, and the row scrolls horizontally instead. |
 
 To change the copy, edit both `data-variant` blocks. They're identical today but can diverge per plan.
 
 ### Layout note
 
-`.product-wrapper` and `.product-content` have `min-width: 0` (and `.product-content` has `width: 100%`) so the swiper and the Shipping Waves card can't widen the column past the viewport. Keep these if you restyle the product column.
+`.product-wrapper` and `.product-content` have `min-width: 0` (and `.product-content` has `width: 100%`) so the perks row and the Shipping Waves card can't widen the column past the viewport. Keep these if you restyle the product column.
 
 ---
 

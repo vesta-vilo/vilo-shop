@@ -1,40 +1,28 @@
-import Swiper from 'swiper';
-import { FreeMode } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/free-mode';
+// Perk row under the buy button: one infinitely looping marquee per payment plan,
+// only the active plan's row is shown (ProductForm emits payment-plan:changed).
+// Each row's list is cloned until the copies cover the row plus one extra list,
+// and every copy slides left by its own width, so the loop has no visible seam.
+const SPEED = 40; // px per second
 
-// Perk row under the buy button: one free-swipe slider per payment plan,
-// only the active plan's slider is shown (ProductForm emits payment-plan:changed).
 class ProductPaymentPerks extends HTMLElement {
   constructor() {
     super();
-    this.swipers = new Map();
     this.handlePlanChange = this.handlePlanChange.bind(this);
   }
 
   connectedCallback() {
-    this.sliders = this.querySelectorAll('.product-payment-perks-swiper');
-    if (!this.sliders.length) return;
-
-    this.sliders.forEach(el => {
-      this.swipers.set(el, new Swiper(el, {
-        modules: [FreeMode],
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-        freeMode: {
-          enabled: true,
-          sticky: false,
-          momentumBounce: false,
-        },
-        grabCursor: true,
-        centerInsufficientSlides: true,
-      }));
-    });
+    this.rows = this.querySelectorAll('.js-product-payment-perks-row');
+    if (!this.rows.length) return;
 
     // The checked radio decides the initial plan; ProductForm only emits on change.
-    const checked = (this.closest('product-form') || document)
-      .querySelector('input[name="payment-plan"]:checked');
+    const checked = this.closest('product-form')
+      ?.querySelector('input[name="payment-plan"]:checked');
     if (checked) this.updateVisibility(checked.value);
+
+    // Re-fill on width changes and once the font swaps in (labels change width).
+    this.observer = new ResizeObserver(() => this.fillActiveRow());
+    this.observer.observe(this);
+    this.rows.forEach(row => this.observer.observe(row.querySelector('.js-product-payment-perks-list')));
 
     globalThis.addEventListener('payment-plan:changed', this.handlePlanChange);
   }
@@ -46,22 +34,36 @@ class ProductPaymentPerks extends HTMLElement {
   }
 
   updateVisibility(activePlan) {
-    this.sliders.forEach(el => {
-      const isActive = el.dataset.variant === activePlan;
-      el.classList.toggle('is-active', isActive);
-      if (!isActive) return;
-
-      // Slider was display:none, so re-measure and start from the first perk.
-      const swiper = this.swipers.get(el);
-      swiper.update();
-      swiper.setTranslate(swiper.minTranslate());
+    this.rows.forEach(row => {
+      row.classList.toggle('is-active', row.dataset.variant === activePlan);
     });
+    this.fillActiveRow();
+  }
+
+  fillActiveRow() {
+    const row = this.querySelector('.js-product-payment-perks-row.is-active');
+    if (!row) return;
+
+    const list = row.querySelector('.js-product-payment-perks-list');
+    const listWidth = list.offsetWidth;
+    if (!listWidth) return;
+
+    const needed = Math.ceil(row.offsetWidth / listWidth) + 1;
+    const lists = row.querySelectorAll('.js-product-payment-perks-list');
+
+    for (let i = lists.length; i < needed; i++) {
+      const clone = list.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      row.appendChild(clone);
+    }
+    for (let i = lists.length - 1; i >= needed; i--) lists[i].remove();
+
+    row.style.setProperty('--perks-loop-duration', `${listWidth / SPEED}s`);
   }
 
   disconnectedCallback() {
     globalThis.removeEventListener('payment-plan:changed', this.handlePlanChange);
-    this.swipers.forEach(swiper => swiper.destroy(true, true));
-    this.swipers.clear();
+    this.observer?.disconnect();
   }
 }
 
