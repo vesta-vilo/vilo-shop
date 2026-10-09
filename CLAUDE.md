@@ -75,6 +75,8 @@ Plain ES modules, no framework or centralized state management.
 
 To add a new island: create the script module (if new), add an entry to `registry.js` with the selector that gates loading, and use `onReady` for any init that queries the DOM. Don't add flat side-effect imports to `index.js`. Put code in `core.js` only if it serves shared chrome on every page (menus, announcement bar, global fade-in, tracking); everything else is an island. Don't use JS for layout that CSS can handle unless asked.
 
+**JS hook classes:** every class that JS/TS uses to find elements (`querySelector`, `closest`, `matches`, etc.) must have a `js-` prefix, e.g. `js-product-payment-perks-row`. Add it next to the styling class (`class="product-payment-perks-row js-product-payment-perks-row"`) and never style `js-` classes in CSS. State classes that JS toggles for CSS to style (`is-active`, `is-current`) don't need the prefix. Older scripts still query unprefixed classes; switch them to `js-` when you touch that code.
+
 Two initialization patterns are used throughout `src/scripts/`:
 - **Custom elements** (`customElements.define(...)`) for components with lifecycle needs — e.g. `AnnouncementBar.js`, `DesktopMenu.js`, `MobileMenu.js`, `ModalDialog.js`, `ProductMedia.js`. These hook `connectedCallback`/`disconnectedCallback`.
 - **Plain query-and-bind functions** for simpler behavior (parallax, swipers, fade-in-on-scroll in `script.js`, event tracking). Island-bound scripts should wrap init in `onReady` from `islands/on-ready.js`.
@@ -113,7 +115,7 @@ When editing the default variant, also update the visible gallery `<img>` srcs, 
 **Sticky buy bar:** load `components/product-sticky-bar.html` inside `<product-form>` right after `.js-preorder-button`, passing `title`, `label`, and `note` args (all required; `note=""` hides the text next to the price). It shows at the bottom on mobile and at the top on desktop (≥768px, only while the nav is hidden) once the buy button scrolls off the top. Full details: `STICKY-BAR.md`.
 
 **Payment plan perks — two similar components:** both show a row of perks under the buy button and switch content on `payment-plan:changed` (from `ProductForm`), one block per plan keyed by `data-variant` (`"Full Payment"` / `"Deposit"`).
-- `<product-payment-perks>` (`ProductPaymentPerks.js`, `components/product-payment-perks.html`, `product-payment-perks.css`) — newer: icon + label per perk in a free-mode Swiper. Used by `product-section-content.html` (`/`, `/product/`).
+- `<product-payment-perks>` (`ProductPaymentPerks.js`, `components/product-payment-perks.html`, `product-payment-perks.css`) — newer: icon + label per perk in an always-on infinite marquee (no swiping). Used by `product-section-content.html` (`/`, `/product/`).
 - `<product-payment-variant-marquee>` (`ProductPaymentVariantMarquee.js`, styles in `product-section.css`) — older: text-only, auto-scrolls when it overflows. Markup is inline (not a partial) and still used by `person-pages/product-section-content-vilo-ring.html` (`/vilo-ring/`) and `earring-product-section-content.html` (`/vilo-earring/`), each with its own perk text.
 
 When changing perk copy, check which component the page uses. The marquee can be removed (JS, registry entry, CSS) once those two pages move to the perks component. The plan cards themselves use `.buy-option-visual--compact` (custom image radio via `::before`, so the card must directly follow its `input`); radio `value` must match the perks row `data-variant`. Full details: `PAYMENT-PLAN.md`.

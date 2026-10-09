@@ -1,31 +1,55 @@
-/* Perk row under the buy button (after the sticky bar partial): free-swipe slider per payment plan (ProductPaymentPerks.js) */
+/* Perk row under the buy button (after the sticky bar partial): infinite marquee per payment plan (ProductPaymentPerks.js) */
 product-payment-perks {
+  --perks-gap: 1.6rem;
   display: block;
   width: 100%;
   padding-top: 1.1rem;
 }
 
-/* Scoped under the element so it beats swiper/css's `.swiper { display: block }`, which loads later */
-product-payment-perks .product-payment-perks-swiper {
+.product-payment-perks-row {
   display: none;
+  overflow: hidden;
 }
 
-product-payment-perks .product-payment-perks-swiper.is-active {
-  display: block;
+.product-payment-perks-row.is-active {
+  display: flex;
 }
 
-.product-payment-perks-swiper .swiper-wrapper {
+/* The script clones the list to fill the row; each copy slides left by its own width.
+   padding-right keeps the gap between the last perk and the next copy's first perk. */
+.product-payment-perks-list {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--perks-gap);
   margin: 0;
-  padding: 0;
+  padding: 0 var(--perks-gap) 0 0;
   list-style: none;
+  animation: perks-loop var(--perks-loop-duration, 12s) linear infinite;
 }
 
-.product-payment-perks-swiper .product-payment-perk {
+@keyframes perks-loop {
+  to { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-payment-perks-row {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .product-payment-perks-list {
+    animation: none;
+  }
+
+  .product-payment-perks-list[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.product-payment-perk {
   display: flex;
   align-items: center;
   gap: .6rem;
-  width: auto;
-  margin: 0;
   white-space: nowrap;
 }
 
