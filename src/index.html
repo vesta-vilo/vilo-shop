@@ -213,8 +213,40 @@
      
     <load src="/_page-components/multiple-image-display.html" />
 
-     
+     <section id="contact-us" class="contact-us-section-alt">
+      <div class="container">
+        <div class="contact-us-wrapper">
+          <div class="contact-us-content">
+            <h2 class="title">Join <span class="rastano-font">the Journey</span></h2>
+            <p>
+              We're building Vilo as a ring that reads you, not scores you, quiet by design — so you can read your sleep, your rhythm,
+              and your cycle with real clarity, and without the noise.<br><br>Reserve now to lock in <strong>Co-Founder
+                terms — up to 47% off </strong> and join the first wave. You're not just buying a ring. You're helping
+              shape what this new kind of interaction becomes.
+            </p>
 
+          </div>
+          <div class="contact-us-form js-contact-us-form">
+            <form method="post">
+              <div class="error-tooltip" aria-live="polite">
+                Please enter a valid email address
+              </div>
+              <label for="email" class="sr-only">Email address</label>
+              <input type="email" id="email" autocomplete="email" name="email" required
+                placeholder="Enter your email address">
+              <label for="message" class="sr-only">Message</label>
+              <textarea id="message" autocomplete="on" name="message" rows="4"
+                placeholder="Share your thoughts, shape what we build, and help Vilo grow with you. In return, we’ll offer our earliest supporters the best access, care, and pricing—always."></textarea>
+              <button type="submit" class="btn-with-animation" variant="primary" data-fb-event="SubmitApplication">
+                Preorder Now
+                <load src="/_icons/icon-animation-arrow.html" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <load src="/_page-components/privacy-data-notice.html" />
     <section class="free-scroll-section">
       <div class="container free-scroll-section__container">
         <div class="free-scroll-section__content">
@@ -251,54 +283,7 @@
 
 
 
-    <section class="product-section">
-      <div class="container product-wrapper product-wrapper-homepage">
-        <div class="product-media-content">
-          <div class="product-media-slider-viewport">
-            <div class="swiper product-media-slider">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="/images/product-page/PV01/glass-jade-1.webp" loading="lazy" fetchpriority="low"
-                    decoding="async" alt="Vilo ring 1">
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/product-page/PV01/glass-jade-4.webp" loading="lazy" fetchpriority="low"
-                    decoding="async" alt="Vilo ring 2">
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/product-page/PV02/golden-twist-1.webp" loading="lazy" fetchpriority="low"
-                    decoding="async" alt="Vilo ring 3">
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/product-page/PV03/silver-twist-1.webp" loading="lazy" fetchpriority="low"
-                    decoding="async" alt="Vilo ring 4">
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/product-page/PV03/silver-twist-2.webp" loading="lazy" fetchpriority="low"
-                    decoding="async" alt="Vilo ring 5">
-                </div>
-              </div>
-            </div>
-            <div class="glass-swiper-navigation">
-              <div class="swiper-ps-button-prev glass-swiper-navigation-btn">
-                <load src="/_icons/icon-prev-slide-arrow-dark.html" />
-              </div>
-              <div class="swiper-ps-button-next glass-swiper-navigation-btn">
-                <load src="/_icons/icon-next-slide-arrow-dark.html" />
-              </div>
-            </div>
-          </div>
-          <div class="swiper-ps-nav-holder">
-            <div class="swiper-product-media-pagination"></div>
-          </div>
-        </div>
-        <div class="product-content">
-          <load src="/_page-components/product-section-content.html" />
-        </div>
-      </div>
-      <script id="shopify-sdk-script" src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"
-        onload="globalThis.dispatchEvent(new CustomEvent('shopify-sdk-loaded'))" async></script>
-    </section>
+ 
 
     <div class="floating-cta-wrapper">
       <a href="/product/" class="floating-cta-btn">
